@@ -20,7 +20,6 @@ func _process(delta):
 	
 	pass
 "
-[ext_resource type="PackedScene" uid="uid://ch5g7prg3kl8w" path="res://bullet.tscn" id="3_oae8v"]
 
 [node name="main" type="Node2D"]
 texture_filter = 1
@@ -41,4 +40,3 @@ position = Vector2(215, 117)
 rotation = -0.0292599
 loop = false
 script = ExtResource("5_lq4vx")
-bullet_scene = ExtResource("3_oae8v")

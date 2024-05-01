@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ch5g7prg3kl8w"]
 
-[ext_resource type="Script" path="res://bullet.gd" id="1_6y2w1"]
+[ext_resource type="Script" path="res://Player/bullet.gd" id="1_6y2w1"]
 [ext_resource type="Texture2D" uid="uid://drt0amwaj556e" path="res://Assets/tiro.png" id="1_fplfn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3x6q"]
