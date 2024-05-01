@@ -1,7 +1,9 @@
 extends Area2D
 @export var speed = 150
 @onready var screensize = get_viewport_rect().size
-
+@onready var ship_sprite = $NaveSprite
+@export var bullet_scene : PackedScene
+var podeAtirar = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	start()
@@ -9,22 +11,36 @@ func _ready():
 func start():
 	show()
 	position = Vector2(screensize.x / 2, screensize.y - 64)
+	$Arma.wait_time = 0.4
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var input = Input.get_vector("esq", "dir", "cima", "baixo")
 	if input.x > 0:
-		$Nave.frame = 2
+		#$Nave.frame = 2
+		ship_sprite.play("dir")
 		'$Ship/Boosters.animation = "right"'
 	elif input.x < 0:
-		$Nave.frame = 0
+		#$Nave.frame = 0
+		ship_sprite.play("esq")
 		'$Ship/Boosters.animation = "left"'
 	else:
-		$Nave.frame = 1
+		ship_sprite.play("idle")
+		#$Nave.frame = 1
 		'$Ship/Boosters.animation = "forward"'
 	position += input * speed * delta
 	position = position.clamp(Vector2(8, 8), screensize-Vector2(8, 8))
+	
+	if Input.is_action_pressed("tiro"):
+		if not podeAtirar:
+			return
+		podeAtirar = false
+		var a =bullet_scene.instantiate()
+		get_tree().root.add_child(a)
+		a.start(-200,position)
+		$Arma.start()
 
-
+func _on_arma_timeout():
+	podeAtirar = true
 
 'extends Area2D
 
@@ -96,3 +112,6 @@ func _on_area_entered(area):
 		area.explode()
 		shield -= max_shield / 2.0
 '
+
+
+
