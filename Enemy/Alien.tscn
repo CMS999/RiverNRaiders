@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://dslksjagodpli"]
+
+[ext_resource type="Script" path="res://Enemy/Inimigo1.gd" id="1_wbx4d"]
+[ext_resource type="Texture2D" uid="uid://b83ghxm0u5bq2" path="res://Assets/sprite alien.png" id="2_82h60"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqopu"]
+size = Vector2(20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vorjq"]
+atlas = ExtResource("2_82h60")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yh4wc"]
+atlas = ExtResource("2_82h60")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_po6ou"]
+atlas = ExtResource("2_82h60")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hbbgr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vorjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yh4wc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po6ou")
+}],
+"loop": true,
+"name": &"flight",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_wbx4d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_wqopu")
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hbbgr")
+animation = &"flight"
+frame_progress = 0.444244
+speed_scale = 2.0

@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://5is2jkpp7jr2"]
+
+[ext_resource type="Texture2D" uid="uid://yfwycs544m0o" path="res://Assets/Sprite inimigo heli.png" id="1_ud700"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g37c0"]
+size = Vector2(18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkkdb"]
+atlas = ExtResource("1_ud700")
+region = Rect2(0, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccf7q"]
+atlas = ExtResource("1_ud700")
+region = Rect2(16, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmigw"]
+atlas = ExtResource("1_ud700")
+region = Rect2(32, 0, 16, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_svp0w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkkdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccf7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmigw")
+}],
+"loop": true,
+"name": &"flight",
+"speed": 6.0
+}]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_g37c0")
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_svp0w")
+animation = &"flight"
+frame_progress = 0.636091
+speed_scale = 3.0

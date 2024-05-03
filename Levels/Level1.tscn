@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7s26pvrgnoe4"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_w8vd7"]
+[ext_resource type="Script" path="res://Levels/Level1.gd" id="1_w8vd7"]
 [ext_resource type="PackedScene" uid="uid://c2rkgerqeoc50" path="res://Player/player.tscn" id="2_k6kvm"]
-[ext_resource type="Script" path="res://PathFollow2D.gd" id="5_lq4vx"]
+[ext_resource type="Script" path="res://Enemy/PathFollow2D.gd" id="5_lq4vx"]
 
-[sub_resource type="Curve2D" id="Curve2D_4q8d7"]
+[sub_resource type="Curve2D" id="Curve2D_yubth"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 215, 117, 0, 0, 0, 0, 625, 105, 0, 0, 0, 0, 643, 491, 0, 0, 0, 0, 225, 481, 0, 0, 0, 0, 215, 117)
+"points": PackedVector2Array(0, 0, 0, 0, -20, 80, 0, 0, 0, 0, 520, 80)
 }
-point_count = 5
+point_count = 2
 
 [sub_resource type="GDScript" id="GDScript_ww83a"]
 script/source = "extends Path2D
@@ -25,18 +25,16 @@ texture_filter = 1
 script = ExtResource("1_w8vd7")
 
 [node name="Player" parent="." instance=ExtResource("2_k6kvm")]
-position = Vector2(278, 172)
+position = Vector2(294, 299)
 
-[node name="Path2D" type="Path2D" parent="."]
-visible = false
-position = Vector2(562.972, 292.472)
-scale = Vector2(0.0280384, 0.0621758)
-curve = SubResource("Curve2D_4q8d7")
+[node name="CaminhoLinha1" type="Path2D" parent="."]
+position = Vector2(-3.05176e-05, -1.52588e-05)
+scale = Vector2(1.31278, 0.836788)
+curve = SubResource("Curve2D_yubth")
 script = SubResource("GDScript_ww83a")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(215, 117)
-rotation = -0.0292599
+[node name="Linha1" type="PathFollow2D" parent="CaminhoLinha1"]
+position = Vector2(-20, 80)
 loop = false
 script = ExtResource("5_lq4vx")
 

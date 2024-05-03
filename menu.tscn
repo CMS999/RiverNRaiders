@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://t0pt1c06epwp"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_5vbq7"]
+[ext_resource type="Texture2D" uid="uid://d2c3f4eqtf3c1" path="res://Assets/Atari - River Raid Atari 2600 - River Raid.png" id="2_1xjwh"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5vbq7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 320.0
+texture = ExtResource("2_1xjwh")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 54.0
+offset_right = 640.0
+offset_bottom = 77.0
+text = "River N Raider"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = -139.0
+offset_right = 33.0
+offset_bottom = -108.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Jogar"
+
+[node name="OpButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -101.0
+offset_right = 21.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Opções"
+
+[node name="SButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = -64.0
+offset_right = 33.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Sair"
+
+[connection signal="pressed" from="PButton" to="." method="_on_p_button_pressed"]
+[connection signal="pressed" from="OpButton" to="." method="_on_op_button_pressed"]
+[connection signal="pressed" from="SButton" to="." method="_on_s_button_pressed"]
