@@ -10,7 +10,7 @@ func _ready():
 
 func start():
 	show()
-	position = Vector2(screensize.x / 2, screensize.y - 64)
+	#position = Vector2(screensize.x / 2, screensize.y - 64)
 	$Arma.wait_time = 0.4
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

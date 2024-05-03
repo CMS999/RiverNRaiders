@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7s26pvrgnoe4"]
+[gd_scene load_steps=6 format=3 uid="uid://b7s26pvrgnoe4"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_w8vd7"]
 [ext_resource type="PackedScene" uid="uid://c2rkgerqeoc50" path="res://Player/player.tscn" id="2_k6kvm"]
-[ext_resource type="PackedScene" uid="uid://dslksjagodpli" path="res://Enemy/Inimigo1.tscn" id="2_oxavf"]
 [ext_resource type="Script" path="res://PathFollow2D.gd" id="5_lq4vx"]
 
 [sub_resource type="Curve2D" id="Curve2D_4q8d7"]
@@ -24,13 +23,13 @@ func _process(delta):
 [node name="main" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_w8vd7")
-inimigo1 = ExtResource("2_oxavf")
 
 [node name="Player" parent="." instance=ExtResource("2_k6kvm")]
-position = Vector2(366, 246)
+position = Vector2(278, 172)
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(355, 216)
+visible = false
+position = Vector2(562.972, 292.472)
 scale = Vector2(0.0280384, 0.0621758)
 curve = SubResource("Curve2D_4q8d7")
 script = SubResource("GDScript_ww83a")
@@ -40,3 +39,8 @@ position = Vector2(215, 117)
 rotation = -0.0292599
 loop = false
 script = ExtResource("5_lq4vx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2(574, 323)
+enabled = false
