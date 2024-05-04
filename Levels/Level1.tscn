@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7s26pvrgnoe4"]
 
 [ext_resource type="Script" path="res://Levels/Level1.gd" id="1_w8vd7"]
-[ext_resource type="PackedScene" uid="uid://cc5cjso4rewoc" path="res://jogador.tscn" id="2_g8rcg"]
+[ext_resource type="PackedScene" uid="uid://cc5cjso4rewoc" path="res://Player/jogador.tscn" id="2_g8rcg"]
 [ext_resource type="Script" path="res://Enemy/PathFollow2D.gd" id="5_lq4vx"]
 
 [sub_resource type="Curve2D" id="Curve2D_yubth"]
@@ -20,7 +20,7 @@ func _process(delta):
 	pass
 "
 
-[node name="main" type="Node2D"]
+[node name="Level1" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_w8vd7")
 

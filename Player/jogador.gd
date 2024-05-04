@@ -2,6 +2,7 @@ extends CharacterBody2D
 @export var bullet_scene : PackedScene
 @onready var screensize = get_viewport_rect().size
 const SPEED = 150.0
+var podeAtirar := true
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -27,17 +28,18 @@ func _physics_process(delta):
 	move_and_slide()
 
 	if Input.is_action_pressed("tiro"):
-		var bala1 = bullet_scene.instantiate()
-		var bala4 = bullet_scene.instantiate()
-		get_tree().root.add_child(bala1)
-		get_tree().root.add_child(bala4)
-		
-		bala1.start(position)
-		bala4.start(position)
+		if podeAtirar:
+			var bala1 = bullet_scene.instantiate()
+			var bala4 = bullet_scene.instantiate()
+			get_tree().root.add_child(bala1)
+			get_tree().root.add_child(bala4)
+			
+			bala1.get_node("TipoBala").start(position)
+			bala4.get_node("TipoBala").start(position)
 
-		bala1.position.x = position.x - 8 
-		bala4.position.x = position.x + 8 
-
+			bala1.position.x -= 8 
+			bala4.position.x +=  8 
+			podeAtirar = false
 
 	position = position.clamp(Vector2(8, 8), screensize-Vector2(8, 8))
 

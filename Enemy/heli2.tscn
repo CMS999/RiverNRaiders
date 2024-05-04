@@ -42,6 +42,8 @@ animations = [{
 
 [node name="Heli2" type="StaticBody2D"]
 disable_mode = 1
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_q00ss")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -49,7 +51,6 @@ shape = SubResource("CircleShape2D_pi22f")
 
 [node name="VidaComponente" type="Node2D" parent="."]
 script = ExtResource("1_1x0a3")
-VidaMaxima = 100
 
 [node name="HitboxComponente" parent="." node_paths=PackedStringArray("Vida") instance=ExtResource("2_6qk0o")]
 collision_layer = 2

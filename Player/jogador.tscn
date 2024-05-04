@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://cc5cjso4rewoc"]
 
-[ext_resource type="Script" path="res://jogador.gd" id="1_5cmx2"]
+[ext_resource type="Script" path="res://Player/jogador.gd" id="1_5cmx2"]
 [ext_resource type="Texture2D" uid="uid://clk5ubahrsbd5" path="res://Assets/Nave-teste.png" id="1_5pu6w"]
 [ext_resource type="PackedScene" uid="uid://1iqtcsekf216" path="res://Componentes/VidaComponente.tscn" id="2_8u40v"]
-[ext_resource type="PackedScene" uid="uid://crfq6frmmtldd" path="res://AtaqueBase.tscn" id="2_pi0yg"]
+[ext_resource type="PackedScene" uid="uid://crfq6frmmtldd" path="res://Player/AtaqueBase.tscn" id="2_pi0yg"]
 [ext_resource type="PackedScene" uid="uid://bkltef67bey07" path="res://Componentes/hitbox_componente.tscn" id="3_fhkuy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fye13"]

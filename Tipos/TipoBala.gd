@@ -1,10 +1,15 @@
 extends Area2D
-class_name ParticulaComponente
+class_name TipoBala
 
 @export var Velocidade := 120
+@export var Dano := 1
+
+var Bala : Ataque
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Bala = Ataque.new()
+	Bala.dano = Dano
+	pass
 
 func start(pos):
 	position = pos
@@ -17,13 +22,13 @@ func _process(delta):
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
-	pass # Replace with function body.
+	pass
 
 
 func _on_area_entered(area:Area2D):
-	if area.has_method("damage"):
-		var test = Ataque.new()
-		test.dano = 1
-		area.damage(test)
-		print("teste")
-	pass # Replace with function body.
+	print("nera3")
+	if area is HitboxComp:
+		var test : HitboxComp = area
+		print("nera2")
+		test.Hit(Bala)
+	pass

@@ -1,20 +1,13 @@
 extends Area2D
-
+class_name HitboxComp
 @export var Vida : VidaComponente
 
-func damage(ataque: Ataque):
-	Vida.VidaAtual -= ataque.dano
-	if(Vida.VidaAtual <= 0):
-		get_parent().queue_free()
+func Hit(ataque: Ataque):
+	print("nera4")
+	if Vida:
+		Vida.Dano(ataque)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+
+func _on_area_entered(area:Area2D):
+	print("nera5")
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-
