@@ -1,12 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://yyylj2ogvivj"]
+[gd_scene load_steps=13 format=3 uid="uid://yyylj2ogvivj"]
 
-[ext_resource type="Script" path="res://Componentes/VidaComponente.gd" id="1_1x0a3"]
-[ext_resource type="Script" path="res://Enemy/heli2.gd" id="1_q00ss"]
 [ext_resource type="PackedScene" uid="uid://bkltef67bey07" path="res://Componentes/hitbox_componente.tscn" id="2_6qk0o"]
+[ext_resource type="PackedScene" uid="uid://1iqtcsekf216" path="res://Componentes/VidaComponente.tscn" id="2_ygkf2"]
 [ext_resource type="Texture2D" uid="uid://yfwycs544m0o" path="res://Assets/Sprite inimigo heli.png" id="3_to784"]
+[ext_resource type="Texture2D" uid="uid://boh6c8ueesotv" path="res://Assets/Ship-TEST.png" id="5_xqy2p"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pi22f"]
-radius = 6.0
+[sub_resource type="GDScript" id="GDScript_cgptt"]
+script/source = "extends Node2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7v41x"]
 size = Vector2(19, 17)
@@ -40,29 +50,47 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="Heli2" type="StaticBody2D"]
-disable_mode = 1
-collision_layer = 0
-collision_mask = 0
-script = ExtResource("1_q00ss")
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7jmd"]
+atlas = ExtResource("5_xqy2p")
+region = Rect2(15, 0, 15, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_pi22f")
+[sub_resource type="SpriteFrames" id="SpriteFrames_lgh5u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7jmd")
+}],
+"loop": true,
+"name": &"morte",
+"speed": 5.0
+}]
 
-[node name="VidaComponente" type="Node2D" parent="."]
-script = ExtResource("1_1x0a3")
+[node name="Heli2" type="Node2D"]
+script = SubResource("GDScript_cgptt")
 
-[node name="HitboxComponente" parent="." node_paths=PackedStringArray("Vida") instance=ExtResource("2_6qk0o")]
+[node name="Vida" parent="." instance=ExtResource("2_ygkf2")]
+light_mask = 2
+visibility_layer = 2
+VidaMaxima = 1
+
+[node name="Hitbox" parent="." node_paths=PackedStringArray("Vida") instance=ExtResource("2_6qk0o")]
 collision_layer = 2
 collision_mask = 2
-Vida = NodePath("../VidaComponente")
+Vida = NodePath("../Vida")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponente"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+light_mask = 2
+visibility_layer = 2
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_7v41x")
 
-[node name="Animation" type="AnimatedSprite2D" parent="."]
+[node name="Voo" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_icg1f")
 animation = &"flight"
 frame_progress = 0.276297
 speed_scale = 3.0
+
+[node name="Morte" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_lgh5u")
+animation = &"morte"

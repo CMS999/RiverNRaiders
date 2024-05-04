@@ -27,6 +27,11 @@ func _physics_process(delta):
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	move_and_slide()
 
+	if Input.is_action_pressed("Pausar"):
+		get_parent().get_node("PauseMenu").show()
+		get_tree().paused = true
+		
+
 	if Input.is_action_pressed("tiro"):
 		if podeAtirar:
 			var bala1 = bullet_scene.instantiate()

@@ -7,10 +7,10 @@
 script = ExtResource("1_o3be8")
 
 [node name="Parallax" type="ParallaxLayer" parent="."]
-position = Vector2(-13967, 832)
+texture_filter = 1
+motion_mirroring = Vector2(0, 3240)
 
 [node name="SpriteFase" type="Sprite2D" parent="Parallax"]
-position = Vector2(13711, -7312)
-scale = Vector2(1.86, 2.11648)
+scale = Vector2(1.03387, 2.11648)
 texture = ExtResource("2_3unnj")
 centered = false

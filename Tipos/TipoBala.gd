@@ -21,14 +21,12 @@ func _process(delta):
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()
+	get_parent().queue_free()
 	pass
 
 
 func _on_area_entered(area:Area2D):
-	print("nera3")
 	if area is HitboxComp:
-		var test : HitboxComp = area
-		print("nera2")
-		test.Hit(Bala)
+		var hitbox : HitboxComp = area
+		hitbox.Hit(Bala)
 	pass

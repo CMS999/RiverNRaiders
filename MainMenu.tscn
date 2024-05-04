@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://t0pt1c06epwp"]
+[gd_scene load_steps=2 format=3 uid="uid://t0pt1c06epwp"]
 
-[ext_resource type="Script" path="res://menu.gd" id="1_5vbq7"]
-[ext_resource type="Texture2D" uid="uid://d2c3f4eqtf3c1" path="res://Assets/Atari - River Raid Atari 2600 - River Raid.png" id="2_1xjwh"]
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_5vbq7"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -12,12 +11,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5vbq7")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 320.0
-texture = ExtResource("2_1xjwh")
+color = Color(0.447059, 0.537255, 0.623529, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
