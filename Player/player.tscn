@@ -1,12 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://c2rkgerqeoc50"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_o73go"]
-[ext_resource type="Texture2D" uid="uid://boh6c8ueesotv" path="res://Assets/Ship-TEST.png" id="2_fjjqr"]
-[ext_resource type="PackedScene" uid="uid://ch5g7prg3kl8w" path="res://Player/bullet.tscn" id="2_g0pej"]
 [ext_resource type="Texture2D" uid="uid://clk5ubahrsbd5" path="res://Assets/Nave-teste.png" id="3_0wsgo"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5372t"]
-size = Vector2(16, 15)
+[ext_resource type="Script" path="res://Componentes/HitboxComponente.gd" id="4_ukgn0"]
+[ext_resource type="Script" path="res://Componentes/VidaComponente.gd" id="4_yci4h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rd3yo"]
 atlas = ExtResource("3_0wsgo")
@@ -54,25 +51,27 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g25m5"]
+size = Vector2(18, 18)
+
 [node name="Player" type="Area2D"]
 texture_filter = 1
 script = ExtResource("1_o73go")
-bullet_scene = ExtResource("2_g0pej")
-
-[node name="Nave" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("2_fjjqr")
-hframes = 3
-frame = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_5372t")
 
 [node name="NaveSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_u6oqp")
 animation = &"idle"
 
 [node name="Arma" type="Timer" parent="."]
+
+[node name="VidaComponente" type="Node2D" parent="."]
+script = ExtResource("4_yci4h")
+
+[node name="HitboxComponente" type="Area2D" parent="." node_paths=PackedStringArray("Vida")]
+script = ExtResource("4_ukgn0")
+Vida = NodePath("../VidaComponente")
+
+[node name="Hitbox2D" type="CollisionShape2D" parent="HitboxComponente"]
+shape = SubResource("RectangleShape2D_g25m5")
 
 [connection signal="timeout" from="Arma" to="." method="_on_arma_timeout"]

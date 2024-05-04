@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7s26pvrgnoe4"]
 
 [ext_resource type="Script" path="res://Levels/Level1.gd" id="1_w8vd7"]
-[ext_resource type="PackedScene" uid="uid://c2rkgerqeoc50" path="res://Player/player.tscn" id="2_k6kvm"]
+[ext_resource type="PackedScene" uid="uid://cc5cjso4rewoc" path="res://jogador.tscn" id="2_g8rcg"]
 [ext_resource type="Script" path="res://Enemy/PathFollow2D.gd" id="5_lq4vx"]
 
 [sub_resource type="Curve2D" id="Curve2D_yubth"]
@@ -24,8 +24,8 @@ func _process(delta):
 texture_filter = 1
 script = ExtResource("1_w8vd7")
 
-[node name="Player" parent="." instance=ExtResource("2_k6kvm")]
-position = Vector2(294, 299)
+[node name="Jogador" parent="." instance=ExtResource("2_g8rcg")]
+position = Vector2(302, 251)
 
 [node name="CaminhoLinha1" type="Path2D" parent="."]
 position = Vector2(-3.05176e-05, -1.52588e-05)

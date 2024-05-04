@@ -1,5 +1,5 @@
 extends PathFollow2D
-var inimigo1 = preload("res://Enemy/Heli.tscn")
+var inimigo1 = preload("res://Enemy/heli2.tscn")
 var mob
 # Called when the node enters the scene tree for the first time.
 func _ready():

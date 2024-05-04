@@ -36,7 +36,7 @@ func _process(delta):
 		podeAtirar = false
 		var a =bullet_scene.instantiate()
 		get_tree().root.add_child(a)
-		a.start(-200,position)
+		a.start(-240,position)
 		$Arma.start()
 
 func _on_arma_timeout():

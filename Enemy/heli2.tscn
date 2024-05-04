@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://yyylj2ogvivj"]
+
+[ext_resource type="Script" path="res://Componentes/VidaComponente.gd" id="1_1x0a3"]
+[ext_resource type="Script" path="res://Enemy/heli2.gd" id="1_q00ss"]
+[ext_resource type="PackedScene" uid="uid://bkltef67bey07" path="res://Componentes/hitbox_componente.tscn" id="2_6qk0o"]
+[ext_resource type="Texture2D" uid="uid://yfwycs544m0o" path="res://Assets/Sprite inimigo heli.png" id="3_to784"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pi22f"]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7v41x"]
+size = Vector2(19, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84t45"]
+atlas = ExtResource("3_to784")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a84d"]
+atlas = ExtResource("3_to784")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cuhn"]
+atlas = ExtResource("3_to784")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_icg1f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84t45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a84d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cuhn")
+}],
+"loop": true,
+"name": &"flight",
+"speed": 6.0
+}]
+
+[node name="Heli2" type="StaticBody2D"]
+disable_mode = 1
+script = ExtResource("1_q00ss")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pi22f")
+
+[node name="VidaComponente" type="Node2D" parent="."]
+script = ExtResource("1_1x0a3")
+VidaMaxima = 100
+
+[node name="HitboxComponente" parent="." node_paths=PackedStringArray("Vida") instance=ExtResource("2_6qk0o")]
+collision_layer = 2
+collision_mask = 2
+Vida = NodePath("../VidaComponente")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponente"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_7v41x")
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_icg1f")
+animation = &"flight"
+frame_progress = 0.276297
+speed_scale = 3.0
