@@ -1,10 +1,11 @@
 extends Area2D
+## Node que define comportamento padrão para projeteis
 class_name ProjetilComp
 
-## Velocidade inicial do projétil
+## Define a velocidade inicial do projétil
 @export var Velocidade := 120
 
-## Dano do projétil
+## Define o dano do projétil
 @export var Dano := 1
 
 func _ready():

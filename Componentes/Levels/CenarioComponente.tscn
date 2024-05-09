@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctrsi2iyhmcwt"]
+
+[ext_resource type="Script" path="res://Componentes/Levels/CenarioComponente.gd" id="1_62wg7"]
+
+[node name="CenarioComponente" type="ParallaxBackground"]
+script = ExtResource("1_62wg7")

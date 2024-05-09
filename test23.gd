@@ -1,3 +1,0 @@
-extends Path2D
-
-

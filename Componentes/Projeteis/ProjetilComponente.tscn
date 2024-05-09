@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ch5g7prg3kl8w"]
 
-[ext_resource type="Script" path="res://Componentes/ProjetilComponente.gd" id="1_47ko4"]
+[ext_resource type="Script" path="res://Componentes/Projeteis/ProjetilComponente.gd" id="1_47ko4"]
 
 [node name="TipoBala" type="Area2D"]
 texture_filter = 1

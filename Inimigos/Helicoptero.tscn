@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://yyylj2ogvivj"]
 
-[ext_resource type="PackedScene" uid="uid://b34jet1tydsdr" path="res://Componentes/AtaqueComponente.tscn" id="1_avehm"]
-[ext_resource type="Script" path="res://Enemy/heli2.gd" id="1_jemss"]
-[ext_resource type="PackedScene" uid="uid://bkltef67bey07" path="res://Componentes/hitbox_componente.tscn" id="2_6qk0o"]
-[ext_resource type="PackedScene" uid="uid://8jl0v0ggimvw" path="res://Projeteis/AtaqueHeli.tscn" id="2_cu8ss"]
-[ext_resource type="PackedScene" uid="uid://1iqtcsekf216" path="res://Componentes/VidaComponente.tscn" id="2_ygkf2"]
+[ext_resource type="PackedScene" uid="uid://b34jet1tydsdr" path="res://Componentes/Personagens/AtaqueComponente.tscn" id="1_avehm"]
+[ext_resource type="Script" path="res://Inimigos/Helicoptero.gd" id="1_jemss"]
+[ext_resource type="PackedScene" uid="uid://bkltef67bey07" path="res://Componentes/Personagens/hitbox_componente.tscn" id="2_6qk0o"]
+[ext_resource type="PackedScene" uid="uid://8jl0v0ggimvw" path="res://Projeteis/Inimigos/AtaqueHeli.tscn" id="2_cu8ss"]
+[ext_resource type="PackedScene" uid="uid://1iqtcsekf216" path="res://Componentes/Personagens/VidaComponente.tscn" id="2_ygkf2"]
 [ext_resource type="Texture2D" uid="uid://yfwycs544m0o" path="res://Assets/Sprite inimigo heli.png" id="3_to784"]
 [ext_resource type="Texture2D" uid="uid://boh6c8ueesotv" path="res://Assets/Ship-TEST.png" id="5_xqy2p"]
 

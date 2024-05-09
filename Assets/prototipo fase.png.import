@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://8slcrwrqeyn7"
-path="res://.godot/imported/prototipo fase.png-26e030ee75a7d4c3810f2d7968d5cd2c.ctex"
+path="res://.godot/imported/prototipo fase.png-89d75b4be09443f883442120d97fc8b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cenarioRR/sprites/prototipo fase.png"
-dest_files=["res://.godot/imported/prototipo fase.png-26e030ee75a7d4c3810f2d7968d5cd2c.ctex"]
+source_file="res://Assets/prototipo fase.png"
+dest_files=["res://.godot/imported/prototipo fase.png-89d75b4be09443f883442120d97fc8b4.ctex"]
 
 [params]
 
