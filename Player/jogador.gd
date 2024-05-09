@@ -1,15 +1,16 @@
 extends CharacterBody2D
-@export var bullet_scene : PackedScene
 @onready var screensize = get_viewport_rect().size
 const SPEED = 150.0
 var podeAtirar := true
-
-
+signal test
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _physics_process(_delta):
+	if $VidaComponente.VidaAtual <= 0:
+		get_tree().change_scene_to_file("res://UI/DeathMenu.tscn")
 
-func _physics_process(delta):
+
 	var directionX = Input.get_axis("esq", "dir")
 	var directionY = Input.get_axis("cima", "baixo")
 	if directionX > 0:
@@ -25,27 +26,13 @@ func _physics_process(delta):
 		velocity.y = directionY * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
-	move_and_slide()
-
-	if Input.is_action_pressed("Pausar"):
-		get_parent().get_node("PauseMenu").show()
-		get_tree().paused = true
-		
+	move_and_slide()		
 
 	if Input.is_action_pressed("tiro"):
 		if podeAtirar:
-			var bala1 = bullet_scene.instantiate()
-			var bala4 = bullet_scene.instantiate()
-			get_tree().root.add_child(bala1)
-			get_tree().root.add_child(bala4)
-			
-			bala1.get_node("TipoBala").start(position)
-			bala4.get_node("TipoBala").start(position)
-
-			bala1.position.x -= 8 
-			bala4.position.x +=  8 
-			podeAtirar = false
-
+			get_node("AtaqueComponente").Ataque(position.x-8,position.y)
+			get_node("AtaqueComponente").Ataque(position.x+8,position.y)
+			#podeAtirar = false
+		
 	position = position.clamp(Vector2(8, 8), screensize-Vector2(8, 8))
-
 

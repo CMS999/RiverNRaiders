@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdrc8a4ly4cua"]
+
+[ext_resource type="Script" path="res://UI/DeathMenu.gd" id="1_0h18b"]
+
+[node name="DeathMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0h18b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 320.0
+color = Color(0.447059, 0.537255, 0.623529, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 49.0
+offset_right = 640.0
+offset_bottom = 72.0
+text = "Derrota"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Reiniciar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 216.0
+offset_right = 384.0
+offset_bottom = 247.0
+text = "Reiniciar"
+
+[node name="Menu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 272.0
+offset_right = 384.0
+offset_bottom = 303.0
+text = "Menu Principal"
+
+[connection signal="pressed" from="Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]

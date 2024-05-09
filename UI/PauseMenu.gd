@@ -1,8 +1,5 @@
 extends Control
 
-
-
-
 func _on_opções_pressed():
 	pass # Replace with function body.
 
@@ -10,7 +7,6 @@ func _on_opções_pressed():
 func _on_voltar_pressed():
 	hide()
 	get_tree().paused = false
-
 
 func _on_smenu_pressed():
 	get_tree().paused = false

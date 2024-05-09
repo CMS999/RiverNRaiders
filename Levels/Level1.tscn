@@ -1,48 +1,37 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7s26pvrgnoe4"]
+[gd_scene load_steps=5 format=3 uid="uid://b7s26pvrgnoe4"]
 
-[ext_resource type="Script" path="res://Levels/Level1.gd" id="1_w8vd7"]
-[ext_resource type="PackedScene" uid="uid://cc5cjso4rewoc" path="res://Player/jogador.tscn" id="2_g8rcg"]
-[ext_resource type="PackedScene" uid="uid://ds5ygv6q6sqjr" path="res://cenarioRR/scenes/parallaxbackground.tscn" id="4_8plsn"]
-[ext_resource type="PackedScene" uid="uid://dqalirl8veijf" path="res://UI/PauseMenu.tscn" id="5_dxqd6"]
-[ext_resource type="Script" path="res://Enemy/PathFollow2D.gd" id="5_lq4vx"]
-
-[sub_resource type="Curve2D" id="Curve2D_yubth"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -20, 80, 0, 0, 0, 0, 520, 80)
-}
-point_count = 2
-
-[sub_resource type="GDScript" id="GDScript_ww83a"]
-script/source = "extends Path2D
-#@export var inimigo1: PackedScene
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	
-	pass
-"
+[ext_resource type="Script" path="res://Levels/Level1.gd" id="1_tissr"]
+[ext_resource type="PackedScene" uid="uid://dqalirl8veijf" path="res://UI/PauseMenu.tscn" id="2_pf00s"]
+[ext_resource type="PackedScene" uid="uid://cc5cjso4rewoc" path="res://Player/jogador.tscn" id="3_6x2y1"]
+[ext_resource type="PackedScene" uid="uid://ds5ygv6q6sqjr" path="res://cenarioRR/scenes/parallaxbackground.tscn" id="4_1xxo8"]
 
 [node name="Level1" type="Node2D"]
 process_mode = 1
 texture_filter = 1
-script = ExtResource("1_w8vd7")
+script = ExtResource("1_tissr")
 
-[node name="Jogador" parent="." instance=ExtResource("2_g8rcg")]
-position = Vector2(302, 251)
+[node name="FinalDaFase" type="Timer" parent="."]
+wait_time = 90.0
+autostart = true
 
-[node name="CaminhoLinha1" type="Path2D" parent="."]
-position = Vector2(-3.05176e-05, -1.52588e-05)
-scale = Vector2(1.31278, 0.836788)
-curve = SubResource("Curve2D_yubth")
-script = SubResource("GDScript_ww83a")
+[node name="Clock" type="Timer" parent="."]
+autostart = true
 
-[node name="Linha1" type="PathFollow2D" parent="CaminhoLinha1"]
-position = Vector2(-20, 80)
-loop = false
-script = ExtResource("5_lq4vx")
+[node name="Spawner" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
-[node name="CenarioParallax" parent="." instance=ExtResource("4_8plsn")]
-
-[node name="PauseMenu" parent="." instance=ExtResource("5_dxqd6")]
+[node name="PauseMenu" parent="." instance=ExtResource("2_pf00s")]
 process_mode = 2
 visible = false
+z_index = 1
+
+[node name="Jogador" parent="." instance=ExtResource("3_6x2y1")]
+position = Vector2(310, 251)
+
+[node name="CenarioParallax" parent="." instance=ExtResource("4_1xxo8")]
+
+[connection signal="timeout" from="FinalDaFase" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="FinalDaFase" to="." method="_on_final_da_fase_timeout"]
+[connection signal="timeout" from="Clock" to="." method="_on_clock_timeout"]
+[connection signal="timeout" from="Spawner" to="." method="_on_spawner_timeout"]

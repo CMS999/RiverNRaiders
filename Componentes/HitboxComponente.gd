@@ -1,8 +1,9 @@
 extends Area2D
 class_name HitboxComp
-@export var Vida : VidaComponente
+@export var Vida : VidaComp
 
-func Hit(ataque: Ataque):
+func Hit(dano: int):
 	if Vida:
-		Vida.Dano(ataque)
+		Vida.Dano(dano)
+	pass
 
