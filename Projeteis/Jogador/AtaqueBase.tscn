@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://crfq6frmmtldd"]
+
+[ext_resource type="Script" path="res://Projeteis/Jogador/AtaqueBase.gd" id="1_05jkd"]
+[ext_resource type="PackedScene" uid="uid://ch5g7prg3kl8w" path="res://Componentes/Projeteis/ProjetilComponente.tscn" id="1_8llsf"]
+[ext_resource type="Texture2D" uid="uid://drt0amwaj556e" path="res://Assets/tiro.png" id="2_gatul"]
+[ext_resource type="Script" path="res://Projeteis/Jogador/AtaqueBase.gd" id="3_55wcl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ch6g7"]
+size = Vector2(8, 8)
+
+[node name="Ataque Base" type="Node2D"]
+script = ExtResource("1_05jkd")
+
+[node name="TipoBala" parent="." instance=ExtResource("1_8llsf")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_55wcl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TipoBala"]
+shape = SubResource("RectangleShape2D_ch6g7")
+
+[node name="Sprite2D" type="Sprite2D" parent="TipoBala"]
+texture = ExtResource("2_gatul")
