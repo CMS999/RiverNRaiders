@@ -11,4 +11,4 @@ func Ataque(PositionX: float, PositionY: float):
 	PositionGlobal.x = PositionX
 	PositionGlobal.y = PositionY
 	get_tree().root.get_node("Particulas").add_child(bullet)
-	bullet.get_node("TipoBala").start(PositionGlobal)
+	bullet.start(PositionGlobal)

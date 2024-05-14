@@ -1,19 +1,21 @@
 extends Node2D
 var podeatirar = true
-@onready var Jogador = get_tree().root.get_node("Level1/Jogador/VidaComponente")
-# Called when the node enters the scene tree for the first time.
+@onready var Alvo = get_tree().root.get_node("Level1/Jogador")
+var EstaVivo := true
+
 func _ready():
-	pass # Replace with function body.
+	#$VidaComponente.connect("Morto", self.Morrer)	
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if $AtaqueComponente.projetil and podeatirar and Jogador != null:
+func _process(_delta):
+	if $AtaqueComponente.projetil and podeatirar and Alvo != null:
 		$AtaqueComponente.Ataque(global_position.x, global_position.y)
 		podeatirar = false
 	pass
 
-
 func _on_timer_timeout():
 	podeatirar = true
-	pass # Replace with function body.
+	pass
+
+func Morrer():
+	queue_free()

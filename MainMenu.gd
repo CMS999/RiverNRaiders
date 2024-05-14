@@ -11,4 +11,5 @@ func _on_s_button_pressed():
 
 
 func _on_op_button_pressed():
+	get_tree().change_scene_to_file("res://UI/OpçõesMenu.tscn")
 	pass # Replace with function body.
