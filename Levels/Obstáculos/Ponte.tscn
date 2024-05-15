@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://ku11ru78m2q7"]
+
+[ext_resource type="Script" path="res://Levels/Obstáculos/Obstaculo.gd" id="1_l17y3"]
+[ext_resource type="Script" path="res://Componentes/Personagens/VidaComponente.gd" id="2_pvu2g"]
+[ext_resource type="Script" path="res://Componentes/Personagens/HurtboxComponente.gd" id="3_mccj3"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4c561"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtyjd"]
+size = Vector2(133, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mchah"]
+size = Vector2(133, 20)
+
+[node name="Ponte" type="Area2D"]
+script = ExtResource("1_l17y3")
+Dano = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(66.625, 9.875)
+scale = Vector2(133.25, 19.75)
+texture = SubResource("PlaceholderTexture2D_4c561")
+
+[node name="VidaComp" type="Node2D" parent="."]
+script = ExtResource("2_pvu2g")
+VidaMaxima = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(66.5, 10)
+shape = SubResource("RectangleShape2D_qtyjd")
+
+[node name="HitboxComp" type="Area2D" parent="." node_paths=PackedStringArray("Vida")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_mccj3")
+Vida = NodePath("../VidaComp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComp"]
+position = Vector2(66.5, 10)
+shape = SubResource("RectangleShape2D_mchah")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

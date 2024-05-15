@@ -1,15 +1,24 @@
 extends Control
 
+var PauseMenu = preload("res://UI/OpçõesMenu.tscn")
+@onready var GlobalReference = get_node("/root/GlobalValues")
+
+
+
+func _ready():
+	print(GlobalReference.VidasInicias)
+	pass
+
 func _on_p_button_pressed():
-	get_tree().change_scene_to_file("res://Levels/Level1.tscn")
-	pass # Replace with function body.
+	get_tree().change_scene_to_file(GlobalReference.FaseInicial.get_path())
+	pass
 
 
 func _on_s_button_pressed():
 	get_tree().quit()
-	pass # Replace with function body.
+	pass
 
 
 func _on_op_button_pressed():
 	get_tree().change_scene_to_file("res://UI/OpçõesMenu.tscn")
-	pass # Replace with function body.
+	pass

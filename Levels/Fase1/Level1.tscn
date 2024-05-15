@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7s26pvrgnoe4"]
+
+[ext_resource type="Script" path="res://Levels/Fase1/Level1.gd" id="1_4rnqy"]
+[ext_resource type="PackedScene" uid="uid://dqalirl8veijf" path="res://UI/PauseMenu.tscn" id="2_gv81q"]
+[ext_resource type="PackedScene" uid="uid://cc5cjso4rewoc" path="res://Jogador/jogador.tscn" id="3_nw7v4"]
+[ext_resource type="PackedScene" uid="uid://ctrsi2iyhmcwt" path="res://Componentes/Levels/CenarioComponente.tscn" id="4_hxf05"]
+[ext_resource type="Texture2D" uid="uid://8slcrwrqeyn7" path="res://Assets/prototipo fase.png" id="5_mjuy0"]
+[ext_resource type="PackedScene" uid="uid://b237iuhhalnvm" path="res://Componentes/Waves/WavesControle.tscn" id="6_a7y3u"]
+
+[node name="Level1" type="Node2D"]
+process_mode = 1
+texture_filter = 1
+script = ExtResource("1_4rnqy")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_gv81q")]
+process_mode = 2
+visible = false
+z_index = 1
+
+[node name="Jogador" parent="." instance=ExtResource("3_nw7v4")]
+position = Vector2(310, 251)
+
+[node name="CenarioComponente" parent="." instance=ExtResource("4_hxf05")]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CenarioComponente"]
+motion_mirroring = Vector2(0, 3240)
+
+[node name="Sprite2D" type="Sprite2D" parent="CenarioComponente/ParallaxLayer"]
+position = Vector2(320, 1620)
+scale = Vector2(1.03226, 1)
+texture = ExtResource("5_mjuy0")
+
+[node name="Waves" parent="." instance=ExtResource("6_a7y3u")]

@@ -1,4 +1,5 @@
 extends Node
+## Node responsável por Spawnar inimigos na tela. Requer que cada grupo de inimigos sejá colocado em um node filho do tipo Wave.
 class_name Waves
 
 ## Tempo de espera entre os spawns das waves

@@ -63,7 +63,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 8.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -93,6 +93,7 @@ wait_time = 0.05
 [node name="Animação" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nqx4h")
 animation = &"idle"
+frame_progress = 0.599394
 
 [node name="AtaqueComponente" parent="." instance=ExtResource("4_nmp20")]
 projetil = ExtResource("4_ou11i")

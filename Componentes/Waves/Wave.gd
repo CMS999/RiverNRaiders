@@ -1,4 +1,5 @@
 extends Node
+##Node responsável por segurar os dados de cada inimigo a ser spwanado pelo node Waves.
 class_name Wave
 
 ##Contém os inimigos que seram spawnados. Cada Inimigos é spawnado conforme o Quantidade[] na posição correspondente.
