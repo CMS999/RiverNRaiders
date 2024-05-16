@@ -15,7 +15,6 @@ var podeAtirar := true
 
 func _ready():
 	$VidaComponente.connect("Morto", self.Is_vivo)
-	print(position)
 	pass
 
 func _physics_process(_delta):
