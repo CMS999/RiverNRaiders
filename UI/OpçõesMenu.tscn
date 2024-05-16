@@ -12,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_idu3m")
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -21,6 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.447059, 0.537255, 0.623529, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -49,10 +51,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ValoresIniciais" type="VBoxContainer" parent="TabContainer/Jogo"]
 layout_mode = 0
-offset_left = 8.4
-offset_top = 8.0
-offset_right = 404.4
-offset_bottom = 66.0
+anchor_left = 0.0142663
+anchor_top = 0.0355556
+anchor_right = 0.686821
+anchor_bottom = 0.293333
+offset_right = 3.05176e-05
+metadata/_edit_use_anchors_ = true
 
 [node name="FaseInicial" type="HBoxContainer" parent="TabContainer/Jogo/ValoresIniciais"]
 layout_mode = 2
@@ -122,6 +126,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Margin" type="MarginContainer" parent="TabContainer/Hotkeys/Painel"]
 layout_mode = 2

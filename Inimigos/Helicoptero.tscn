@@ -52,16 +52,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Heli2" type="Node2D"]
+[node name="Helicoptero" type="Node2D"]
 script = ExtResource("1_jemss")
+velocidade = 0.12
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
 autostart = true
 
-[node name="AtaqueComponente" parent="." instance=ExtResource("1_avehm")]
+[node name="AtaqueComp" parent="." instance=ExtResource("1_avehm")]
 projetil = ExtResource("3_wggqa")
 
-[node name="Vida" parent="." instance=ExtResource("2_ygkf2")]
+[node name="VidaComp" parent="." instance=ExtResource("2_ygkf2")]
 light_mask = 2
 visibility_layer = 2
 VidaMaxima = 1
@@ -69,14 +71,14 @@ VidaMaxima = 1
 [node name="Hitbox" parent="." node_paths=PackedStringArray("Vida") instance=ExtResource("2_6qk0o")]
 collision_layer = 2
 collision_mask = 2
-Vida = NodePath("../Vida")
+Vida = NodePath("../VidaComp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 light_mask = 2
 visibility_layer = 2
 shape = SubResource("RectangleShape2D_ja5y6")
 
-[node name="SpriteSheet" type="AnimatedSprite2D" parent="."]
+[node name="Animações" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_icg1f")
 animation = &"flight"
 speed_scale = 3.0

@@ -1,8 +1,7 @@
 extends Control
 
 func _on_opções_pressed():
-	pass # Replace with function body.
-
+	pass
 
 func _on_voltar_pressed():
 	hide()

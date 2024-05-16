@@ -40,6 +40,10 @@ offset_right = 33.0
 offset_bottom = -108.0
 grow_horizontal = 2
 grow_vertical = 0
+focus_neighbor_top = NodePath("../SButton")
+focus_neighbor_bottom = NodePath("../OpButton")
+focus_next = NodePath("../OpButton")
+focus_previous = NodePath("../SButton")
 text = "Jogar"
 
 [node name="OpButton" type="Button" parent="."]
@@ -55,6 +59,10 @@ offset_right = 21.0
 offset_bottom = -70.0
 grow_horizontal = 2
 grow_vertical = 0
+focus_neighbor_top = NodePath("../PButton")
+focus_neighbor_bottom = NodePath("../SButton")
+focus_next = NodePath("../SButton")
+focus_previous = NodePath("../PButton")
 text = "Opções"
 
 [node name="SButton" type="Button" parent="."]
@@ -70,6 +78,10 @@ offset_right = 33.0
 offset_bottom = -33.0
 grow_horizontal = 2
 grow_vertical = 0
+focus_neighbor_top = NodePath("../OpButton")
+focus_neighbor_bottom = NodePath("../PButton")
+focus_next = NodePath("../PButton")
+focus_previous = NodePath("../OpButton")
 text = "Sair"
 
 [connection signal="pressed" from="PButton" to="." method="_on_p_button_pressed"]

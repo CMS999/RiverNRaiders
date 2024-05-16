@@ -8,6 +8,7 @@ class_name Waves
 ## Tempo de espera entre os spawns dos inimigos
 @export_range(0,1) var InimigoDelay := 0.4
 
+@onready var GlobalReference = get_node("/root/GlobalValues")
 var MoverScene := preload("res://Componentes/Waves/auto_mover.tscn")
 var TodasWaves : Array[Wave] = []
 var WaveAtual := 0
@@ -27,7 +28,9 @@ func SpawnWaveX(Spawn: Wave) -> void:
 			for A in Spawn.Quantidade[C]:
 				var inimigo = Spawn.Inimigos[C].instantiate()
 				var caminho = MoverScene.instantiate()
+				caminho.SETVelocidade(inimigo.velocidade)
 				Spawn.LocalizacaoSpawn[C].add_child(caminho)
+				inimigo.Alvo = GlobalReference.JogadorRef
 				caminho.add_child(inimigo)
 				await get_tree().create_timer(InimigoDelay).timeout
 	else:
@@ -38,4 +41,3 @@ func _on_wave_spawn_timeout() -> void:
 	if WaveAtual < TodasWaves.size():
 		SpawnWaveX(TodasWaves[WaveAtual])
 		WaveAtual += 1
-

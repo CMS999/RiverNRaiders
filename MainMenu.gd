@@ -3,10 +3,8 @@ extends Control
 var PauseMenu = preload("res://UI/OpçõesMenu.tscn")
 @onready var GlobalReference = get_node("/root/GlobalValues")
 
-
-
 func _ready():
-	print(GlobalReference.VidasInicias)
+	$PButton.grab_focus()
 	pass
 
 func _on_p_button_pressed():
