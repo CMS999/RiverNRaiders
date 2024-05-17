@@ -2,11 +2,10 @@ extends Node2D
 ## Node que oferece métodos para controle de vida 
 class_name VidaComp
 
-## Permite o controle de animações (dano, morte, etc)
-@export var Animacoes : AnimatedSprite2D
-
+signal Morto
 ## Define o valor Máximo/Inicial de vida
 @export var VidaMaxima := 10
+
 var VidaAtual : int
 
 func _ready():
@@ -15,6 +14,6 @@ func _ready():
 
 func Dano(dano: int):
 	VidaAtual -= dano
-	if(VidaAtual <= 0):
-		get_parent().queue_free()
+	if(VidaAtual <= 0):		
+		Morto.emit()		
 	pass

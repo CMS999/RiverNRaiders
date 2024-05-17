@@ -1,22 +1,22 @@
 extends ProjetilComp
 
-var test 
-var nera = true
-var nera1 := Vector2(0,0)
-
-func playerPosi():
-	test = get_node("/root/Level1/Jogador")
-	if test != null:
-		nera1 = Vector2(1,0).rotated(global_position.direction_to(test.position).angle()).normalized()
-	pass
+@onready var GlobalReference = get_node("/root/GlobalValues")
+var Alvo 
+var Direcao := Vector2(1,0)
+var flag := true
 
 func _ready():
+	Alvo = GlobalReference.JogadorRef
 	pass
 
-func _process(delta):
-	if nera:
+func playerPosi():
+	if Alvo != null:
+		Direcao = Vector2(1,0).rotated(global_position.direction_to(Alvo.position).angle()).normalized()
+	pass
+
+func _process(delta):	
+	if flag:
 		playerPosi()
-		nera = false
-	
-	position += nera1 * delta * Velocidade
+		flag = false
+	position += Direcao * delta * Velocidade
 	pass

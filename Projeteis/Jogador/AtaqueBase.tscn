@@ -1,23 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://crfq6frmmtldd"]
+[gd_scene load_steps=5 format=3 uid="uid://gqi0hrxjam48"]
 
-[ext_resource type="Script" path="res://Projeteis/Jogador/AtaqueBase.gd" id="1_05jkd"]
-[ext_resource type="PackedScene" uid="uid://ch5g7prg3kl8w" path="res://Componentes/Projeteis/ProjetilComponente.tscn" id="1_8llsf"]
-[ext_resource type="Texture2D" uid="uid://drt0amwaj556e" path="res://Assets/tiro.png" id="2_gatul"]
-[ext_resource type="Script" path="res://Projeteis/Jogador/AtaqueBase.gd" id="3_55wcl"]
+[ext_resource type="PackedScene" uid="uid://ch5g7prg3kl8w" path="res://Componentes/Projeteis/ProjetilComponente.tscn" id="1_f7a7e"]
+[ext_resource type="Script" path="res://Projeteis/Jogador/AtaqueBase.gd" id="2_ylxrl"]
+[ext_resource type="Texture2D" uid="uid://drt0amwaj556e" path="res://Assets/tiro.png" id="3_m7h44"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ch6g7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7q0j"]
 size = Vector2(8, 8)
 
-[node name="Ataque Base" type="Node2D"]
-script = ExtResource("1_05jkd")
-
-[node name="TipoBala" parent="." instance=ExtResource("1_8llsf")]
+[node name="TipoBala" instance=ExtResource("1_f7a7e")]
+position = Vector2(0, -1)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("3_55wcl")
+script = ExtResource("2_ylxrl")
+Velocidade = 240
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TipoBala"]
-shape = SubResource("RectangleShape2D_ch6g7")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_d7q0j")
 
-[node name="Sprite2D" type="Sprite2D" parent="TipoBala"]
-texture = ExtResource("2_gatul")
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+texture = ExtResource("3_m7h44")

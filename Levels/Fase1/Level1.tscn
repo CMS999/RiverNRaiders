@@ -1,0 +1,116 @@
+[gd_scene load_steps=15 format=3 uid="uid://b7s26pvrgnoe4"]
+
+[ext_resource type="Script" path="res://Levels/Fase1/Level1.gd" id="1_4rnqy"]
+[ext_resource type="PackedScene" uid="uid://dqalirl8veijf" path="res://UI/PauseMenu.tscn" id="2_gv81q"]
+[ext_resource type="PackedScene" uid="uid://cc5cjso4rewoc" path="res://Jogador/jogador.tscn" id="3_nw7v4"]
+[ext_resource type="PackedScene" uid="uid://ctrsi2iyhmcwt" path="res://Componentes/Levels/CenarioComponente.tscn" id="4_hxf05"]
+[ext_resource type="Texture2D" uid="uid://8slcrwrqeyn7" path="res://Assets/prototipo fase.png" id="5_mjuy0"]
+[ext_resource type="PackedScene" uid="uid://b237iuhhalnvm" path="res://Componentes/Waves/WavesControle.tscn" id="6_a7y3u"]
+[ext_resource type="Script" path="res://Componentes/Waves/Wave.gd" id="7_610ic"]
+[ext_resource type="PackedScene" uid="uid://yyylj2ogvivj" path="res://Inimigos/Helicoptero.tscn" id="8_1m13q"]
+
+[sub_resource type="Curve2D" id="Curve2D_7e604"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -10, 330, 0, 0, 0, 0, 80, 240, 0, 0, 0, 0, 80, -10)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_82kmn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 90, 326, 0, 0, 0, 0, 0, 240, 0, 0, 0, 0, 0, -10)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_nblfv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -20, 70, 0, 0, 0, 0, 660, 70)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_qkwr4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 660, 100, 0, 0, 0, 0, -20, 100)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_g6cgu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 165, -20, 0, 0, 0, 0, 165, 340)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_fnxj8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 475, -20, 0, 0, 0, 0, 475, 340)
+}
+point_count = 2
+
+[node name="Level1" type="Node2D"]
+process_mode = 1
+texture_filter = 1
+script = ExtResource("1_4rnqy")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_gv81q")]
+visible = false
+z_index = 1
+
+[node name="Jogador" parent="." instance=ExtResource("3_nw7v4")]
+position = Vector2(310, 251)
+
+[node name="CenarioComponente" parent="." instance=ExtResource("4_hxf05")]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CenarioComponente"]
+motion_mirroring = Vector2(0, 6470)
+
+[node name="Sprite1" type="Sprite2D" parent="CenarioComponente/ParallaxLayer"]
+position = Vector2(320, 1619)
+rotation = 3.14159
+scale = Vector2(1.03226, 0.999383)
+texture = ExtResource("5_mjuy0")
+
+[node name="Sprite2" type="Sprite2D" parent="CenarioComponente/ParallaxLayer"]
+position = Vector2(320, 4857)
+scale = Vector2(1.03226, 0.999383)
+texture = ExtResource("5_mjuy0")
+
+[node name="Waves" parent="." instance=ExtResource("6_a7y3u")]
+TimePerWave = 10
+
+[node name="Wave1" type="Node" parent="Waves" node_paths=PackedStringArray("LocalizacaoSpawn")]
+script = ExtResource("7_610ic")
+Inimigos = Array[PackedScene]([ExtResource("8_1m13q"), ExtResource("8_1m13q")])
+Quantidade = Array[int]([1, 1])
+LocalizacaoSpawn = [NodePath("../../Paths/Path1"), NodePath("../../Paths/Path2")]
+
+[node name="Wave2" type="Node" parent="Waves" node_paths=PackedStringArray("LocalizacaoSpawn")]
+script = ExtResource("7_610ic")
+Inimigos = Array[PackedScene]([ExtResource("8_1m13q"), ExtResource("8_1m13q")])
+Quantidade = Array[int]([1, 1])
+LocalizacaoSpawn = [NodePath("../../Paths/Path3"), NodePath("../../Paths/Path4")]
+
+[node name="Wave3" type="Node" parent="Waves" node_paths=PackedStringArray("LocalizacaoSpawn")]
+script = ExtResource("7_610ic")
+Inimigos = Array[PackedScene]([ExtResource("8_1m13q"), ExtResource("8_1m13q")])
+Quantidade = Array[int]([1, 1])
+LocalizacaoSpawn = [NodePath("../../Paths/Path5"), NodePath("../../Paths/Path6")]
+
+[node name="Paths" type="Node2D" parent="."]
+
+[node name="Path1" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_7e604")
+
+[node name="Path2" type="Path2D" parent="Paths"]
+position = Vector2(560, 0)
+curve = SubResource("Curve2D_82kmn")
+
+[node name="Path3" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_nblfv")
+
+[node name="Path4" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_qkwr4")
+
+[node name="Path5" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_g6cgu")
+
+[node name="Path6" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_fnxj8")
