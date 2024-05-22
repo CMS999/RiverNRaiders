@@ -2,8 +2,8 @@ extends ProjetilComp
 
 @onready var GlobalReference = get_node("/root/GlobalValues")
 var Alvo 
-var Direcao := Vector2(1,0)
-var flag := true
+var Direcao :Vector2 = Vector2(1,0)
+var flag :bool= true
 
 func _ready():
 	Alvo = GlobalReference.JogadorRef
