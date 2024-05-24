@@ -1,0 +1,133 @@
+[gd_scene load_steps=12 format=3 uid="uid://dwq3fv21ougd0"]
+
+[ext_resource type="Script" path="res://Projeteis/Jogador/Missel.gd" id="1_5f4dr"]
+[ext_resource type="PackedScene" uid="uid://ch5g7prg3kl8w" path="res://Componentes/Projeteis/ProjetilComponente.tscn" id="1_gbblt"]
+[ext_resource type="Texture2D" uid="uid://juegn6or138" path="res://icon.svg" id="3_sdcyi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qjjvb"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6huwg"]
+atlas = ExtResource("3_sdcyi")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_658qm"]
+atlas = ExtResource("3_sdcyi")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c1nv"]
+atlas = ExtResource("3_sdcyi")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epr81"]
+atlas = ExtResource("3_sdcyi")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6mr68"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6huwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_658qm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c1nv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epr81")
+}],
+"loop": true,
+"name": &"explosão",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sdcyi")
+}],
+"loop": true,
+"name": &"missel",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_15f1j"]
+resource_name = "Missel"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animacao:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"missel", &"explosão"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animacao:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.3, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.06, 0.06), Vector2(0.06, 0.06), Vector2(0.15, 0.15), Vector2(0.6, 0.6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.3, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.4, 1.4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oecdn"]
+_data = {
+"Missel": SubResource("Animation_15f1j")
+}
+
+[node name="Missel" instance=ExtResource("1_gbblt")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_5f4dr")
+Velocidade = 50
+Dano = 3
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="0"]
+position = Vector2(-7.7486e-07, 0.5)
+scale = Vector2(0.6, 0.55)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+scale = Vector2(1.4, 1.4)
+shape = SubResource("CircleShape2D_qjjvb")
+
+[node name="Animacao" type="AnimatedSprite2D" parent="." index="2"]
+position = Vector2(2.27374e-13, 2.27374e-13)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_6mr68")
+animation = &"explosão"
+frame_progress = 0.564819
+
+[node name="ExplosaoTimer" type="Timer" parent="." index="3"]
+wait_time = 0.5
+
+[node name="Desaparecer" type="Timer" parent="." index="4"]
+wait_time = 3.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_oecdn")
+}
+
+[connection signal="timeout" from="ExplosaoTimer" to="." method="_on_explosao_timer_timeout"]
+[connection signal="timeout" from="Desaparecer" to="." method="_on_desaparecer_timeout"]

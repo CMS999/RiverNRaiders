@@ -1,4 +1,5 @@
-[gd_scene load_steps=13 format=3 uid="uid://b7s26pvrgnoe4"]
+[gd_scene load_steps=17 format=3 uid="uid://b7s26pvrgnoe4"]
+
 
 [ext_resource type="Script" path="res://Levels/Fase1/Level1.gd" id="1_4rnqy"]
 [ext_resource type="PackedScene" uid="uid://dqalirl8veijf" path="res://UI/PauseMenu.tscn" id="2_gv81q"]
@@ -6,6 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://ctrsi2iyhmcwt" path="res://Componentes/Levels/CenarioComponente.tscn" id="4_hxf05"]
 [ext_resource type="Texture2D" uid="uid://8slcrwrqeyn7" path="res://Assets/prototipo fase.png" id="5_mjuy0"]
 [ext_resource type="PackedScene" uid="uid://b237iuhhalnvm" path="res://Componentes/Waves/WavesControle.tscn" id="6_a7y3u"]
+
+[ext_resource type="Script" path="res://Componentes/Waves/Wave.gd" id="7_610ic"]
+[ext_resource type="PackedScene" uid="uid://yyylj2ogvivj" path="res://Inimigos/Helicoptero.tscn" id="8_1m13q"]
+[ext_resource type="PackedScene" uid="uid://d2irjoc7tnaxj" path="res://PowerUps/Tirotriplo.tscn" id="9_cj1fb"]
+[ext_resource type="PackedScene" uid="uid://dan7fnyjxxkfc" path="res://PowerUps/MisselExplosivo.tscn" id="10_vx3um"]
+
 
 [sub_resource type="Curve2D" id="Curve2D_7e604"]
 _data = {
@@ -94,3 +101,9 @@ curve = SubResource("Curve2D_g6cgu")
 
 [node name="Path6" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_fnxj8")
+
+[node name="TiroTriplo" parent="." instance=ExtResource("9_cj1fb")]
+position = Vector2(270, 142)
+
+[node name="MisselExplosivo" parent="." instance=ExtResource("10_vx3um")]
+position = Vector2(370, 142)
