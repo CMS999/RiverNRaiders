@@ -1,4 +1,4 @@
-extends AtaqueComp
+extends ProjetilComp
 
 var test 
 var nera = true
