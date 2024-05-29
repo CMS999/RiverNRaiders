@@ -13,20 +13,24 @@ class_name Mundo
 ##[b]Fixa:[/b] não faz nada, apenas utiliza o [TileMap] como está. [br]
 ##[b]Aleatória:[/b] gera cada chunk aleatóriamente com base no [TileMapPattern] do [TileMap]. [br]
 ##[b]Discreta:[/b] [i]Em Construção[/i]
-@export_enum("Fixa", "Aleatória", "Discreta", ) var GeracaoDeChunk = 0
+@export_enum("Fixa", "Aleatória", "Discreta") var GeracaoDeChunk = 0
 
 ## Experimental:: Define o tamanho do [TileMap] em [i]Chunks[/i]. [b]Necessário[/b] para gerarão aleatória.
 @export var TamanhoDoMundo := 0
 
 ## Se [param true] começa movimentando o mundo.
 @export var AutoMove := true
+
+##Sinal interno, disparado quando se chega no fim do cenário
+signal FimDoMundo
+
 func _ready():
 	SetGeracaoMundo(GeracaoDeChunk)
 	pass
 
 func _process(delta):
 	if AutoMove:
-		MoverMundo(100, delta)
+		MoverMundo(90, delta)
 	pass
 
 ##Define qual método usar para construir o [Mundo].
@@ -48,10 +52,10 @@ func CriarMundoRNG() -> void:
 		var Padrao = Tileset.get_pattern(rng.randi_range(0,Tileset.get_patterns_count()-1))
 		set_pattern(Camada, Posicao, Padrao)
 
-## Move o [Mundo] para baixo do eixo y de acordo com o [delta], utilizando um coeficiente [Velocidade].
+## Move o [Mundo] para baixo do eixo y de acordo com a [Velocidade] em pixels, corigido pelo [delta] time.
 func MoverMundo(Velocidade: float, delta: float) -> void: 
-	if position.y >= (get_viewport_rect().size.y * (TamanhoDoMundo-1))-2:
-		return 
+	if position.y >= (get_viewport_rect().size.y * TamanhoDoMundo)-((TamanhoDoMundo)*8)-1:
+		FimDoMundo.emit()
 	position.y += delta * Velocidade
 
 

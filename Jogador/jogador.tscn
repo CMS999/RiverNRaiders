@@ -94,7 +94,7 @@ script = ExtResource("1_5cmx2")
 wait_time = 15.0
 
 [node name="AtaqueDelay" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.1
 
 [node name="TiroTriploDelay" type="Timer" parent="."]
 wait_time = 10.0
@@ -110,7 +110,7 @@ projetil = ExtResource("5_xwa7x")
 projetil = ExtResource("4_ou11i")
 
 [node name="VidaComponente" parent="." instance=ExtResource("2_8u40v")]
-VidaMaxima = 1
+VidaMaxima = 10000
 
 [node name="HurtboxComponente" parent="." node_paths=PackedStringArray("Vida") instance=ExtResource("3_fhkuy")]
 Vida = NodePath("../VidaComponente")

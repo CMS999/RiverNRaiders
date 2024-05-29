@@ -5,78 +5,78 @@
 [node name="PauseMenu" type="Control"]
 process_mode = 2
 layout_mode = 3
-anchors_preset = 0
-offset_right = 640.0
-offset_bottom = 320.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_b2up6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
+layout_mode = 1
+offset_right = 640.0
+offset_bottom = 360.0
 color = Color(0.447059, 0.537255, 0.623529, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-anchor_top = 0.090625
-anchor_right = 1.0
-anchor_bottom = 0.1625
+layout_mode = 1
+anchors_preset = -1
+offset_top = 26.0
+offset_right = 640.0
+offset_bottom = 49.0
 text = "Pausado"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="SJogo" type="Button" parent="."]
-layout_mode = 0
-anchor_left = 0.401563
-anchor_top = 0.840625
-anchor_right = 0.595312
-anchor_bottom = 0.9375
+layout_mode = 1
+anchors_preset = -1
+offset_left = 255.0
+offset_top = 278.0
+offset_right = 385.0
+offset_bottom = 310.0
 focus_neighbor_top = NodePath("../Smenu")
 focus_neighbor_bottom = NodePath("../Opções")
 focus_next = NodePath("../Opções")
 focus_previous = NodePath("../Smenu")
 text = "Sair do Jogo"
-metadata/_edit_use_anchors_ = true
 
 [node name="Smenu" type="Button" parent="."]
-layout_mode = 0
-anchor_left = 0.401563
-anchor_top = 0.728125
-anchor_right = 0.595312
-anchor_bottom = 0.825
+layout_mode = 1
+anchors_preset = -1
+offset_left = 255.0
+offset_top = 244.0
+offset_right = 385.0
+offset_bottom = 276.0
 focus_neighbor_top = NodePath("../Voltar")
 focus_neighbor_bottom = NodePath("../SJogo")
 focus_next = NodePath("../SJogo")
 focus_previous = NodePath("../Voltar")
 text = "Menu Principal"
-metadata/_edit_use_anchors_ = true
 
 [node name="Voltar" type="Button" parent="."]
-layout_mode = 0
-anchor_left = 0.401563
-anchor_top = 0.615625
-anchor_right = 0.595312
-anchor_bottom = 0.7125
+layout_mode = 1
+anchors_preset = -1
+offset_left = 255.0
+offset_top = 210.0
+offset_right = 385.0
+offset_bottom = 242.0
 focus_neighbor_top = NodePath("../Opções")
 focus_neighbor_bottom = NodePath("../Smenu")
 focus_next = NodePath("../Smenu")
 focus_previous = NodePath("../Opções")
 text = "Voltar"
-metadata/_edit_use_anchors_ = true
 
 [node name="Opções" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.401563
-anchor_top = 0.353125
-anchor_right = 0.595312
-anchor_bottom = 0.45
+offset_left = 255.0
+offset_top = 137.0
+offset_right = 385.0
+offset_bottom = 169.0
 focus_neighbor_bottom = NodePath("../Voltar")
 focus_next = NodePath("../Voltar")
 text = "Opções"
-metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="SJogo" to="." method="_on_s_jogo_pressed"]
 [connection signal="pressed" from="Smenu" to="." method="_on_smenu_pressed"]
