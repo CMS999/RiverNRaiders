@@ -28,6 +28,7 @@ func Inicializar_Lista() -> void:
 	pass
 
 func SetTecla(Botao, Acao):
+	#InputMap.action_add_event("tiro",KEY_B)
 	#Precisa ser implementado
 	pass
 

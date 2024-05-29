@@ -8,6 +8,7 @@ func _ready():
 	get_tree().root.add_child(Projeteis)
 
 	GlobalReference.JogadorRef = $Jogador
+	$Jogador.setPowerUp(GlobalReference.PowerUpAtual)
 	pass
 
 func _unhandled_input(event):
