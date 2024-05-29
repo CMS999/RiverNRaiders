@@ -11,8 +11,8 @@ func _ready():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("Pausar"):
-		$PauseMenu.show()
-		$PauseMenu/Voltar.grab_focus()
+		$Pause/PauseMenu.show()
+		$Pause/PauseMenu/Vbox/Voltar.grab_focus()
 		get_tree().paused = true
 
 func CriarParticulas() -> void:

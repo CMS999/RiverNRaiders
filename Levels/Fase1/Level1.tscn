@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b7s26pvrgnoe4"]
+[gd_scene load_steps=42 format=3 uid="uid://b7s26pvrgnoe4"]
 
 [ext_resource type="Script" path="res://Levels/Fase1/Level1.gd" id="1_4rnqy"]
 [ext_resource type="PackedScene" uid="uid://dqalirl8veijf" path="res://UI/PauseMenu.tscn" id="2_gv81q"]
@@ -26,7 +26,7 @@ sources/0 = SubResource("TileSetAtlasSource_kr5ua")
 sources/1 = SubResource("TileSetScenesCollectionSource_d3rhp")
 pattern_0 = SubResource("TileMapPattern_22yun")
 
-[sub_resource type="TileMapPattern" id="TileMapPattern_qqxtu"]
+[sub_resource type="TileMapPattern" id="TileMapPattern_xpigc"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 655360, 0, 0, 720896, 0, 0, 1, 0, 0, 720897, 0, 0, 327689, 0, 1, 393225, 0, 1, 327690, 0, 1, 393226, 0, 1, 18, 0, 0, 720914, 0, 0, 19, 0, 0, 65555, 0, 0, 655379, 0, 0, 720915, 0, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jojvn"]
@@ -34,55 +34,60 @@ texture = ExtResource("3_8rm13")
 0:0/0 = 0
 0:1/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_frqny"]
+scenes/1/scene = ExtResource("4_w0mo2")
+scenes/1/display_placeholder = ExtResource("4_w0mo2")
+
 [sub_resource type="TileSet" id="TileSet_k56y7"]
 sources/0 = SubResource("TileSetAtlasSource_jojvn")
-pattern_0 = SubResource("TileMapPattern_qqxtu")
+sources/1 = SubResource("TileSetScenesCollectionSource_frqny")
+pattern_0 = SubResource("TileMapPattern_xpigc")
 
 [sub_resource type="Curve2D" id="Curve2D_7e604"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -16, 240, -90, -5, 90, 5, 170, 70, -32, -16, 32, 16, 260, 150, 0, 0, 0, 0, 300, -16)
+"points": PackedVector2Array(0, 0, 0, 0, -16, 120, -45, -2.5, 45, 2.5, 85, 35, -16, -8, 16, 8, 130, 75, 0, 0, 0, 0, 150, -16)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_82kmn"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 16, 240, 90, 5, -90, -5, -170, 70, 32, 16, -32, -16, -260, 150, 0, 0, 0, 0, -300, -16)
+"points": PackedVector2Array(0, 0, 0, 0, 16, 120, 45, 2.5, -45, -2.5, -85, 35, 16, 8, -16, -8, -130, 75, 0, 0, 0, 0, -150, -16)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_nblfv"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -16, 50, -90, 9, 90, -9, 240, 95, 0, 0, 0, 0, 320, -16)
+"points": PackedVector2Array(0, 0, 0, 0, -16, 25, -45, 4.5, 45, -4.5, 120, 49.5, 0, 0, 0, 0, 160, -16)
 }
 point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_qkwr4"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 16, 50, 90, 9, -90, -9, -240, 95, 0, 0, 0, 0, -320, -16)
+"points": PackedVector2Array(0, 0, 0, 0, 16, 25, 45, 4.5, -45, -4.5, -120, 49.5, 0, 0, 0, 0, -160, -16)
 }
 point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_k7wvx"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -20, 40, -38, 55, 38, -55, 40, 85, -48, -58, 48, 58, 165, 115, -13, 60, 13, -60, 270, 170, 0, 0, 0, 0, 260, -20)
+"points": PackedVector2Array(0, 0, 0, 0, -20, 20, -19, 27.5, 19, -27.5, 20, 42.5, -24, -29, 24, 29, 82.5, 57.5, -6.5, 30, 6.5, -30, 135, 85, 0, 0, 0, 0, 130, -20)
 }
 point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_i3aio"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 20, 40, 38, 55, -38, -55, -40, 85, 48, -58, -48, 58, -165, 115, 13, 60, -13, -60, -270, 170, 0, 0, 0, 0, -260, -20)
+"points": PackedVector2Array(0, 0, 0, 0, 20, 20, 19, 27.5, -19, -27.5, -20, 42.5, 24, -29, -24, 29, -82.5, 57.5, 6.5, 30, -6.5, -30, -135, 85, 0, 0, 0, 0, -130, -20)
 }
 point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_kl31f"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -16, 240, -54, 52, 54, -52, 120, 210, -2, 52, 2, -52, 170, 75, 0, 0, 0, 0, 152, -24)
+"points": PackedVector2Array(0, 0, 0, 0, -16, 120, -27, 26, 27, -26, 60, 105, -1, 26, 1, -26, 85, 37.5, 0, 0, 0, 0, 76, -24)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_k20iv"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 16, 240, 54, 52, -52, -52, -120, 210, 2, 52, -2, -52, -175, 75, 0, 0, 0, 0, -152, -24)
+"points": PackedVector2Array(0, 0, 0, 0, 16, 120, 27, 26, -26, -27, -60, 105, 1, 26, -1, -26, -87.5, 37.5, 0, 0, 0, 0, -76, -24)
 }
 point_count = 4
 
@@ -187,9 +192,17 @@ process_mode = 1
 texture_filter = 1
 script = ExtResource("1_4rnqy")
 
-[node name="PauseMenu" parent="." instance=ExtResource("2_gv81q")]
+[node name="Pause" type="Control" parent="."]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="PauseMenu" parent="Pause" instance=ExtResource("2_gv81q")]
 visible = false
 z_index = 1
+layout_mode = 1
 
 [node name="Mundo" type="TileMap" parent="."]
 visible = false
@@ -200,20 +213,19 @@ script = ExtResource("4_ncojh")
 TamanhoDoMundo = 23
 
 [node name="Mundo2" type="TileMap" parent="."]
-scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_k56y7")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 1, 0, 0, 720896, 0, 0, 655360, 0, 0, 720897, 0, 0, 720914, 0, 0, 720915, 0, 0, 655379, 0, 0, 18, 0, 0, 19, 0, 0, 65555, 0, 0, 327689, 0, 1, 393225, 0, 1, 393226, 0, 1, 327690, 0, 1, -786432, 0, 0, -720896, 0, 0, -131072, 0, 0, -65536, 0, 0, -786431, 0, 0, -65535, 0, 0, -458743, 0, 1, -393207, 0, 1, -458742, 0, 1, -393206, 0, 1, -786414, 0, 0, -65518, 0, 0, -786413, 0, 0, -720877, 0, 0, -131053, 0, 0, -65517, 0, 0, 65537, 0, 0)
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 1, 0, 0, 655360, 0, 0, 720896, 0, 0, 720897, 0, 0, 655379, 0, 0, 720915, 0, 0, 720914, 0, 0, 18, 0, 0, 19, 0, 0, 65555, 0, 0, 327689, 0, 1, 393225, 0, 1, 393226, 0, 1, 327690, 0, 1)
 script = ExtResource("4_ncojh")
 GeracaoDeChunk = 1
-TamanhoDoMundo = 23
+TamanhoDoMundo = 3
 
 [node name="Jogador" parent="." instance=ExtResource("3_nw7v4")]
-position = Vector2(320, 320)
-scale = Vector2(2, 2)
+position = Vector2(160, 158)
 Speed = 250.0
 
 [node name="Waves" parent="." instance=ExtResource("6_a7y3u")]
+InimigoDelay = 0.605
 
 [node name="Wave1" type="Node" parent="Waves" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("7_xu8nf")
@@ -288,28 +300,28 @@ SpawnTime = 75
 curve = SubResource("Curve2D_7e604")
 
 [node name="Path2" type="Path2D" parent="Paths"]
-position = Vector2(640, 0)
+position = Vector2(320, 0)
 curve = SubResource("Curve2D_82kmn")
 
 [node name="Path3" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_nblfv")
 
 [node name="Path4" type="Path2D" parent="Paths"]
-position = Vector2(640, 0)
+position = Vector2(320, 0)
 curve = SubResource("Curve2D_qkwr4")
 
 [node name="Path5" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_k7wvx")
 
 [node name="Path6" type="Path2D" parent="Paths"]
-position = Vector2(640, 0)
+position = Vector2(320, 0)
 curve = SubResource("Curve2D_i3aio")
 
 [node name="Path7" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_kl31f")
 
 [node name="Path8" type="Path2D" parent="Paths"]
-position = Vector2(640, 0)
+position = Vector2(320, 0)
 curve = SubResource("Curve2D_k20iv")
 
 [node name="MisseisPath" type="Node2D" parent="."]
