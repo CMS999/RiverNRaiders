@@ -53,6 +53,7 @@ animations = [{
 }]
 
 [node name="Helicoptero" type="Node2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_jemss")
 velocidade = 0.12
 

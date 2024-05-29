@@ -7,7 +7,7 @@ class_name Mundo
 @onready var Tileset = tile_set
 
 ##Define o tamanho do [chunk] com base no tamanho da tela ([viewport size]).
-@onready var TamanhoDoChunk := Vector2i(int(get_viewport_rect().size.x/Tileset.tile_size.x),int(get_viewport_rect().size.y/Tileset.tile_size.y))
+@onready var TamanhoDoChunk := Vector2i(384/(Tileset.tile_size.x*2),384/(Tileset.tile_size.y*2))
 
 ##Experimental:: Define o tipo de geração da fase. [br]
 ##[b]Fixa:[/b] não faz nada, apenas utiliza o [TileMap] como está. [br]
@@ -25,6 +25,7 @@ class_name Mundo
 signal FimDoMundo
 
 func _ready():
+	print(TamanhoDoChunk)
 	SetGeracaoMundo(GeracaoDeChunk)
 	pass
 
@@ -54,8 +55,9 @@ func CriarMundoRNG() -> void:
 
 ## Move o [Mundo] para baixo do eixo y de acordo com a [Velocidade] em pixels, corigido pelo [delta] time.
 func MoverMundo(Velocidade: float, delta: float) -> void: 
-	if position.y >= (get_viewport_rect().size.y * TamanhoDoMundo)-((TamanhoDoMundo)*8)-1:
+	if position.y >= ((TamanhoDoMundo-1)*384)-1:
 		FimDoMundo.emit()
+		return
 	position.y += delta * Velocidade
 
 
