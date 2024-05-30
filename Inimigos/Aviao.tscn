@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://boognjsvmgw40"]
+
+[ext_resource type="Script" path="res://Componentes/Personagens/AtaqueComponente.gd" id="1_f46ci"]
+[ext_resource type="Script" path="res://Componentes/Personagens/VidaComponente.gd" id="2_wx75r"]
+[ext_resource type="Script" path="res://Componentes/Personagens/HurtboxComponente.gd" id="3_habxc"]
+
+[node name="Inimigo" type="Node2D"]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="AtaqueComp" type="Node2D" parent="."]
+script = ExtResource("1_f46ci")
+
+[node name="VidaComp" type="Node2D" parent="."]
+script = ExtResource("2_wx75r")
+
+[node name="HitboxComp" type="Area2D" parent="."]
+script = ExtResource("3_habxc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
