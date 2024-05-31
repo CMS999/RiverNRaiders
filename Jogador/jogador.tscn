@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cc5cjso4rewoc"]
+[gd_scene load_steps=19 format=3 uid="uid://cc5cjso4rewoc"]
 
 [ext_resource type="Script" path="res://Jogador/jogador.gd" id="1_5cmx2"]
 [ext_resource type="Texture2D" uid="uid://clk5ubahrsbd5" path="res://Assets/Nave-teste.png" id="1_5pu6w"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bkltef67bey07" path="res://Componentes/Personagens/HurtboxComponente.tscn" id="3_fhkuy"]
 [ext_resource type="PackedScene" uid="uid://b34jet1tydsdr" path="res://Componentes/Personagens/AtaqueComponente.tscn" id="4_nmp20"]
 [ext_resource type="PackedScene" uid="uid://gqi0hrxjam48" path="res://Projeteis/Jogador/AtaqueBase.tscn" id="4_ou11i"]
+[ext_resource type="Script" path="res://PowerUps/PowerUpComponente.gd" id="4_uli4u"]
 [ext_resource type="PackedScene" uid="uid://dwq3fv21ougd0" path="res://Projeteis/Jogador/Missel.tscn" id="5_xwa7x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tdck"]
@@ -82,7 +83,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tnthg"]
-size = Vector2(16, 14)
+size = Vector2(32, 28)
 
 [node name="Jogador" type="CharacterBody2D"]
 motion_mode = 1
@@ -100,23 +101,29 @@ wait_time = 0.1
 wait_time = 10.0
 
 [node name="Animação" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nqx4h")
 animation = &"idle"
 
+[node name="PowerUpComponente" type="Node2D" parent="."]
+script = ExtResource("4_uli4u")
+
 [node name="MisselComponente" parent="." instance=ExtResource("4_nmp20")]
+light_mask = 5
+visibility_layer = 5
 projetil = ExtResource("5_xwa7x")
 
 [node name="AtaqueComponente" parent="." instance=ExtResource("4_nmp20")]
 projetil = ExtResource("4_ou11i")
 
 [node name="VidaComponente" parent="." instance=ExtResource("2_8u40v")]
-VidaMaxima = 10000
+
 
 [node name="HurtboxComponente" parent="." node_paths=PackedStringArray("Vida") instance=ExtResource("3_fhkuy")]
 Vida = NodePath("../VidaComponente")
 
 [node name="Hurtbox2D" type="CollisionShape2D" parent="HurtboxComponente"]
-position = Vector2(0, -1)
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_tnthg")
 
 [connection signal="timeout" from="MisselExplosivoDelay" to="." method="_on_missel_explosivo_delay_timeout"]

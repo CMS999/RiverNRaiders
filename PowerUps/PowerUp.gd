@@ -14,6 +14,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func _on_area_2d_area_entered(area):
 	var parent = area.get_parent()
-	if area is HitboxComp and parent is Jogador:
-		parent._power_up(tipo)
-		queue_free()
+	#if area is HitboxComp and parent is Jogador:
+	#	parent._power_up(tipo)
+	#	queue_free()

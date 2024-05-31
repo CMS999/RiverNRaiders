@@ -8,6 +8,7 @@ func _ready():
 		$Mundo2.connect("FimDoMundo", self.FimDaFase)
 	CriarParticulas()
 	GlobalReference.JogadorRef = $Jogador
+	$Jogador.setPowerUp(GlobalReference.PowerUpAtual)
 	pass
 
 func _unhandled_input(event):

@@ -10,14 +10,20 @@ class_name Jogador
 enum Estado{parado,	morto, movendo}
 var estadoAtual : Estado= Estado.parado
 var estaVivo : bool= true
-var tiroTriplo : bool = false
+#var tiroTriplo : bool = false
 var podeAtirar : bool = true
-var misselExplosivo: bool = false
+#var misselExplosivo: bool = false
 var componenteAtaque: Node
+var powerUpId : String
+var barraEnergia : int = 40
 
 func _ready():
 	$VidaComponente.connect("Morto", self.is_vivo)
 	pass
+	
+func setPowerUp(powerUpId: String):
+	powerUpId = powerUpId
+	$PowerUpComponente.setPowerUp(powerUpId)
 
 func _physics_process(_delta):
 	var directionX = Input.get_axis("esq", "dir")	
@@ -48,17 +54,20 @@ func _physics_process(_delta):
 		get_tree().change_scene_to_file("res://UI/DeathMenu.tscn")
 	
 	if Input.is_action_pressed("tiro") and podeAtirar:
-		if misselExplosivo:
-			componenteAtaque = get_node("MisselComponente")
-		else:	
-			componenteAtaque = get_node("AtaqueComponente")
-		componenteAtaque.Ataque(position.x,position.y)
-		if tiroTriplo:
-			componenteAtaque.Ataque(position.x+10,position.y)
-			componenteAtaque.Ataque(position.x-10,position.y)
+		get_node("AtaqueComponente").Ataque(position.x,position.y)
+		#if misselExplosivo:
+		#	componenteAtaque = get_node("MisselComponente")
+		#else:	
+		#	componenteAtaque = get_node("AtaqueComponente")
+		#componenteAtaque.Ataque(position.x,position.y)
+		#if tiroTriplo:
+		#	componenteAtaque.Ataque(position.x+10,position.y)
+		#	componenteAtaque.Ataque(position.x-10,position.y)
 			
 		podeAtirar = false
 		$AtaqueDelay.start()
+	if Input.is_action_pressed("power"):
+		$PowerUpComponente.Action(position.x,position.y)
 	
 	
 	position = position.clamp(Vector2(8, 8), screensize-Vector2(8, 8))
@@ -67,22 +76,22 @@ func _physics_process(_delta):
 func _on_ataque_delay_timeout():
 	podeAtirar = true
 
-func _power_up(id: int) -> void:
-	if id == 0:
-		tiroTriplo = true
-		$TiroTriploDelay.start()
-	elif id == 2:
-		misselExplosivo = true
-		$MisselExplosivoDelay.start()
-	pass
+#func _power_up(id: int) -> void:
+	#if id == 0:
+		#tiroTriplo = true
+		#$TiroTriploDelay.start()
+	#elif id == 2:
+		#misselExplosivo = true
+		#$MisselExplosivoDelay.start()
+	#pass
 
 func is_vivo():
 	estaVivo = false
 
 
-func _on_tiro_triplo_delay_timeout():
-	tiroTriplo = false
-
-
-func _on_missel_explosivo_delay_timeout():
-	misselExplosivo = false
+#func _on_tiro_triplo_delay_timeout():
+	#tiroTriplo = false
+#
+#
+#func _on_missel_explosivo_delay_timeout():
+	#misselExplosivo = false

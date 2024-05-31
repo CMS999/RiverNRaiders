@@ -1,5 +1,6 @@
 [gd_scene load_steps=43 format=3 uid="uid://b7s26pvrgnoe4"]
 
+
 [ext_resource type="Script" path="res://Levels/Fase1/Level1.gd" id="1_4rnqy"]
 [ext_resource type="PackedScene" uid="uid://dqalirl8veijf" path="res://UI/PauseMenu.tscn" id="2_gv81q"]
 [ext_resource type="Texture2D" uid="uid://kofslmmwwm8k" path="res://Assets/pixel-16x32.png" id="3_8rm13"]
@@ -295,6 +296,24 @@ Quantidade = Array[int]([1, 1, 1, 1, 1, 1, 1, 1])
 LocalizacaoSpawn = [NodePath("../../Paths/Path1"), NodePath("../../Paths/Path2"), NodePath("../../Paths/Path3"), NodePath("../../Paths/Path4"), NodePath("../../Paths/Path5"), NodePath("../../Paths/Path6"), NodePath("../../Paths/Path7"), NodePath("../../Paths/Path8")]
 SpawnTime = 75
 
+[node name="Wave1" type="Node" parent="Waves" node_paths=PackedStringArray("LocalizacaoSpawn")]
+script = ExtResource("7_610ic")
+Inimigos = Array[PackedScene]([ExtResource("8_1m13q"), ExtResource("8_1m13q")])
+Quantidade = Array[int]([1, 1])
+LocalizacaoSpawn = [NodePath("../../Paths/Path1"), NodePath("../../Paths/Path2")]
+
+[node name="Wave2" type="Node" parent="Waves" node_paths=PackedStringArray("LocalizacaoSpawn")]
+script = ExtResource("7_610ic")
+Inimigos = Array[PackedScene]([ExtResource("8_1m13q"), ExtResource("8_1m13q")])
+Quantidade = Array[int]([1, 1])
+LocalizacaoSpawn = [NodePath("../../Paths/Path3"), NodePath("../../Paths/Path4")]
+
+[node name="Wave3" type="Node" parent="Waves" node_paths=PackedStringArray("LocalizacaoSpawn")]
+script = ExtResource("7_610ic")
+Inimigos = Array[PackedScene]([ExtResource("8_1m13q"), ExtResource("8_1m13q")])
+Quantidade = Array[int]([1, 1])
+LocalizacaoSpawn = [NodePath("../../Paths/Path5"), NodePath("../../Paths/Path6")]
+
 [node name="Paths" type="Node2D" parent="."]
 
 [node name="Path1" type="Path2D" parent="Paths"]
@@ -333,6 +352,7 @@ curve = SubResource("Curve2D_g6cgu")
 
 [node name="Path2" type="Path2D" parent="MisseisPath"]
 curve = SubResource("Curve2D_fnxj8")
+
 
 [node name="Path3" type="Path2D" parent="MisseisPath"]
 curve = SubResource("Curve2D_qve40")
@@ -375,3 +395,4 @@ curve = SubResource("Curve2D_1ptsa")
 
 [node name="Path16" type="Path2D" parent="MisseisPath"]
 curve = SubResource("Curve2D_1xqy0")
+

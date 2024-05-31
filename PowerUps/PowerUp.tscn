@@ -43,6 +43,8 @@ animations = [{
 size = Vector2(16, 16)
 
 [node name="PowerUp" type="Node2D"]
+light_mask = 4
+visibility_layer = 4
 script = ExtResource("1_sbesa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
