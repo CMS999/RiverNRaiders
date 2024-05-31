@@ -5,6 +5,8 @@ var Alvo := Node
 @export_range(0.1,1) var velocidade : float = 0.1
 
 func _ready():
+	if global_position.x <= 320:
+		$Animações.flip_h = true
 	$VidaComp.connect("Morto", self.Morrer)
 
 func _process(_delta):

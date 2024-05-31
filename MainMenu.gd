@@ -4,7 +4,7 @@ var PauseMenu = preload("res://UI/OpçõesMenu.tscn")
 @onready var GlobalReference = get_node("/root/GlobalValues")
 
 func _ready():
-	$PButton.grab_focus()
+	$VBoxContainer/PButton.grab_focus()
 	pass
 
 func _on_p_button_pressed():

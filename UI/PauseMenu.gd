@@ -8,6 +8,7 @@ func _on_voltar_pressed():
 	get_tree().paused = false
 
 func _on_smenu_pressed():
+	get_tree().root.get_node("Particulas").queue_free()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://MainMenu.tscn")
 

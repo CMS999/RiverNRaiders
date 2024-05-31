@@ -33,28 +33,36 @@ anchor_right = 0.96
 anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
+current_tab = 1
 
 [node name="Jogo" type="Control" parent="TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("2_c23sg")
 
 [node name="Sair" type="Button" parent="TabContainer/Jogo"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.868546
-anchor_top = 0.813333
-anchor_right = 0.982337
-anchor_bottom = 0.951111
+anchor_left = 0.94
+anchor_top = 0.876
+anchor_right = 0.94
+anchor_bottom = 0.876
+offset_left = -13.536
+offset_top = -10.988
+offset_right = 13.464
+offset_bottom = 11.012
+theme_override_font_sizes/font_size = 10
 text = "Sair
 "
 metadata/_edit_use_anchors_ = true
 
 [node name="ValoresIniciais" type="VBoxContainer" parent="TabContainer/Jogo"]
-layout_mode = 0
-anchor_left = 0.0142663
-anchor_top = 0.0355556
-anchor_right = 0.686821
-anchor_bottom = 0.293333
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.013587
+anchor_top = 0.0353982
+anchor_right = 0.985054
+anchor_bottom = 0.548673
 offset_right = 3.05176e-05
 metadata/_edit_use_anchors_ = true
 
@@ -114,7 +122,6 @@ max_value = 9.0
 value = 1.0
 
 [node name="Hotkeys" type="Control" parent="TabContainer"]
-visible = false
 layout_mode = 2
 script = ExtResource("3_408k4")
 

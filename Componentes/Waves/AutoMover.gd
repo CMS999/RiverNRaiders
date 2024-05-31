@@ -1,7 +1,7 @@
 extends PathFollow2D
 class_name AutoMover
 
-var velocidade : float = 0.12
+var velocidade : float = 0.8
 
 func _process(delta):
 	progress_ratio += delta*velocidade

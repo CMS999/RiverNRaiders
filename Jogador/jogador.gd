@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Jogador
 
 ## Define velocidade de movimento do Jogador
-@export var Speed := 150.0
+@export var Speed := 200.0
 
 @onready var screensize = get_viewport_rect().size
 @onready var Animações := $Animação
@@ -32,7 +32,6 @@ func _physics_process(_delta):
 		estadoAtual = Estado.parado
 	
 	if estadoAtual == Estado.movendo:
-		
 		velocity.y = directionY * Speed
 		velocity.x = directionX * Speed
 		if directionX > 0:
