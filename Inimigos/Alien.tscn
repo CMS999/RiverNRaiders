@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://03foif8uffs2"]
 
 [ext_resource type="Script" path="res://Inimigos/Alien.gd" id="1_yn0hh"]
-[ext_resource type="PackedScene" uid="uid://don5iovdo7il4" path="res://Componentes/Personagens/AtaqueComponente.tscn" id="2_wk4o7"]
-[ext_resource type="PackedScene" uid="uid://cf54v3pq44lfx" path="res://Projeteis/Inimigos/AtaqueHeli.tscn" id="3_ydpxc"]
-[ext_resource type="PackedScene" uid="uid://cllmj8vbu5nfk" path="res://Componentes/Personagens/VidaComponente.tscn" id="4_3avdh"]
-[ext_resource type="PackedScene" path="res://Componentes/Personagens/hitbox_componente.tscn" id="5_v4f5x"]
-[ext_resource type="Texture2D" path="res://Assets/sprite alien.png" id="6_2o7w2"]
+[ext_resource type="PackedScene" uid="uid://b34jet1tydsdr" path="res://Componentes/Personagens/AtaqueComponente.tscn" id="2_wk4o7"]
+[ext_resource type="PackedScene" uid="uid://djn80h0ew1tui" path="res://Projeteis/Inimigos/AtaqueHeli.tscn" id="3_ydpxc"]
+[ext_resource type="PackedScene" uid="uid://1iqtcsekf216" path="res://Componentes/Personagens/VidaComponente.tscn" id="4_3avdh"]
+[ext_resource type="PackedScene" uid="uid://bkltef67bey07" path="res://Componentes/Personagens/HurtboxComponente.tscn" id="5_v4f5x"]
+[ext_resource type="Texture2D" uid="uid://b83ghxm0u5bq2" path="res://Assets/sprite alien.png" id="6_2o7w2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7v41x"]
 size = Vector2(19, 17)
@@ -48,10 +48,9 @@ autostart = true
 [node name="AtaqueComponente" parent="." instance=ExtResource("2_wk4o7")]
 projetil = ExtResource("3_ydpxc")
 
-[node name="Vida" parent="." node_paths=PackedStringArray("Animacoes") instance=ExtResource("4_3avdh")]
+[node name="Vida" parent="." instance=ExtResource("4_3avdh")]
 light_mask = 2
 visibility_layer = 2
-Animacoes = NodePath("../SpriteSheet")
 VidaMaxima = 2
 
 [node name="Hitbox" parent="." node_paths=PackedStringArray("Vida") instance=ExtResource("5_v4f5x")]

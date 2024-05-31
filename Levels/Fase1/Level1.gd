@@ -1,10 +1,11 @@
 extends Node2D
 
+
 @onready var GlobalReference = get_node("/root/GlobalValues")
 
 func _ready():
-	if $Mundo:
-		$Mundo.connect("FimDoMundo", self.FimDaFase)
+	if $Mundo2:
+		$Mundo2.connect("FimDoMundo", self.FimDaFase)
 	CriarParticulas()
 	GlobalReference.JogadorRef = $Jogador
 	pass
