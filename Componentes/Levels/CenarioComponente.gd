@@ -7,5 +7,4 @@ class_name CenarioComp
 
 func _process(delta):
 	scroll_base_offset += Vector2(0,70) * delta * Velocidade
-	#print("Para:",scroll_base_offset)
 	pass
