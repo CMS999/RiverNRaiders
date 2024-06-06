@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy0phxx10y1ks"]
+
+[ext_resource type="PackedScene" uid="uid://gqi0hrxjam48" path="res://Projeteis/Jogador/AtaqueBase.tscn" id="1_8klh5"]
+[ext_resource type="Script" path="res://Componentes/Projeteis/ProjetilComponente.gd" id="1_kngfp"]
+
+[node name="ProjetilComp" type="Area2D"]
+script = ExtResource("1_kngfp")
+
+[node name="TipoBala2" parent="." instance=ExtResource("1_8klh5")]
+position = Vector2(0, -2)
+
+[node name="TipoBala" parent="." instance=ExtResource("1_8klh5")]
+position = Vector2(-10, -2)
+
+[node name="TipoBala3" parent="." instance=ExtResource("1_8klh5")]
+position = Vector2(10, -2)

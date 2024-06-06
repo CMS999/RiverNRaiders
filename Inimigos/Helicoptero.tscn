@@ -1,0 +1,86 @@
+[gd_scene load_steps=14 format=3 uid="uid://yyylj2ogvivj"]
+
+[ext_resource type="PackedScene" uid="uid://b34jet1tydsdr" path="res://Componentes/Personagens/AtaqueComponente.tscn" id="1_avehm"]
+[ext_resource type="Script" path="res://Inimigos/Helicoptero.gd" id="1_jemss"]
+[ext_resource type="PackedScene" uid="uid://bkltef67bey07" path="res://Componentes/Personagens/HurtboxComponente.tscn" id="2_6qk0o"]
+[ext_resource type="PackedScene" uid="uid://1iqtcsekf216" path="res://Componentes/Personagens/VidaComponente.tscn" id="2_ygkf2"]
+[ext_resource type="Texture2D" uid="uid://yfwycs544m0o" path="res://Assets/Sprite inimigo heli.png" id="3_to784"]
+[ext_resource type="PackedScene" uid="uid://djn80h0ew1tui" path="res://Projeteis/Inimigos/AtaqueHeli.tscn" id="3_wggqa"]
+[ext_resource type="Texture2D" uid="uid://boh6c8ueesotv" path="res://Assets/Ship-TEST.png" id="5_xqy2p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ja5y6"]
+size = Vector2(18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84t45"]
+atlas = ExtResource("3_to784")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a84d"]
+atlas = ExtResource("3_to784")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cuhn"]
+atlas = ExtResource("3_to784")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilth5"]
+atlas = ExtResource("5_xqy2p")
+region = Rect2(15, 0, 15, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_icg1f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84t45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a84d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cuhn")
+}],
+"loop": true,
+"name": &"flight",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilth5")
+}],
+"loop": true,
+"name": &"morte",
+"speed": 5.0
+}]
+
+[node name="Helicoptero" type="Node2D"]
+script = ExtResource("1_jemss")
+velocidade = 0.12
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="AtaqueComp" parent="." instance=ExtResource("1_avehm")]
+projetil = ExtResource("3_wggqa")
+
+[node name="VidaComp" parent="." instance=ExtResource("2_ygkf2")]
+light_mask = 2
+visibility_layer = 2
+VidaMaxima = 1
+
+[node name="Hitbox" parent="." node_paths=PackedStringArray("Vida") instance=ExtResource("2_6qk0o")]
+collision_layer = 2
+collision_mask = 2
+Vida = NodePath("../VidaComp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+light_mask = 2
+visibility_layer = 2
+shape = SubResource("RectangleShape2D_ja5y6")
+
+[node name="Animações" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_icg1f")
+animation = &"flight"
+speed_scale = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

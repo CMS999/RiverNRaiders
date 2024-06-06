@@ -1,12 +1,13 @@
-extends Node2D
+extends PathFollow2D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-	#$Player.start() # Replace with function body.
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	progress_ratio += delta * 0.195
+	#("Path:",position)
 	pass
