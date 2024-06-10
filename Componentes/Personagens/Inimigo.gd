@@ -62,5 +62,5 @@ func _on_area_entered(area):
 		area.receber_dano(dano_colisao)
 	vida_comp.Dano(vida_comp.VidaAtual)
 
-func _on_fire_timeout():
+func _on_timer_timeout():
 	pode_atirar = true
