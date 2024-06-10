@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7bft5ygq8utx"]
+[gd_scene load_steps=2 format=3 uid="uid://c7bft5ygq8utx"]
 
 [ext_resource type="Script" path="res://Componentes/Levels/ObjetoSpawner.gd" id="1_hxkbn"]
-[ext_resource type="PackedScene" uid="uid://dan7fnyjxxkfc" path="res://PowerUps/MisselExplosivo.tscn" id="2_ksar8"]
 
 [node name="ObjetoSpawner" type="Node2D"]
 script = ExtResource("1_hxkbn")
-Objeto = ExtResource("2_ksar8")

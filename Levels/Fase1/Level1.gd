@@ -1,11 +1,9 @@
 extends Level
 
-
 func _ready():
-	if MundoDaFase:
-		MundoDaFase.connect("FimDoMundo", self.FimDaFase)
-	CriarParticulas()
-	GlobalREF.JogadorRef = $Jogador
+	InicializarLevel()
+	GlobalReference.JogadorRef = $Jogador
+	$Jogador.setPowerUp(GlobalReference.PowerUpAtual)
 	pass
 
 
