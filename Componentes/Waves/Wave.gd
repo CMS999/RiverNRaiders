@@ -22,7 +22,9 @@ var MoverScene := preload("res://Componentes/Waves/auto_mover.tscn")
 
 ##Em qual segundo a wave deve ser spawnada.
 @export var SpawnTime := 0
-		
+
+##Armazena objetos do tipo [CurvaAcel]. Pemite alterar a velocidade do inimigo em pedaçõs diferentes da curva.		
+@export var Curvas : Array[CurveAcel] = []
 func _ready():
 	WaveControle.connect("TimerTimeout", self.ChecarSpawn)
 
@@ -33,7 +35,10 @@ func SpawnWave() -> void:
 			var inimigo = Inimigos[C].instantiate()
 			inimigo.Alvo = GlobalReference.JogadorRef
 			var caminho = MoverScene.instantiate()
-			caminho.SETVelocidade(inimigo.velocidade)
+			if Curvas:
+				caminho.SetCurvas(Curvas)
+				caminho.SetDadosAtuais(0)
+			caminho.SetVelocidade(inimigo.velocidade)
 			LocalizacaoSpawn[C].add_child(caminho)
 			caminho.add_child(inimigo)
 			await get_tree().create_timer(WaveControle.InimigoDelay).timeout

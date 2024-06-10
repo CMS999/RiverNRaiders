@@ -1,5 +1,7 @@
 extends Control
 
+@onready var GlobalReference = get_node("/root/GlobalValues")
+
 func _ready():
 	var Particulas = get_tree().root.get_node("Particulas")
 	if Particulas != null:
@@ -13,4 +15,5 @@ func _on_menu_pressed():
 
 func _on_reiniciar_pressed():
 	get_tree().change_scene_to_file("res://Levels/Fase1/Level1.tscn")
+	GlobalReference.barraEnergia = 40
 	

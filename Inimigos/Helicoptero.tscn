@@ -108,6 +108,7 @@ projetil = ExtResource("3_exo8x")
 script = ExtResource("4_52jbc")
 VidaMaxima = 1
 
+
 [node name="HitboxComp" type="Area2D" parent="."]
 script = ExtResource("5_ix6s0")
 

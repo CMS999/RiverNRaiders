@@ -1,29 +1,46 @@
 extends CharacterBody2D
 class_name Jogador
+##Classe principal do jogador
+##Controla física, powerups, se está vivo, se pode atirar
 
 ## Define velocidade de movimento do Jogador
-@export var Speed := 200.0
+@export var Speed : float = 200.0
 
+## Variável utilizada para ajustar o jogador na tela
 @onready var screensize = get_viewport_rect().size
+## Controla as animações dos sprites
 @onready var Animações := $Animação
-
+@onready var Escudo := $escudo
+##Estados do jogador para definir comportamento [br]
+##[b]Parado:[/b] Não faz nada, apenas mantém a animação original. [br]
+##[b]Morto:[/b] Estado de fim de jogo, toca animação de morte e vai para o menu de derrota. [br]
+##[b]Movendo:[/b] Toca animações de movimento, dependendo da direção do jogador.
 enum Estado{parado,	morto, movendo}
+## Estado no qual o jogador está
 var estadoAtual : Estado= Estado.parado
+## Diz se o jogador está vivo
 var estaVivo : bool= true
-#var tiroTriplo : bool = false
+## Diz se é permitido usar o [AtaqueComp]
 var podeAtirar : bool = true
-#var misselExplosivo: bool = false
-var componenteAtaque: Node
-var powerUpId : String
-var barraEnergia : int = 40
+## Diz se é permitido utilizar o [PowerUpComp]
+var podePowerUp : bool = true
+## Componente responsável por controlar o ataque principal
+@onready var componenteAtaque: AtaqueComp = $AtaqueComponente
+## PowerUp atual do jogador
+var powerUp : String
+## Quantidade de energia do jogador
+@onready var GlobalReference = get_node("/root/GlobalValues")
+
+var temEscudo : bool = false
 
 func _ready():
-	$VidaComponente.connect("Morto", self.is_vivo)
+	$VidaComponente.connect("Morto", self.not_vivo)
 	pass
 	
-func setPowerUp(powerUpId: String):
-	powerUpId = powerUpId
-	$PowerUpComponente.setPowerUp(powerUpId)
+## Função responsável por definir o powerup do jogador
+func setPowerUp(powerUpId: String) -> void:
+	powerUp = powerUpId
+	$PowerUpComponente.setPowerUp(powerUp)
 
 func _physics_process(_delta):
 	var directionX = Input.get_axis("esq", "dir")	
@@ -54,44 +71,35 @@ func _physics_process(_delta):
 		get_tree().change_scene_to_file("res://UI/DeathMenu.tscn")
 	
 	if Input.is_action_pressed("tiro") and podeAtirar:
-		get_node("AtaqueComponente").Ataque(position.x,position.y)
-		#if misselExplosivo:
-		#	componenteAtaque = get_node("MisselComponente")
-		#else:	
-		#	componenteAtaque = get_node("AtaqueComponente")
-		#componenteAtaque.Ataque(position.x,position.y)
-		#if tiroTriplo:
-		#	componenteAtaque.Ataque(position.x+10,position.y)
-		#	componenteAtaque.Ataque(position.x-10,position.y)
-			
+		if GlobalReference.barraEnergia <10:
+			componenteAtaque.Ataque(position.x,position.y)
+		elif GlobalReference.barraEnergia <30:
+			componenteAtaque.Ataque(position.x + 8, position.y)
+			componenteAtaque.Ataque(position.x - 8, position.y)
+		else:
+			componenteAtaque.Ataque(position.x, position.y)
+			componenteAtaque.Ataque(position.x + 10, position.y)
+			componenteAtaque.Ataque(position.x - 10, position.y)
 		podeAtirar = false
 		$AtaqueDelay.start()
-	if Input.is_action_pressed("power"):
-		$PowerUpComponente.Action(position.x,position.y)
-	
-	
+	if Input.is_action_pressed("power") and podePowerUp:
+		if powerUp == "Escudo":
+			$VidaComponente.alterar_escudo()
+			Escudo.show()
+		$PowerUpComponente.Action(position.x,position.y,_delta)
+		$PowerUpDelay.start()
+		podePowerUp = false
+		
 	position = position.clamp(Vector2(8, 8), screensize-Vector2(8, 8))
 	pass
 
-func _on_ataque_delay_timeout():
+## Delay do tiro
+func _on_ataque_delay_timeout() -> void:
 	podeAtirar = true
-
-#func _power_up(id: int) -> void:
-	#if id == 0:
-		#tiroTriplo = true
-		#$TiroTriploDelay.start()
-	#elif id == 2:
-		#misselExplosivo = true
-		#$MisselExplosivoDelay.start()
-	#pass
-
-func is_vivo():
+	
+## Matar o jogador
+func not_vivo() -> void:
 	estaVivo = false
-
-
-#func _on_tiro_triplo_delay_timeout():
-	#tiroTriplo = false
-#
-#
-#func _on_missel_explosivo_delay_timeout():
-	#misselExplosivo = false
+## Delay do powerup
+func _on_power_up_delay_timeout() -> void:
+	podePowerUp = true
