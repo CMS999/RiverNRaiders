@@ -29,7 +29,7 @@ var pode_atirar: bool = true
 func _ready():
 	$Animações.flip_h = true
 	Alvo = GlobalReference.JogadorRef
-	$VidaComp.connect("Morto", self.Morrer)
+	$VidaComp.connect("Morto", self.morrer)
 	$Timer.connect("timeout", self._on_timer_timeout)
 	$Hurtbox.connect("area_entered", self._on_area_entered)
 	$fire_timer.connect("timeout", self._on_timer_timeout)
