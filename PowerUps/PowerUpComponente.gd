@@ -4,24 +4,38 @@ class_name PowerUpComp
 
 ## Define o projétil a ser atirado
 @export var projetil : PackedScene
+## Guarda o powerup escolhido nesta fase, armazenado em texto para facilitar entendimento do código
 var powerUp : String
+## Guarda o gasto de energia do powerup
+var gasto : int
+## Referência à valores utilizados em várias porções do código
+@onready var GlobalReference = get_node("/root/GlobalValues")
 
-func setPowerUp(powerUpId: String):
+## Função que recebe o powerup do jogador como string, e inicializa os valores associados a ele corretamente
+func setPowerUp(powerUpId: String) -> void:
 	powerUp = powerUpId
-	if powerUp == "SuperMissil":
-		projetil = preload("res://Projeteis/Jogador/Missel.tscn")
-	elif powerUp == "TiroTriplo":
-		projetil = preload("res://Projeteis/Jogador/TiroTriplo.tscn")
+	match powerUp:
+		"SuperMissil":
+			projetil = preload("res://Projeteis/Jogador/Missel.tscn")
+			gasto = 3
+		"TiroMulti":
+			projetil = preload("res://Projeteis/Jogador/TiroMultiDirecional.tscn")
+			gasto = 4
+		"Escudo":
+			gasto = 2
 		
-
-func Action(PositionX: float, PositionY: float) -> void:
+##
+func Action(PositionX: float, PositionY: float, _delta) -> void:
+	if GlobalReference.barraEnergia <= 0:
+		return
 	if powerUp == "Escudo":
+		GlobalReference.barraEnergia -= gasto * _delta
 		pass
 	else:
+		GlobalReference.barraEnergia -= gasto
 		Ataque(PositionX,PositionY)
 
-func Ataque(PositionX: float, PositionY: float):
-	print(projetil)
+func Ataque(PositionX: float, PositionY: float) -> void:
 	var bullet = projetil.instantiate()
 	var PositionGlobal : Vector2
 	PositionGlobal.x = PositionX

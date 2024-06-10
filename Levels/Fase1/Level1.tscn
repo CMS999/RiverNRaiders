@@ -19,7 +19,9 @@ texture = ExtResource("2_431nf")
 0:1/0 = 0
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_frqny"]
+
 scenes/1/scene = ExtResource("3_c1w20")
+
 
 [sub_resource type="TileSet" id="TileSet_he8v7"]
 sources/0 = SubResource("TileSetAtlasSource_jojvn")
@@ -274,12 +276,14 @@ Curvas = Array[ExtResource("9_isg8f")]([SubResource("Resource_4hqq3")])
 [node name="Wave5" type="Node" parent="Waves" index="6" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("7_xr66o")
 Inimigos = Array[PackedScene]([ExtResource("8_bhyql"), ExtResource("8_bhyql")])
+
 Quantidade = Array[int]([2, 2])
 LocalizacaoSpawn = [NodePath("../../Paths/Path5"), NodePath("../../Paths/Path6")]
 SpawnTime = 25
 Curvas = Array[ExtResource("9_isg8f")]([SubResource("Resource_s7puq"), SubResource("Resource_y1oms"), SubResource("Resource_4tuor"), SubResource("Resource_2s50j")])
 
 [node name="Paths" type="Node2D" parent="." index="4"]
+
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Paths" index="0"]
 visible = false
@@ -288,6 +292,7 @@ rotation = 1.2153
 progress = 178.503
 
 [node name="Helicoptero" parent="Paths/PathFollow2D" index="0" instance=ExtResource("8_bhyql")]
+
 
 [node name="Path1" type="Path2D" parent="Paths" index="1"]
 curve = SubResource("Curve2D_k2ws3")
@@ -323,11 +328,13 @@ visible = false
 [node name="Path1" type="Path2D" parent="MisseisPath" index="0"]
 curve = SubResource("Curve2D_pj2s8")
 
+
 [node name="Path2" type="Path2D" parent="MisseisPath" index="1"]
 curve = SubResource("Curve2D_h24p6")
 
 [node name="Path3" type="Path2D" parent="MisseisPath" index="2"]
 curve = SubResource("Curve2D_vfv4h")
+
 
 [node name="Path4" type="Path2D" parent="MisseisPath" index="3"]
 curve = SubResource("Curve2D_pk2kb")
@@ -364,6 +371,7 @@ curve = SubResource("Curve2D_rarfj")
 
 [node name="Path15" type="Path2D" parent="MisseisPath" index="14"]
 curve = SubResource("Curve2D_f0x2u")
+
 
 [node name="Path16" type="Path2D" parent="MisseisPath" index="15"]
 curve = SubResource("Curve2D_ev033")

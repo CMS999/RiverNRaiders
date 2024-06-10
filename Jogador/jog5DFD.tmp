@@ -83,7 +83,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tnthg"]
-size = Vector2(16, 14)
+size = Vector2(32, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rfkgr"]
 atlas = ExtResource("9_ic1pu")
@@ -135,6 +135,7 @@ wait_time = 0.1
 wait_time = 0.1
 
 [node name="Animação" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nqx4h")
 animation = &"idle"
 
@@ -146,13 +147,11 @@ projetil = ExtResource("4_ou11i")
 
 [node name="VidaComponente" parent="." instance=ExtResource("2_8u40v")]
 
-VidaMaxima = 10000
-
 [node name="HurtboxComponente" parent="." node_paths=PackedStringArray("Vida") instance=ExtResource("3_fhkuy")]
 Vida = NodePath("../VidaComponente")
 
 [node name="Hurtbox2D" type="CollisionShape2D" parent="HurtboxComponente"]
-position = Vector2(0, -1)
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_tnthg")
 
 [node name="escudo" type="AnimatedSprite2D" parent="."]
