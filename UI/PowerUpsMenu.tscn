@@ -18,34 +18,50 @@ script = ExtResource("1_rdt5x")
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 639.0
-offset_bottom = 318.0
+offset_bottom = 358.0
+scale = Vector2(0.5, 0.5)
 color = Color(0.368627, 0.32549, 0.709804, 1)
 
 [node name="Nome" type="Label" parent="."]
 layout_mode = 0
-offset_left = 216.0
-offset_top = 9.0
-offset_right = 518.0
-offset_bottom = 172.0
+offset_left = 107.0
+offset_top = 12.0
+offset_right = 409.0
+offset_bottom = 175.0
+scale = Vector2(0.7, 0.7)
 text = "Power Ups"
 label_settings = SubResource("LabelSettings_aidb3")
 
 [node name="Super Missil" type="Button" parent="."]
-offset_left = 334.0
-offset_top = 75.0
-offset_right = 388.0
-offset_bottom = 129.0
+layout_mode = 0
+offset_left = 201.0
+offset_top = 59.0
+offset_right = 255.0
+offset_bottom = 113.0
+scale = Vector2(0.7, 0.7)
 text = "Super 
 Missil"
 
 [node name="Tiro triplo" type="Button" parent="."]
 layout_mode = 0
-offset_left = 234.0
-offset_top = 75.0
-offset_right = 288.0
-offset_bottom = 129.0
-text = "Tiro 
-Triplo"
+offset_left = 100.0
+offset_top = 58.0
+offset_right = 154.0
+offset_bottom = 112.0
+scale = Vector2(0.7, 0.7)
+text = "Tiro Multi
+Direcional"
+
+[node name="Escudo" type="Button" parent="."]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 105.0
+offset_right = 226.0
+offset_bottom = 159.0
+scale = Vector2(0.7, 0.7)
+text = "Escudo
+"
 
 [connection signal="pressed" from="Super Missil" to="." method="_on_super_missil_pressed"]
 [connection signal="pressed" from="Tiro triplo" to="." method="_on_tiro_triplo_pressed"]
+[connection signal="pressed" from="Escudo" to="." method="_on_escudo_pressed"]

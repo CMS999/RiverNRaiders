@@ -3,7 +3,7 @@ extends Control
 @onready var GlobalReference = get_node("/root/GlobalValues")
 
 func _ready():
-	$ValoresIniciais/VidasIniciais/VidaSlider.value = GlobalReference.VidasInicias
+	$ValoresIniciais/VidasIniciais/VidaSlider.value = GlobalReference.VidasIniciais
 	pass 
 
 func _on_level_1_pressed():
@@ -19,5 +19,5 @@ func _on_level_3_pressed():
 	pass 
 
 func _on_h_slider_value_changed(value:int):
-	GlobalReference.VidasInicias = value
+	GlobalReference.VidasIniciais = value
 	pass

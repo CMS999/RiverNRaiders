@@ -66,7 +66,6 @@ projetil = ExtResource("3_wggqa")
 [node name="VidaComp" parent="." instance=ExtResource("2_ygkf2")]
 light_mask = 2
 visibility_layer = 2
-VidaMaxima = 1
 
 [node name="Hitbox" parent="." node_paths=PackedStringArray("Vida") instance=ExtResource("2_6qk0o")]
 collision_layer = 2

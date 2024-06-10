@@ -22,3 +22,9 @@ func _on_super_missil_pressed():
 	GlobalReference.PowerUpAtual = GlobalReference.PowerUps[2]
 	get_tree().change_scene_to_file(GlobalReference.FaseInicial.get_path())
 	pass # Replace with function body.
+
+
+func _on_escudo_pressed():
+	GlobalReference.PowerUpAtual = GlobalReference.PowerUps[3]
+	get_tree().change_scene_to_file(GlobalReference.FaseInicial.get_path())
+	pass # Replace with function body.
