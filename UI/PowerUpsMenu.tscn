@@ -16,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_rdt5x")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+
 layout_mode = 0
 offset_right = 639.0
 offset_bottom = 358.0
@@ -29,21 +30,27 @@ offset_top = 12.0
 offset_right = 409.0
 offset_bottom = 175.0
 scale = Vector2(0.7, 0.7)
+
 text = "Power Ups"
 label_settings = SubResource("LabelSettings_aidb3")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Super Missil" type="Button" parent="."]
 layout_mode = 0
+
 offset_left = 201.0
 offset_top = 59.0
 offset_right = 255.0
 offset_bottom = 113.0
 scale = Vector2(0.7, 0.7)
+
 text = "Super 
 Missil"
 
 [node name="Tiro triplo" type="Button" parent="."]
 layout_mode = 0
+
 offset_left = 100.0
 offset_top = 58.0
 offset_right = 154.0
@@ -59,8 +66,8 @@ offset_top = 105.0
 offset_right = 226.0
 offset_bottom = 159.0
 scale = Vector2(0.7, 0.7)
-text = "Escudo
-"
+text = "Escudo"
+
 
 [connection signal="pressed" from="Super Missil" to="." method="_on_super_missil_pressed"]
 [connection signal="pressed" from="Tiro triplo" to="." method="_on_tiro_triplo_pressed"]
