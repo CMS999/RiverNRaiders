@@ -1,19 +1,21 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhjkebjpe3xda"]
 
-[ext_resource type="PackedScene" path="res://Componentes/Projeteis/ProjetilComponente.tscn" id="1_7hu44"]
-[ext_resource type="Script" path="res://Projeteis/Inimigos/AtaqueHeli.gd" id="2_525ar"]
-[ext_resource type="Texture2D" uid="uid://dba56q076dj0e" path="res://Assets/tiro_alien.png" id="3_fm1r5"]
+[ext_resource type="PackedScene" uid="uid://ch5g7prg3kl8w" path="res://Componentes/Projeteis/ProjetilComponente.tscn" id="1_7hu44"]
+[ext_resource type="Script" path="res://Componentes/Personagens/AtaqueInimigo.gd" id="2_tcy7s"]
+[ext_resource type="Texture2D" uid="uid://kdub8xxkwomi" path="res://Assets/TiroAlien.png" id="3_hm6gh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8sd8"]
-size = Vector2(8, 8)
+size = Vector2(6, 8)
 
 [node name="AtaqueAlien" type="Node2D"]
 
 [node name="TipoBala" parent="." instance=ExtResource("1_7hu44")]
-script = ExtResource("2_525ar")
+script = ExtResource("2_tcy7s")
+fire_rate = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="TipoBala"]
-texture = ExtResource("3_fm1r5")
+texture = ExtResource("3_hm6gh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TipoBala"]
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_q8sd8")

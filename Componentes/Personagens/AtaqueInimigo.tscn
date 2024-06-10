@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxow7anr37vi"]
+
+[ext_resource type="PackedScene" uid="uid://ch5g7prg3kl8w" path="res://Componentes/Projeteis/ProjetilComponente.tscn" id="1_opicm"]
+[ext_resource type="Script" path="res://Projeteis/Inimigos/AtaqueHeli.gd" id="2_j07yh"]
+[ext_resource type="Texture2D" uid="uid://drt0amwaj556e" path="res://Assets/tiro.png" id="3_eaxoy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcv0b"]
+size = Vector2(8, 8)
+
+[node name="TipoBala" instance=ExtResource("1_opicm")]
+script = ExtResource("2_j07yh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_eaxoy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_gcv0b")
