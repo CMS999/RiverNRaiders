@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkp0npykwdeqd"]
+
+[ext_resource type="Script" path="res://Projeteis/Inimigos/AtaqueAviao.gd" id="1_rwqg8"]
+[ext_resource type="Texture2D" uid="uid://d1301q5sk7137" path="res://Assets/Tiroaviao.png" id="2_24xxm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kctk"]
+size = Vector2(6, 8)
+
+[node name="AtaqueAviao" type="Area2D"]
+script = ExtResource("1_rwqg8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_24xxm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_2kctk")
