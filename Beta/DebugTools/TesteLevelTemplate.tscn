@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://csgheeiow73if"]
+
+[ext_resource type="PackedScene" uid="uid://c04oxgamiy7td" path="res://Componentes/Levels/Level.tscn" id="1_63noi"]
+[ext_resource type="Script" path="res://Beta/DebugTools/TesteLevelTemplate.gd" id="2_4ym8p"]
+[ext_resource type="PackedScene" uid="uid://cc5cjso4rewoc" path="res://Jogador/jogador.tscn" id="3_nrulj"]
+[ext_resource type="Texture2D" uid="uid://kofslmmwwm8k" path="res://Assets/pixel-16x32.png" id="4_v206s"]
+[ext_resource type="Script" path="res://Componentes/Levels/Mundo.gd" id="5_6vgek"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_0siec"]
+tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 655360, 0, 0, 720896, 0, 0, 1, 0, 0, 720897, 0, 0, 327689, 0, 1, 393225, 0, 1, 327690, 0, 1, 393226, 0, 1, 18, 0, 0, 720914, 0, 0, 19, 0, 0, 65555, 0, 0, 655379, 0, 0, 720915, 0, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mf7y3"]
+texture = ExtResource("4_v206s")
+0:0/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wppkp"]
+sources/0 = SubResource("TileSetAtlasSource_mf7y3")
+pattern_0 = SubResource("TileMapPattern_0siec")
+
+[node name="TesteLevel" node_paths=PackedStringArray("MundoDaFase", "Jogador1") instance=ExtResource("1_63noi")]
+script = ExtResource("2_4ym8p")
+JogadorHitBox = true
+JogadorVida = 10
+JogadorSpeed = 150
+MundoDaFase = NodePath("Mundo")
+Jogador1 = NodePath("Jogador")
+
+[node name="Mundo" type="TileMap" parent="." index="1"]
+tile_set = SubResource("TileSet_wppkp")
+format = 2
+layer_0/tile_data = PackedInt32Array(655360, 0, 0, 720896, 0, 0, 720897, 0, 0, 0, 0, 0, 65536, 0, 0, 1, 0, 0, 19, 0, 0, 18, 0, 0, 65555, 0, 0, 655379, 0, 0, 720915, 0, 0, 720914, 0, 0, 327689, 0, 1, 393225, 0, 1, 393226, 0, 1, 327690, 0, 1)
+script = ExtResource("5_6vgek")
+GeracaoDeChunk = 1
+TamanhoDoMundo = 99
+
+[node name="Jogador" parent="." index="2" instance=ExtResource("3_nrulj")]
+position = Vector2(160, 160)

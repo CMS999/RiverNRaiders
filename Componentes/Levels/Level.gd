@@ -2,6 +2,8 @@ extends Node2D
 ## Define métodos e atributos padrões para construção de fases.
 class_name Level
 
+var PrimeiroFrame := true
+
 @onready var GlobalReference = get_node("/root/GlobalValues")
 @export var MundoDaFase : Mundo
 @export var Jogador1 : Jogador
@@ -13,8 +15,14 @@ func _ready():
 	if Jogador1:
 		GlobalReference.JogadorRef = Jogador1
 		Jogador1.setPowerUp(GlobalReference.PowerUpAtual)
-		
+
+func _process(_delta):
+	if PrimeiroFrame:
+		OnPrimeiroFrame()
+
+func OnPrimeiroFrame():
 	CriarParticulas()
+	PrimeiroFrame = false
 
 func _unhandled_input(event):
 	if event.is_action_pressed("Pausar"):

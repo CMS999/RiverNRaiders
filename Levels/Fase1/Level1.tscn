@@ -19,9 +19,7 @@ texture = ExtResource("2_431nf")
 0:1/0 = 0
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_frqny"]
-
 scenes/1/scene = ExtResource("3_c1w20")
-
 
 [sub_resource type="TileSet" id="TileSet_he8v7"]
 sources/0 = SubResource("TileSetAtlasSource_jojvn")
@@ -229,10 +227,10 @@ Jogador1 = NodePath("Jogador")
 [node name="Mundo" type="TileMap" parent="." index="1"]
 tile_set = SubResource("TileSet_he8v7")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 1, 0, 0, 655360, 0, 1, 720896, 0, 0, 720897, 0, 0, 655379, 0, 1, 720915, 0, 0, 720914, 0, 0, 18, 0, 0, 19, 0, 0, 65555, 0, 0, 327689, 0, 1, 393225, 0, 1, 393226, 0, 1, 327690, 0, 1, 655361, 0, 1, 655362, 0, 1, 655363, 0, 1, 655364, 0, 1, 655365, 0, 1, 655366, 0, 1, 655367, 0, 1, 655368, 0, 1, 655369, 0, 1, 655370, 0, 1, 655371, 0, 1, 655372, 0, 1, 655373, 0, 1, 655374, 0, 1, 655375, 0, 1, 655376, 0, 1, 655377, 0, 1, 655378, 0, 1)
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 1, 0, 0, 720896, 0, 0, 720897, 0, 0, 720915, 0, 0, 720914, 0, 0, 18, 0, 0, 19, 0, 0, 65555, 0, 0, 327689, 0, 1, 393225, 0, 1, 393226, 0, 1, 327690, 0, 1, 655360, 0, 0, 655379, 0, 0)
 script = ExtResource("5_ytkfg")
 GeracaoDeChunk = 1
-TamanhoDoMundo = 23
+TamanhoDoMundo = 30
 
 [node name="Jogador" parent="." index="2" instance=ExtResource("5_j8pba")]
 position = Vector2(160, 158)
@@ -276,7 +274,6 @@ Curvas = Array[ExtResource("9_isg8f")]([SubResource("Resource_4hqq3")])
 [node name="Wave5" type="Node" parent="Waves" index="6" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("7_xr66o")
 Inimigos = Array[PackedScene]([ExtResource("8_bhyql"), ExtResource("8_bhyql")])
-
 Quantidade = Array[int]([2, 2])
 LocalizacaoSpawn = [NodePath("../../Paths/Path5"), NodePath("../../Paths/Path6")]
 SpawnTime = 25
@@ -284,41 +281,31 @@ Curvas = Array[ExtResource("9_isg8f")]([SubResource("Resource_s7puq"), SubResour
 
 [node name="Paths" type="Node2D" parent="." index="4"]
 
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Paths" index="0"]
-visible = false
-position = Vector2(119.046, 54.6573)
-rotation = 1.2153
-progress = 178.503
-
-[node name="Helicoptero" parent="Paths/PathFollow2D" index="0" instance=ExtResource("8_bhyql")]
-
-
-[node name="Path1" type="Path2D" parent="Paths" index="1"]
+[node name="Path1" type="Path2D" parent="Paths" index="0"]
 curve = SubResource("Curve2D_k2ws3")
 
-[node name="Path2" type="Path2D" parent="Paths" index="2"]
+[node name="Path2" type="Path2D" parent="Paths" index="1"]
 position = Vector2(320, 0)
 curve = SubResource("Curve2D_in6eu")
 
-[node name="Path3" type="Path2D" parent="Paths" index="3"]
+[node name="Path3" type="Path2D" parent="Paths" index="2"]
 curve = SubResource("Curve2D_34sad")
 
-[node name="Path4" type="Path2D" parent="Paths" index="4"]
+[node name="Path4" type="Path2D" parent="Paths" index="3"]
 position = Vector2(320, 0)
 curve = SubResource("Curve2D_w8mr0")
 
-[node name="Path5" type="Path2D" parent="Paths" index="5"]
+[node name="Path5" type="Path2D" parent="Paths" index="4"]
 curve = SubResource("Curve2D_avb1u")
 
-[node name="Path6" type="Path2D" parent="Paths" index="6"]
+[node name="Path6" type="Path2D" parent="Paths" index="5"]
 position = Vector2(320, 0)
 curve = SubResource("Curve2D_2iiq4")
 
-[node name="Path7" type="Path2D" parent="Paths" index="7"]
+[node name="Path7" type="Path2D" parent="Paths" index="6"]
 curve = SubResource("Curve2D_134ov")
 
-[node name="Path8" type="Path2D" parent="Paths" index="8"]
+[node name="Path8" type="Path2D" parent="Paths" index="7"]
 position = Vector2(320, 0)
 curve = SubResource("Curve2D_3mcn7")
 
@@ -328,13 +315,11 @@ visible = false
 [node name="Path1" type="Path2D" parent="MisseisPath" index="0"]
 curve = SubResource("Curve2D_pj2s8")
 
-
 [node name="Path2" type="Path2D" parent="MisseisPath" index="1"]
 curve = SubResource("Curve2D_h24p6")
 
 [node name="Path3" type="Path2D" parent="MisseisPath" index="2"]
 curve = SubResource("Curve2D_vfv4h")
-
 
 [node name="Path4" type="Path2D" parent="MisseisPath" index="3"]
 curve = SubResource("Curve2D_pk2kb")
@@ -372,11 +357,5 @@ curve = SubResource("Curve2D_rarfj")
 [node name="Path15" type="Path2D" parent="MisseisPath" index="14"]
 curve = SubResource("Curve2D_f0x2u")
 
-
 [node name="Path16" type="Path2D" parent="MisseisPath" index="15"]
 curve = SubResource("Curve2D_ev033")
-
-[node name="ColorRect" type="ColorRect" parent="." index="6"]
-offset_top = 170.0
-offset_right = 320.0
-offset_bottom = 180.0
