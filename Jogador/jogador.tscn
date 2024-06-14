@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bkltef67bey07" path="res://Componentes/Personagens/HurtboxComponente.tscn" id="3_fhkuy"]
 [ext_resource type="PackedScene" uid="uid://gqi0hrxjam48" path="res://Projeteis/Jogador/AtaqueBase.tscn" id="4_ou11i"]
 [ext_resource type="Script" path="res://PowerUps/PowerUpComponente.gd" id="4_uli4u"]
-[ext_resource type="PackedScene" uid="uid://co2apu3u085py" path="res://Componentes/Projeteis/AtaqueComponente.tscn" id="5_5we8r"]
 [ext_resource type="Texture2D" uid="uid://juegn6or138" path="res://icon.svg" id="9_ic1pu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tdck"]
@@ -122,6 +121,7 @@ animations = [{
 }]
 
 [node name="Jogador" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 motion_mode = 1
 script = ExtResource("1_5cmx2")
 
@@ -140,10 +140,11 @@ animation = &"idle"
 [node name="PowerUpComponente" type="Node2D" parent="."]
 script = ExtResource("4_uli4u")
 
-[node name="AtaqueComponente" parent="." instance=ExtResource("5_5we8r")]
+[node name="AtaqueComponente" parent="." instance=ExtResource("4_nmp20")]
 projetil = ExtResource("4_ou11i")
 
 [node name="VidaComponente" parent="." instance=ExtResource("2_8u40v")]
+
 VidaMaxima = 10000
 
 [node name="HurtboxComponente" parent="." node_paths=PackedStringArray("Vida") instance=ExtResource("3_fhkuy")]
