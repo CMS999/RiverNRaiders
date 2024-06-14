@@ -21,6 +21,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func _on_area_entered(area:Area2D):
 	if area is HitboxComp:
 		area.Hit(Dano)
+		queue_free()
 	pass
 
 

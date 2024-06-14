@@ -108,6 +108,7 @@ projetil = ExtResource("3_wggqa")
 [node name="VidaComp" parent="." instance=ExtResource("2_ygkf2")]
 light_mask = 2
 visibility_layer = 2
+VidaMaxima = 1
 
 [node name="HitboxComp" parent="." node_paths=PackedStringArray("Vida") instance=ExtResource("2_6qk0o")]
 collision_layer = 2
@@ -120,6 +121,7 @@ visibility_layer = 2
 shape = SubResource("RectangleShape2D_ja5y6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
 sprite_frames = SubResource("SpriteFrames_icg1f")
 animation = &"morte"
 autoplay = "flight"

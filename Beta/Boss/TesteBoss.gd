@@ -1,5 +1,5 @@
-extends PathFollow2D
-
+extends Level
+var flag := true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,6 +8,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	progress_ratio += delta * 0.195
-	#("Path:",position)
+	if flag:
+		GlobalReference.JogadorRef = Jogador1
+		CriarParticulas()
+		flag = false
 	pass
