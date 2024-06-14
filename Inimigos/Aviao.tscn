@@ -1,108 +1,110 @@
-[gd_scene load_steps=17 format=3 uid="uid://boognjsvmgw40"]
+[gd_scene load_steps=18 format=3 uid="uid://bvs3jq8m5tb5t"]
 
-[ext_resource type="Script" path="res://Componentes/Personagens/AtaqueComponente.gd" id="1_f46ci"]
-[ext_resource type="Script" path="res://Componentes/Personagens/Inimigo.gd" id="1_icg74"]
-[ext_resource type="Script" path="res://Componentes/Personagens/VidaComponente.gd" id="2_wx75r"]
-[ext_resource type="Script" path="res://Componentes/Personagens/HurtboxComponente.gd" id="3_habxc"]
-[ext_resource type="Texture2D" uid="uid://cgd8t3n6rxwhk" path="res://Assets/Tailmap.png" id="5_mwh0n"]
+[ext_resource type="Script" path="res://Componentes/Personagens/Inimigo.gd" id="1_8tukc"]
+[ext_resource type="Script" path="res://Componentes/Projeteis/AtaqueComponente.gd" id="2_uqcgm"]
+[ext_resource type="Script" path="res://Componentes/Personagens/VidaComponente.gd" id="3_bdsys"]
+[ext_resource type="PackedScene" uid="uid://bkp0npykwdeqd" path="res://Projeteis/Inimigos/AtaqueAviao.tscn" id="3_okpfh"]
+[ext_resource type="Script" path="res://Componentes/Personagens/HurtboxComponente.gd" id="4_o0thc"]
+[ext_resource type="Texture2D" uid="uid://boh6c8ueesotv" path="res://Assets/Ship-TEST.png" id="5_6xf0q"]
+[ext_resource type="Texture2D" uid="uid://cgd8t3n6rxwhk" path="res://Assets/Tailmap.png" id="5_tipyo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aeqxs"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpbe3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y4epf"]
-atlas = ExtResource("5_mwh0n")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fndvn"]
+atlas = ExtResource("5_6xf0q")
+region = Rect2(15, 0, 15, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dmm8l"]
-atlas = ExtResource("5_mwh0n")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_peotc"]
-atlas = ExtResource("5_mwh0n")
+[sub_resource type="AtlasTexture" id="AtlasTexture_btdkj"]
+atlas = ExtResource("5_tipyo")
 region = Rect2(32, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e5t6r"]
-atlas = ExtResource("5_mwh0n")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ontf"]
+atlas = ExtResource("5_tipyo")
 region = Rect2(48, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fq0ek"]
-atlas = ExtResource("5_mwh0n")
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7x3h"]
+atlas = ExtResource("5_tipyo")
 region = Rect2(64, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0uvg7"]
-atlas = ExtResource("5_mwh0n")
+[sub_resource type="AtlasTexture" id="AtlasTexture_24yxx"]
+atlas = ExtResource("5_tipyo")
 region = Rect2(80, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4hcc1"]
-atlas = ExtResource("5_mwh0n")
+[sub_resource type="AtlasTexture" id="AtlasTexture_28o5g"]
+atlas = ExtResource("5_tipyo")
 region = Rect2(96, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_des15"]
-atlas = ExtResource("5_mwh0n")
+[sub_resource type="AtlasTexture" id="AtlasTexture_38ego"]
+atlas = ExtResource("5_tipyo")
 region = Rect2(112, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u70xy"]
-atlas = ExtResource("5_mwh0n")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dx0nw"]
+atlas = ExtResource("5_tipyo")
 region = Rect2(128, 16, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_qhnsw"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_twowa"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y4epf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dmm8l")
+"texture": SubResource("AtlasTexture_fndvn")
 }],
 "loop": true,
 "name": &"default",
-"speed": 8.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_peotc")
+"texture": SubResource("AtlasTexture_btdkj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e5t6r")
+"texture": SubResource("AtlasTexture_3ontf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fq0ek")
+"texture": SubResource("AtlasTexture_q7x3h")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0uvg7")
+"texture": SubResource("AtlasTexture_24yxx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4hcc1")
+"texture": SubResource("AtlasTexture_28o5g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_des15")
+"texture": SubResource("AtlasTexture_38ego")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u70xy")
+"texture": SubResource("AtlasTexture_dx0nw")
 }],
 "loop": true,
 "name": &"morte",
-"speed": 6.0
+"speed": 3.0
 }]
 
 [node name="Aviao" type="Node2D"]
-script = ExtResource("1_icg74")
-velocidade = 0.22
-fire_rate = 0.95
+script = ExtResource("1_8tukc")
+vida = 2
+velocidade = 0.18
+fire_rate = 0.8
 
 [node name="Timer" type="Timer" parent="."]
-autostart = true
 
 [node name="AtaqueComp" type="Node2D" parent="."]
-script = ExtResource("1_f46ci")
+script = ExtResource("2_uqcgm")
+projetil = ExtResource("3_okpfh")
 
 [node name="VidaComp" type="Node2D" parent="."]
-script = ExtResource("2_wx75r")
+script = ExtResource("3_bdsys")
 
-[node name="HitboxComp" type="Area2D" parent="."]
-script = ExtResource("3_habxc")
+[node name="HitboxComp" type="Area2D" parent="." node_paths=PackedStringArray("Vida")]
+script = ExtResource("4_o0thc")
+Vida = NodePath("../VidaComp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComp"]
-shape = SubResource("RectangleShape2D_aeqxs")
+shape = SubResource("RectangleShape2D_hpbe3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_qhnsw")
+sprite_frames = SubResource("SpriteFrames_twowa")
+animation = &"morte"
+speed_scale = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

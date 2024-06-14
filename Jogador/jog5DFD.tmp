@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://1iqtcsekf216" path="res://Componentes/Personagens/VidaComponente.tscn" id="2_8u40v"]
 [ext_resource type="Texture2D" uid="uid://b83ghxm0u5bq2" path="res://Assets/sprite alien.png" id="3_dbr1l"]
 [ext_resource type="PackedScene" uid="uid://bkltef67bey07" path="res://Componentes/Personagens/HurtboxComponente.tscn" id="3_fhkuy"]
+[ext_resource type="PackedScene" uid="uid://b34jet1tydsdr" path="res://Componentes/Personagens/AtaqueComponente.tscn" id="4_nmp20"]
 [ext_resource type="PackedScene" uid="uid://gqi0hrxjam48" path="res://Projeteis/Jogador/AtaqueBase.tscn" id="4_ou11i"]
 [ext_resource type="Script" path="res://PowerUps/PowerUpComponente.gd" id="4_uli4u"]
-[ext_resource type="PackedScene" uid="uid://co2apu3u085py" path="res://Componentes/Projeteis/AtaqueComponente.tscn" id="5_5we8r"]
 [ext_resource type="Texture2D" uid="uid://juegn6or138" path="res://icon.svg" id="9_ic1pu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tdck"]
@@ -83,7 +83,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tnthg"]
-size = Vector2(16, 14)
+size = Vector2(32, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rfkgr"]
 atlas = ExtResource("9_ic1pu")
@@ -122,6 +122,7 @@ animations = [{
 }]
 
 [node name="Jogador" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 motion_mode = 1
 script = ExtResource("1_5cmx2")
 
@@ -134,23 +135,23 @@ wait_time = 0.1
 wait_time = 0.1
 
 [node name="Animação" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nqx4h")
 animation = &"idle"
 
 [node name="PowerUpComponente" type="Node2D" parent="."]
 script = ExtResource("4_uli4u")
 
-[node name="AtaqueComponente" parent="." instance=ExtResource("5_5we8r")]
+[node name="AtaqueComponente" parent="." instance=ExtResource("4_nmp20")]
 projetil = ExtResource("4_ou11i")
 
 [node name="VidaComponente" parent="." instance=ExtResource("2_8u40v")]
-VidaMaxima = 10000
 
 [node name="HurtboxComponente" parent="." node_paths=PackedStringArray("Vida") instance=ExtResource("3_fhkuy")]
 Vida = NodePath("../VidaComponente")
 
 [node name="Hurtbox2D" type="CollisionShape2D" parent="HurtboxComponente"]
-position = Vector2(0, -1)
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_tnthg")
 
 [node name="escudo" type="AnimatedSprite2D" parent="."]

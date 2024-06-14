@@ -116,6 +116,7 @@ position = Vector2(2.27374e-13, 2.27374e-13)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_6mr68")
 animation = &"explosão"
+frame_progress = 0.564819
 
 [node name="ExplosaoTimer" type="Timer" parent="." index="3"]
 wait_time = 0.5
