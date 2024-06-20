@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bkltef67bey07" path="res://Componentes/Personagens/HurtboxComponente.tscn" id="3_fhkuy"]
 [ext_resource type="PackedScene" uid="uid://gqi0hrxjam48" path="res://Projeteis/Jogador/AtaqueBase.tscn" id="4_ou11i"]
 [ext_resource type="Script" path="res://PowerUps/PowerUpComponente.gd" id="4_uli4u"]
-[ext_resource type="PackedScene" uid="uid://co2apu3u085py" path="res://Componentes/Projeteis/AtaqueComponente.tscn" id="5_5we8r"]
+[ext_resource type="Script" path="res://Componentes/Projeteis/AtaqueComponente.gd" id="8_kcydi"]
 [ext_resource type="Texture2D" uid="uid://juegn6or138" path="res://icon.svg" id="9_ic1pu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tdck"]
@@ -140,9 +140,6 @@ animation = &"morte"
 [node name="PowerUpComponente" type="Node2D" parent="."]
 script = ExtResource("4_uli4u")
 
-[node name="AtaqueComponente" parent="." instance=ExtResource("5_5we8r")]
-projetil = ExtResource("4_ou11i")
-
 [node name="VidaComponente" parent="." instance=ExtResource("2_8u40v")]
 VidaMaxima = 10000
 
@@ -163,6 +160,10 @@ sprite_frames = SubResource("SpriteFrames_hbdgn")
 animation = &"escudo"
 frame = 1
 frame_progress = 0.569773
+
+[node name="AtaqueComponente" type="Node2D" parent="."]
+script = ExtResource("8_kcydi")
+projetil = ExtResource("4_ou11i")
 
 [connection signal="timeout" from="AtaqueDelay" to="." method="_on_ataque_delay_timeout"]
 [connection signal="timeout" from="PowerUpDelay" to="." method="_on_power_up_delay_timeout"]

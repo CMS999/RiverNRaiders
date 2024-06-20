@@ -8,26 +8,35 @@ class_name Jogador
 
 ## Variável utilizada para ajustar o jogador na tela
 @onready var screensize = get_viewport_rect().size
+
 ## Controla as animações dos sprites
 @onready var Animações := $Animação
 @onready var Escudo := $escudo
+
 ##Estados do jogador para definir comportamento [br]
 ##[b]Parado:[/b] Não faz nada, apenas mantém a animação original. [br]
 ##[b]Morto:[/b] Estado de fim de jogo, toca animação de morte e vai para o menu de derrota. [br]
 ##[b]Movendo:[/b] Toca animações de movimento, dependendo da direção do jogador.
 enum Estado{parado,	morto, movendo}
+
 ## Estado no qual o jogador está
 var estadoAtual : Estado= Estado.parado
+
 ## Diz se o jogador está vivo
 var estaVivo : bool= true
+
 ## Diz se é permitido usar o [AtaqueComp]
 var podeAtirar : bool = true
+
 ## Diz se é permitido utilizar o [PowerUpComp]
 var podePowerUp : bool = true
+
 ## Componente responsável por controlar o ataque principal
 @onready var componenteAtaque: AtaqueComp = $AtaqueComponente
+
 ## PowerUp atual do jogador
 var powerUp : String
+
 ## Quantidade de energia do jogador
 @onready var GlobalReference = get_node("/root/GlobalValues")
 

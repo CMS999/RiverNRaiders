@@ -6,7 +6,8 @@ var Alvo := Node
 
 func _ready():
 	if global_position.x <= 320:
-		$Animações.flip_h = true
+		$Ani.flip_h = true
+	$Ani.play("flight")
 	$VidaComp.connect("Morto", self.Morrer)
 
 func _process(_delta):
