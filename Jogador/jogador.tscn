@@ -135,7 +135,7 @@ wait_time = 0.1
 
 [node name="Animação" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nqx4h")
-animation = &"idle"
+animation = &"morte"
 
 [node name="PowerUpComponente" type="Node2D" parent="."]
 script = ExtResource("4_uli4u")
