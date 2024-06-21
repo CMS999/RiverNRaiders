@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgd8t3n6rxwhk"
-path="res://.godot/imported/Tailmap.png-73e8a862c87b0c3ea306c0ce9e1811a8.ctex"
+uid="uid://dm22jrr6g2y5a"
+path="res://.godot/imported/TiroHeli.png-02fcef7679767f3cc975e6568b2222a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tailmap.png"
-dest_files=["res://.godot/imported/Tailmap.png-73e8a862c87b0c3ea306c0ce9e1811a8.ctex"]
+source_file="res://Assets/TiroHeli.png"
+dest_files=["res://.godot/imported/TiroHeli.png-02fcef7679767f3cc975e6568b2222a4.ctex"]
 
 [params]
 

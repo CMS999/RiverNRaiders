@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgd8t3n6rxwhk"
-path="res://.godot/imported/Tailmap.png-73e8a862c87b0c3ea306c0ce9e1811a8.ctex"
+uid="uid://d1301q5sk7137"
+path="res://.godot/imported/Tiroaviao.png-84432f52dd211bcc74765a6cee59ac6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tailmap.png"
-dest_files=["res://.godot/imported/Tailmap.png-73e8a862c87b0c3ea306c0ce9e1811a8.ctex"]
+source_file="res://Assets/Tiroaviao.png"
+dest_files=["res://.godot/imported/Tiroaviao.png-84432f52dd211bcc74765a6cee59ac6d.ctex"]
 
 [params]
 
