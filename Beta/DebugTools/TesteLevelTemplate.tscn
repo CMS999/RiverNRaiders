@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://csgheeiow73if"]
 
-[ext_resource type="PackedScene" uid="uid://c04oxgamiy7td" path="res://Componentes/Levels/Level.tscn" id="1_63noi"]
+[ext_resource type="PackedScene" uid="uid://mt8ip7j3xp8f" path="res://Componentes/Levels/Level.tscn" id="1_63noi"]
 [ext_resource type="Script" path="res://Beta/DebugTools/TesteLevelTemplate.gd" id="2_4ym8p"]
 [ext_resource type="PackedScene" uid="uid://cc5cjso4rewoc" path="res://Jogador/jogador.tscn" id="3_nrulj"]
 [ext_resource type="Script" path="res://Beta/DebugTools/DebugMenu.gd" id="3_p2fbp"]

@@ -11,7 +11,7 @@ var Inimigo1 = preload("res://Inimigos/Aviao.tscn")
 var Inimigo2 = preload("res://Inimigos/Helicoptero.tscn")
 
 func _ready():
-	GlobalReference.PowerUpAtual = GlobalReference.PowerUps[1]
+	#GlobalReference.PowerUpAtual = GlobalReference.PowerUps[1]
 	super()
 	SetJogador()
 		

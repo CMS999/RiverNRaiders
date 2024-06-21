@@ -1,13 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://cc5cjso4rewoc"]
+[gd_scene load_steps=22 format=3 uid="uid://cc5cjso4rewoc"]
 
 [ext_resource type="Script" path="res://Jogador/jogador.gd" id="1_5cmx2"]
 [ext_resource type="Texture2D" uid="uid://clk5ubahrsbd5" path="res://Assets/Nave-teste.png" id="1_5pu6w"]
 [ext_resource type="PackedScene" uid="uid://1iqtcsekf216" path="res://Componentes/Personagens/VidaComponente.tscn" id="2_8u40v"]
-[ext_resource type="Texture2D" uid="uid://cgd8t3n6rxwhk" path="res://Assets/Tailmap.png" id="3_elw1v"]
+[ext_resource type="Texture2D" uid="uid://b83ghxm0u5bq2" path="res://Assets/sprite alien.png" id="3_dbr1l"]
 [ext_resource type="PackedScene" uid="uid://bkltef67bey07" path="res://Componentes/Personagens/HurtboxComponente.tscn" id="3_fhkuy"]
-[ext_resource type="PackedScene" uid="uid://bfaxnr6tea2u0" path="res://Componentes/Projeteis/AtaqueComponente.tscn" id="4_n7yw1"]
 [ext_resource type="Script" path="res://PowerUps/PowerUpComponente.gd" id="4_uli4u"]
-[ext_resource type="PackedScene" uid="uid://gqi0hrxjam48" path="res://Projeteis/Jogador/AtaqueBase.tscn" id="5_dfde3"]
 [ext_resource type="Texture2D" uid="uid://juegn6or138" path="res://icon.svg" id="9_ic1pu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tdck"]
@@ -26,40 +24,16 @@ region = Rect2(16, 0, 16, 16)
 atlas = ExtResource("1_5pu6w")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_71s62"]
-atlas = ExtResource("3_elw1v")
-region = Rect2(32, 16, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hoag0"]
+atlas = ExtResource("3_dbr1l")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pgshq"]
-atlas = ExtResource("3_elw1v")
-region = Rect2(48, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1xdg5"]
-atlas = ExtResource("3_elw1v")
-region = Rect2(64, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_42d70"]
-atlas = ExtResource("3_elw1v")
-region = Rect2(80, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tuegl"]
-atlas = ExtResource("3_elw1v")
-region = Rect2(96, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_feqe7"]
-atlas = ExtResource("3_elw1v")
-region = Rect2(112, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oi6o0"]
-atlas = ExtResource("3_elw1v")
-region = Rect2(128, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kmxjp"]
-atlas = ExtResource("1_5pu6w")
+[sub_resource type="AtlasTexture" id="AtlasTexture_p38xs"]
+atlas = ExtResource("3_dbr1l")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wwh5r"]
-atlas = ExtResource("1_5pu6w")
+[sub_resource type="AtlasTexture" id="AtlasTexture_w84oj"]
+atlas = ExtResource("3_dbr1l")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nqx4h"]
@@ -93,46 +67,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_71s62")
+"texture": SubResource("AtlasTexture_hoag0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pgshq")
+"texture": SubResource("AtlasTexture_p38xs")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1xdg5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_42d70")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tuegl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_feqe7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oi6o0")
+"texture": SubResource("AtlasTexture_w84oj")
 }],
 "loop": true,
 "name": &"morte",
-"speed": 21.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kmxjp")
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wwh5r")
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": false,
-"name": &"respawn",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tnthg"]
@@ -187,16 +132,10 @@ wait_time = 0.1
 [node name="PowerUpDelay" type="Timer" parent="."]
 wait_time = 0.1
 
-[node name="RespawnDelay" type="Timer" parent="."]
-wait_time = 2.0
-
 [node name="Animacao" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nqx4h")
-animation = &"respawn"
-
-[node name="AtaqueComponente" parent="." instance=ExtResource("4_n7yw1")]
-projetil = ExtResource("5_dfde3")
+animation = &"idle"
 
 [node name="PowerUpComponente" type="Node2D" parent="."]
 script = ExtResource("4_uli4u")
@@ -221,11 +160,6 @@ animation = &"escudo"
 frame = 1
 frame_progress = 0.569773
 
-[node name="Teste" type="Timer" parent="."]
-wait_time = 3.0
-
 [connection signal="timeout" from="AtaqueDelay" to="." method="_on_ataque_delay_timeout"]
 [connection signal="timeout" from="PowerUpDelay" to="." method="_on_power_up_delay_timeout"]
-[connection signal="timeout" from="RespawnDelay" to="." method="_on_respawn_delay_timeout"]
 [connection signal="animation_finished" from="Animacao" to="VidaComponente" method="_on_animação_animation_finished"]
-[connection signal="timeout" from="Teste" to="." method="_on_teste_timeout"]

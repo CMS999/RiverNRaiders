@@ -1,5 +1,5 @@
 extends ProjetilComp
-@onready var Animacao = $AnimationPlayer
+@onready var Animacao = $AnimacaoPlayer
 
 func _ready():
 	Animacao.play("Missel")
