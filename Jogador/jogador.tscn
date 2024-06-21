@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bkltef67bey07" path="res://Componentes/Personagens/HurtboxComponente.tscn" id="3_fhkuy"]
 [ext_resource type="PackedScene" uid="uid://gqi0hrxjam48" path="res://Projeteis/Jogador/AtaqueBase.tscn" id="4_ou11i"]
 [ext_resource type="Script" path="res://PowerUps/PowerUpComponente.gd" id="4_uli4u"]
-[ext_resource type="Script" path="res://Componentes/Projeteis/AtaqueComponente.gd" id="8_kcydi"]
+[ext_resource type="Script" path="res://Componentes/Personagens/AtaqueComponente.gd" id="8_aies8"]
 [ext_resource type="Texture2D" uid="uid://juegn6or138" path="res://icon.svg" id="9_ic1pu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tdck"]
@@ -162,7 +162,7 @@ frame = 1
 frame_progress = 0.569773
 
 [node name="AtaqueComponente" type="Node2D" parent="."]
-script = ExtResource("8_kcydi")
+script = ExtResource("8_aies8")
 projetil = ExtResource("4_ou11i")
 
 [connection signal="timeout" from="AtaqueDelay" to="." method="_on_ataque_delay_timeout"]
