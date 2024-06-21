@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://bvs3jq8m5tb5t"]
 
 [ext_resource type="Script" path="res://Componentes/Personagens/Inimigo.gd" id="1_8tukc"]
-[ext_resource type="Script" path="res://Componentes/Projeteis/AtaqueComponente.gd" id="2_uqcgm"]
+[ext_resource type="Script" path="res://Componentes/Personagens/AtaqueComponente.gd" id="2_uqcgm"]
 [ext_resource type="Script" path="res://Componentes/Personagens/VidaComponente.gd" id="3_bdsys"]
 [ext_resource type="PackedScene" uid="uid://bkp0npykwdeqd" path="res://Projeteis/Inimigos/AtaqueAviao.tscn" id="3_okpfh"]
 [ext_resource type="Script" path="res://Componentes/Personagens/HurtboxComponente.gd" id="4_o0thc"]
