@@ -10,14 +10,14 @@ class_name Jogador
 @onready var screensize = get_viewport_rect().size
 
 ## Controla as animações dos sprites
-@onready var Animações := $Animação
+@onready var Animacoes := $Animacao
 @onready var Escudo := $escudo
 
 ##Estados do jogador para definir comportamento [br]
 ##[b]Parado:[/b] Não faz nada, apenas mantém a animação original. [br]
 ##[b]Morto:[/b] Estado de fim de jogo, toca animação de morte e vai para o menu de derrota. [br]
 ##[b]Movendo:[/b] Toca animações de movimento, dependendo da direção do jogador.
-enum Estado{parado,	morto, movendo}
+enum Estado{parado,	morto, movendo,esperando,respawnando}
 
 ## Estado no qual o jogador está
 var estadoAtual : Estado= Estado.parado
@@ -32,18 +32,18 @@ var podeAtirar : bool = true
 var podePowerUp : bool = true
 
 ## Componente responsável por controlar o ataque principal
-@onready var componenteAtaque: AtaqueComp = $AtaqueComponente
+@onready var componenteAtaque: AtaqueComponente = $AtaqueComponente
 
 ## PowerUp atual do jogador
 var powerUp : String
 
-## Quantidade de energia do jogador
 @onready var GlobalReference = get_node("/root/GlobalValues")
 
 var temEscudo : bool = false
 
 func _ready():
 	$VidaComponente.connect("Morto", self.not_vivo)
+	#$Teste.start()
 	pass
 	
 ## Função responsável por definir o powerup do jogador
@@ -52,33 +52,46 @@ func setPowerUp(powerUpId: String) -> void:
 	$PowerUpComponente.setPowerUp(powerUp)
 
 func _physics_process(_delta):
+	GlobalReference.pontuacao += 60 *_delta
 	var directionX = Input.get_axis("esq", "dir")	
 	var directionY = Input.get_axis("cima", "baixo")
 	
 	# Very ugly State Machine
-	if !estaVivo:
-		estadoAtual = Estado.morto
-	elif directionX != 0 or directionY != 0:
-		estadoAtual = Estado.movendo
-	elif directionX == 0 and directionY == 0:
-		estadoAtual = Estado.parado
-	
+	if estadoAtual != Estado.respawnando:
+		if !estaVivo:
+			estadoAtual = Estado.morto
+		elif directionX != 0 or directionY != 0:
+			estadoAtual = Estado.movendo
+		elif directionX == 0 and directionY == 0:
+			estadoAtual = Estado.parado
+			
 	if estadoAtual == Estado.movendo:
 		velocity.y = directionY * Speed
 		velocity.x = directionX * Speed
 		if directionX > 0:
-			Animações.play("direita")		
+			Animacoes.play("direita")		
 		elif directionX < 0:
-			Animações.play("esquerda")		
+			Animacoes.play("esquerda")		
 		move_and_slide()
 	elif estadoAtual == Estado.parado:
-		Animações.play("idle")
+		Animacoes.play("idle")
 		velocity = Vector2(0,0)	
 	elif estadoAtual == Estado.morto:
-		Animações.play("morte")
-		await get_tree().create_timer(1).timeout
-		get_tree().change_scene_to_file("res://UI/DeathMenu.tscn")
-	
+		if GlobalReference.vidas <1:
+			Animacoes.play("morte")
+			await get_tree().create_timer(1).timeout
+			get_tree().change_scene_to_file("res://UI/DeathMenu.tscn")
+			GlobalReference.pontuacao /= 2
+		else:
+			Animacoes.play("morte")
+			$RespawnDelay.start()
+			estadoAtual = Estado.respawnando
+			estaVivo = true
+			GlobalReference.vidas -= 1
+	elif estadoAtual == Estado.respawnando:
+		Animacoes.play("respawn")	
+		$VidaComponente.comEscudo()
+		
 	if Input.is_action_pressed("tiro") and podeAtirar:
 		if GlobalReference.barraEnergia <10:
 			componenteAtaque.Ataque(position.x,position.y)
@@ -93,12 +106,19 @@ func _physics_process(_delta):
 		$AtaqueDelay.start()
 	if Input.is_action_pressed("power") and podePowerUp:
 		if powerUp == "Escudo":
-			$VidaComponente.alterar_escudo()
-			Escudo.show()
+			if GlobalReference.barraEnergia > 0:
+				$VidaComponente.comEscudo()
+				Escudo.show()
+			else:
+				Escudo.hide()
+				$VidaComponente.semEscudo()
 		$PowerUpComponente.Action(position.x,position.y,_delta)
 		$PowerUpDelay.start()
 		podePowerUp = false
-		
+	if Input.is_action_just_released("power"):
+		if powerUp == "Escudo":
+			$VidaComponente.semEscudo()
+			Escudo.hide()
 	position = position.clamp(Vector2(8, 8), screensize-Vector2(8, 8))
 	pass
 
@@ -112,3 +132,14 @@ func not_vivo() -> void:
 ## Delay do powerup
 func _on_power_up_delay_timeout() -> void:
 	podePowerUp = true
+
+
+func _on_respawn_delay_timeout():
+	estadoAtual = Estado.parado
+	$VidaComponente.semEscudo()
+	pass # Replace with function body.
+
+
+func _on_teste_timeout():
+	self.not_vivo()
+	pass # Replace with function body.

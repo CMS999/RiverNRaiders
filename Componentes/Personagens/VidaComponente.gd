@@ -14,9 +14,13 @@ func _ready():
 	VidaAtual = VidaMaxima
 	pass
 	
-func alterar_escudo() -> void:
+func comEscudo() -> void:
 	escudo = true
-	pass  
+	pass 
+
+func semEscudo() -> void:
+	escudo = false
+	pass   
 
 func Dano(dano: int):
 	if not escudo:

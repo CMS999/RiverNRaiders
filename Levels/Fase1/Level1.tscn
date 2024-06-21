@@ -1,6 +1,6 @@
 [gd_scene load_steps=48 format=3 uid="uid://cxdc0yblxwru"]
 
-[ext_resource type="PackedScene" uid="uid://c04oxgamiy7td" path="res://Componentes/Levels/Level.tscn" id="1_h5nqo"]
+[ext_resource type="PackedScene" uid="uid://mt8ip7j3xp8f" path="res://Componentes/Levels/Level.tscn" id="1_h5nqo"]
 [ext_resource type="Texture2D" uid="uid://kofslmmwwm8k" path="res://Assets/pixel-16x32.png" id="2_431nf"]
 [ext_resource type="PackedScene" uid="uid://c7bft5ygq8utx" path="res://Componentes/Levels/ObjSpawComponente.tscn" id="3_c1w20"]
 [ext_resource type="PackedScene" uid="uid://cc5cjso4rewoc" path="res://Jogador/jogador.tscn" id="5_j8pba"]
