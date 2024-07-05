@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Projeteis/Jogador/Missel.gd" id="1_5f4dr"]
 [ext_resource type="PackedScene" uid="uid://ch5g7prg3kl8w" path="res://Componentes/Projeteis/ProjetilComponente.tscn" id="1_gbblt"]
 [ext_resource type="Script" path="res://Projeteis/Jogador/AnimacaoMissel.gd" id="4_4hwp5"]
-[ext_resource type="Texture2D" uid="uid://cgd8t3n6rxwhk" path="res://Assets/Tailmap.png" id="4_gfyax"]
+[ext_resource type="Texture2D" uid="uid://b0e88qnijlfa" path="res://Assets/Tailmap.png" id="4_gfyax"]
 [ext_resource type="AudioStream" uid="uid://cm20e4jkbyg3w" path="res://Assets/explosion.wav" id="5_k7uyh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qjjvb"]
