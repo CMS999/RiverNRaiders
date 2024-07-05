@@ -1,7 +1,10 @@
 extends ProjetilComp
-@onready var Animacao = $AnimationPlayer
+@onready var Animacao = $AnimacaoPlayer
+@onready var audio_player = $AudioStreamPlayer
+@export var volume: float = -10
 
 func _ready():
+	audio_player.volume_db = volume
 	Animacao.play("Missel")
 	$ExplosaoTimer.start()
 	$Desaparecer.start()
@@ -24,4 +27,5 @@ func _on_desaparecer_timeout():
 
 func _on_explosao_timer_timeout():
 	Velocidade = 70
+	audio_player.play()
 	pass # Replace with function body.

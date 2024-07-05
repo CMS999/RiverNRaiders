@@ -7,9 +7,9 @@ class_name ProjetilComp
 
 ## Define o dano do projétil
 @export var Dano := 1
-@onready var desaparecer = $Desaparecer
+
 func _ready():
-	$Desaparecer.start()
+	
 	pass
 
 func start(iniPosition):
@@ -24,7 +24,3 @@ func _on_area_entered(area:Area2D):
 		queue_free()
 	pass
 
-
-func _on_desaparecer_timeout():
-	queue_free()
-	pass # Replace with function body.
