@@ -9,24 +9,29 @@ script = ExtResource("1_awchd")
 [node name="TipoBala2" parent="." instance=ExtResource("2_evca5")]
 position = Vector2(9, 7)
 rotation = 1.57079
+volume = -5.0
 rotacao = 90.0
 
 [node name="TipoBala4" parent="." instance=ExtResource("2_evca5")]
 position = Vector2(9, -2)
 rotation = 0.785397
+volume = -5.0
 rotacao = 45.0
 
 [node name="TipoBala5" parent="." instance=ExtResource("2_evca5")]
 position = Vector2(-9, -2)
 rotation = -0.785397
+volume = -5.0
 rotacao = -45.0
 
 [node name="TipoBala" parent="." instance=ExtResource("2_evca5")]
 position = Vector2(0, -2)
+volume = -5.0
 
 [node name="TipoBala3" parent="." instance=ExtResource("2_evca5")]
 position = Vector2(-9, 7)
 rotation = -1.57079
+volume = -5.0
 rotacao = -90.0
 
 [node name="Desaparecer" type="Timer" parent="."]

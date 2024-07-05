@@ -1,9 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bvs3jq8m5tb5t"]
+[gd_scene load_steps=18 format=3 uid="uid://c557dfqq50nkn"]
 
 [ext_resource type="Script" path="res://Componentes/Personagens/Inimigo.gd" id="1_8tukc"]
 [ext_resource type="Script" path="res://Componentes/Personagens/AtaqueComponente.gd" id="2_uqcgm"]
 [ext_resource type="Script" path="res://Componentes/Personagens/VidaComponente.gd" id="3_bdsys"]
-[ext_resource type="PackedScene" uid="uid://bkp0npykwdeqd" path="res://Projeteis/Inimigos/AtaqueAviao.tscn" id="3_okpfh"]
+[ext_resource type="PackedScene" path="res://Projeteis/Inimigos/AtaqueAviao.tscn" id="3_okpfh"]
 [ext_resource type="Script" path="res://Componentes/Personagens/HurtboxComponente.gd" id="4_o0thc"]
 [ext_resource type="Texture2D" uid="uid://boh6c8ueesotv" path="res://Assets/Ship-TEST.png" id="5_6xf0q"]
 [ext_resource type="Texture2D" uid="uid://cgd8t3n6rxwhk" path="res://Assets/Tailmap.png" id="5_tipyo"]

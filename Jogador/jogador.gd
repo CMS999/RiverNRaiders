@@ -37,6 +37,8 @@ var podePowerUp : bool = true
 ## PowerUp atual do jogador
 var powerUp : String
 
+var respawnando: bool = false
+
 @onready var GlobalReference = get_node("/root/GlobalValues")
 
 var temEscudo : bool = false
@@ -57,24 +59,33 @@ func _physics_process(_delta):
 	var directionY = Input.get_axis("cima", "baixo")
 	
 	# Very ugly State Machine
-	if estadoAtual != Estado.respawnando:
-		if !estaVivo:
-			estadoAtual = Estado.morto
-		elif directionX != 0 or directionY != 0:
-			estadoAtual = Estado.movendo
-		elif directionX == 0 and directionY == 0:
-			estadoAtual = Estado.parado
+
+	if !estaVivo:
+		estadoAtual = Estado.morto
+	elif directionX != 0 or directionY != 0:
+		estadoAtual = Estado.movendo
+	elif directionX == 0 and directionY == 0:
+		estadoAtual = Estado.parado
 			
 	if estadoAtual == Estado.movendo:
 		velocity.y = directionY * Speed
 		velocity.x = directionX * Speed
 		if directionX > 0:
-			Animacoes.play("direita")		
+			if !respawnando:
+				Animacoes.play("direita")
+			else: 
+				Animacoes.play("direita_respawnando")		
 		elif directionX < 0:
-			Animacoes.play("esquerda")		
+			if !respawnando:
+				Animacoes.play("esquerda")		
+			else:
+				Animacoes.play("esquerda_respawnando")
 		move_and_slide()
 	elif estadoAtual == Estado.parado:
-		Animacoes.play("idle")
+		if !respawnando:
+			Animacoes.play("idle")
+		else:
+			Animacoes.play("respawn")
 		velocity = Vector2(0,0)	
 	elif estadoAtual == Estado.morto:
 		if GlobalReference.vidas <1:
@@ -83,15 +94,13 @@ func _physics_process(_delta):
 			get_tree().change_scene_to_file("res://UI/DeathMenu.tscn")
 			GlobalReference.pontuacao /= 2
 		else:
-			Animacoes.play("morte")
+			$VidaComponente.comEscudo()	
+			$VidaComponente.resetVida()
 			$RespawnDelay.start()
-			estadoAtual = Estado.respawnando
+			respawnando = true
 			estaVivo = true
 			GlobalReference.vidas -= 1
-	elif estadoAtual == Estado.respawnando:
-		Animacoes.play("respawn")	
-		$VidaComponente.comEscudo()
-		
+			
 	if Input.is_action_pressed("tiro") and podeAtirar:
 		if GlobalReference.barraEnergia <10:
 			componenteAtaque.Ataque(position.x,position.y)
@@ -135,7 +144,7 @@ func _on_power_up_delay_timeout() -> void:
 
 
 func _on_respawn_delay_timeout():
-	estadoAtual = Estado.parado
+	respawnando = false
 	$VidaComponente.semEscudo()
 	pass # Replace with function body.
 
