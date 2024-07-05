@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://e78ht25fbwmc"]
+
+[ext_resource type="Script" path="res://Inimigos/Barco.gd" id="1_3ql2h"]
+[ext_resource type="Texture2D" uid="uid://b0e88qnijlfa" path="res://Assets/Tailmap.png" id="2_i2fdt"]
+[ext_resource type="Script" path="res://Componentes/Personagens/HurtboxComponente.gd" id="3_c8fbv"]
+[ext_resource type="Script" path="res://Componentes/Personagens/VidaComponente.gd" id="4_2ocso"]
+[ext_resource type="Script" path="res://Componentes/Personagens/AtaqueComponente.gd" id="5_njgwt"]
+[ext_resource type="PackedScene" uid="uid://bemuim1e216t4" path="res://Projeteis/Inimigos/AtaqueBarco.tscn" id="6_7n64l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdsti"]
+atlas = ExtResource("2_i2fdt")
+region = Rect2(208, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wrig"]
+atlas = ExtResource("2_i2fdt")
+region = Rect2(224, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_51ehw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdsti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wrig")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kmvy"]
+
+[node name="Barco" type="Node2D"]
+script = ExtResource("1_3ql2h")
+fire_rate = 10.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_51ehw")
+speed_scale = 3.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="HitboxComp" type="Area2D" parent="."]
+script = ExtResource("3_c8fbv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComp"]
+shape = SubResource("RectangleShape2D_6kmvy")
+
+[node name="VidaComp" type="Node2D" parent="."]
+script = ExtResource("4_2ocso")
+
+[node name="AtaqueComp" type="Node2D" parent="."]
+script = ExtResource("5_njgwt")
+projetil = ExtResource("6_7n64l")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

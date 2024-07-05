@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0e88qnijlfa"
-path="res://.godot/imported/Tailmap.png-73e8a862c87b0c3ea306c0ce9e1811a8.ctex"
+uid="uid://dke8bw2kxguw1"
+path="res://.godot/imported/Alvo.png-eab4ea9870c8ed33f7b69db308d7da11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tailmap.png"
-dest_files=["res://.godot/imported/Tailmap.png-73e8a862c87b0c3ea306c0ce9e1811a8.ctex"]
+source_file="res://Assets/Alvo.png"
+dest_files=["res://.godot/imported/Alvo.png-eab4ea9870c8ed33f7b69db308d7da11.ctex"]
 
 [params]
 
