@@ -1,6 +1,6 @@
 extends Node2D
 ## Node que oferece métedos para realizar ataques de projéteis
-class_name AtaqueComp
+class_name AtaqueComponente
 
 ## Define o projétil a ser atirado
 @export var projetil : PackedScene

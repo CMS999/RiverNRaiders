@@ -12,4 +12,4 @@ Jogador1 = NodePath("Jogador")
 position = Vector2(161.253, 54.3448)
 
 [node name="Jogador" parent="." instance=ExtResource("2_u2p54")]
-position = Vector2(159.471, 169.271)
+position = Vector2(162, 166)

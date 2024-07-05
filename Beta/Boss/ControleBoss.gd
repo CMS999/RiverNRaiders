@@ -1,27 +1,32 @@
 extends Polygon2D
 
-@export var Inimigo1 : PackedScene = null
-@export var Inimigo2 : PackedScene = null
-
+var Inimigo1 = preload("res://Inimigos/Helicoptero.tscn")
+var Inimigo2 = preload("res://Inimigos/Aviao.tscn")
+var Mover = preload("res://Componentes/Waves/auto_mover.tscn")
+@export var Corpo : Polygon2D
 
 func _ready():
+	Corpo.connect("PartDestroyed", self.Improve)
 	$VidaComp.connect("Morto", self.Explode)
 	$Timer.connect("timeout", self.Deploy)
 	pass
 
-func _process(delta):
-	pass
-
 func Explode():
+	Corpo.explode()
 	queue_free()
+
+func Improve():
+	$Timer.wait_time *= 0.8
 
 func Deploy():
 	var inimigo = randi_range(1,2)
+	var novoMover = Mover.instantiate()
+	var novoInimigo
 	if inimigo == 1:
-		var novoInimigo = Inimigo1.instantiate()
-		add_child(novoInimigo)
+		novoInimigo = Inimigo1.instantiate()
+		
 	elif inimigo == 2:
-		var novoInimigo = Inimigo2.instantiate()
-		novoInimigo.instantiate()
-		add_child(novoInimigo)
-	pass
+		novoInimigo = Inimigo2.instantiate()
+	
+	novoMover.add_child(novoInimigo)
+	$Path2D.add_child(novoMover)
