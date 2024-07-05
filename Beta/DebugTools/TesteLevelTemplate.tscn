@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://csgheeiow73if"]
+[gd_scene load_steps=9 format=3 uid="uid://csgheeiow73if"]
 
 [ext_resource type="PackedScene" uid="uid://mt8ip7j3xp8f" path="res://Componentes/Levels/Level.tscn" id="1_63noi"]
 [ext_resource type="Script" path="res://Beta/DebugTools/TesteLevelTemplate.gd" id="2_4ym8p"]
 [ext_resource type="PackedScene" uid="uid://cc5cjso4rewoc" path="res://Jogador/jogador.tscn" id="3_nrulj"]
 [ext_resource type="Texture2D" uid="uid://kofslmmwwm8k" path="res://Assets/pixel-16x32.png" id="4_v206s"]
 [ext_resource type="Script" path="res://Componentes/Levels/Mundo.gd" id="5_6vgek"]
-[ext_resource type="PackedScene" uid="uid://kcogo61fxevo" path="res://UI/UIJogador.tscn" id="6_eldwt"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_0siec"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 655360, 0, 0, 720896, 0, 0, 1, 0, 0, 720897, 0, 0, 327689, 0, 1, 393225, 0, 1, 327690, 0, 1, 393226, 0, 1, 18, 0, 0, 720914, 0, 0, 19, 0, 0, 65555, 0, 0, 655379, 0, 0, 720915, 0, 0)
@@ -37,9 +36,3 @@ TamanhoDoMundo = 99
 
 [node name="Jogador" parent="." index="2" instance=ExtResource("3_nrulj")]
 position = Vector2(160, 160)
-
-[node name="UiJogador" parent="." index="3" instance=ExtResource("6_eldwt")]
-offset_left = 97.0
-offset_top = 168.0
-offset_right = 97.0
-offset_bottom = 168.08

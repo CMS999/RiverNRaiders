@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://dwq3fv21ougd0"]
+[gd_scene load_steps=18 format=3 uid="uid://dwq3fv21ougd0"]
 
 [ext_resource type="Script" path="res://Projeteis/Jogador/Missel.gd" id="1_5f4dr"]
 [ext_resource type="PackedScene" uid="uid://ch5g7prg3kl8w" path="res://Componentes/Projeteis/ProjetilComponente.tscn" id="1_gbblt"]
 [ext_resource type="Script" path="res://Projeteis/Jogador/AnimacaoMissel.gd" id="4_4hwp5"]
 [ext_resource type="Texture2D" uid="uid://cgd8t3n6rxwhk" path="res://Assets/Tailmap.png" id="4_gfyax"]
+[ext_resource type="AudioStream" uid="uid://cm20e4jkbyg3w" path="res://Assets/explosion.wav" id="5_k7uyh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qjjvb"]
 radius = 7.0
@@ -131,6 +132,7 @@ _data = {
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_5f4dr")
+volume = -10.0
 Velocidade = 50
 Dano = 3
 
@@ -142,14 +144,13 @@ scale = Vector2(0.6, 0.55)
 shape = SubResource("CircleShape2D_qjjvb")
 
 [node name="Animacao" type="AnimatedSprite2D" parent="." index="2"]
-scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_6mr68")
 animation = &"Explosao"
 frame_progress = 0.302113
 script = ExtResource("4_4hwp5")
 
 [node name="ExplosaoTimer" type="Timer" parent="." index="3"]
-wait_time = 0.5
+one_shot = true
 
 [node name="Desaparecer" type="Timer" parent="." index="4"]
 wait_time = 3.0
@@ -158,6 +159,11 @@ wait_time = 3.0
 libraries = {
 "": SubResource("AnimationLibrary_oecdn")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource("5_k7uyh")
+volume_db = -10.0
+bus = &"SFX"
 
 [connection signal="timeout" from="ExplosaoTimer" to="." method="_on_explosao_timer_timeout"]
 [connection signal="timeout" from="Desaparecer" to="." method="_on_desaparecer_timeout"]
