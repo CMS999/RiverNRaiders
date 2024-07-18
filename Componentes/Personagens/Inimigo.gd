@@ -27,14 +27,15 @@ var pode_atirar: bool = true
 func _ready():
 	Alvo = GlobalReference.JogadorRef
 	$VidaComp.connect("Morto", self.morrer)
-	$Timer.connect("timeout", self._on_timer_timeout)
+	$Timer.connect("timeout", self.timeOUT)
 	$HitboxComp.connect("area_entered", self._on_area_entered)
+	$AnimatedSprite2D.connect("animation_finished", self.AniFinish)
 	fire_timer.wait_time = fire_rate  # Configura o tempo de espera do Timer com o fire_rate
 	fire_timer.start()  # Inicia o Timer
 	
 	
 
-func _process(delta):
+func _process(_delta):
 	if $AtaqueComp.projetil and pode_atirar and Alvo != null:
 		$AtaqueComp.Ataque(global_position.x, global_position.y)
 		pode_atirar = false
@@ -45,13 +46,12 @@ func _process(delta):
 func morrer():
 	if animacoes:
 		animacoes.play("morte")
-		$AnimatedSprite2D.connect("animation_finished", self._on_animated_sprite_2d_animation_finished)
 	else:
 		queue_free()
 
-func _on_animated_sprite_2d_animation_finished():
+func AniFinish():
 	emit_signal("enemy_destroyed", self)
-	animacoes.disconnect("animation_finished", self._on_animated_sprite_2d_animation_finished)
+	animacoes.disconnect("animation_finished", self.AniFinish)
 	queue_free()
 
 
@@ -61,7 +61,5 @@ func _on_area_entered(area):
 		area.receber_dano(dano_colisao)
 	vida_comp.Dano(vida_comp.VidaAtual)
 
-func _on_timer_timeout():
+func timeOUT():
 	pode_atirar = true
-
-
