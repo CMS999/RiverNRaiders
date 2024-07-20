@@ -55,7 +55,7 @@ focus_neighbor_top = NodePath("../SButton")
 focus_neighbor_bottom = NodePath("../OpButton")
 focus_next = NodePath("../OpButton")
 focus_previous = NodePath("../SButton")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 12
 text = "Jogar"
 
 [node name="OpButton" type="Button" parent="VBoxContainer"]

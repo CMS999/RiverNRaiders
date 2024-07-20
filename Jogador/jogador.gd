@@ -54,7 +54,7 @@ func setPowerUp(powerUpId: String) -> void:
 	$PowerUpComponente.setPowerUp(powerUp)
 
 func _physics_process(_delta):
-	GlobalReference.pontuacao += 60 *_delta
+	#GlobalReference.pontuacao += 60 *_delta
 	var directionX = Input.get_axis("esq", "dir")	
 	var directionY = Input.get_axis("cima", "baixo")
 	

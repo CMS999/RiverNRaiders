@@ -3,11 +3,12 @@
 [ext_resource type="Script" path="res://Componentes/Personagens/Inimigo.gd" id="1_8tukc"]
 [ext_resource type="Script" path="res://Componentes/Personagens/AtaqueComponente.gd" id="2_uqcgm"]
 [ext_resource type="Script" path="res://Componentes/Personagens/VidaComponente.gd" id="3_bdsys"]
-[ext_resource type="PackedScene" uid="uid://bkp0npykwdeqd" path="res://Projeteis/Inimigos/AtaqueAviao.tscn" id="3_okpfh"]
+[ext_resource type="PackedScene" uid="uid://baamhoo0kwulf" path="res://Projeteis/Inimigos/AtaqueAviao.tscn" id="3_okpfh"]
 [ext_resource type="Script" path="res://Componentes/Personagens/HurtboxComponente.gd" id="4_o0thc"]
 [ext_resource type="Texture2D" uid="uid://b0e88qnijlfa" path="res://Assets/Tailmap.png" id="5_tipyo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpbe3"]
+size = Vector2(14, 11)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u5jxj"]
 atlas = ExtResource("5_tipyo")
@@ -88,7 +89,8 @@ animations = [{
 [node name="Aviao" type="Node2D"]
 script = ExtResource("1_8tukc")
 vida = 2
-velocidade = 0.18
+velocidade = 0.3
+dano_colisao = 0
 fire_rate = 0.8
 
 [node name="Timer" type="Timer" parent="."]
@@ -99,6 +101,7 @@ projetil = ExtResource("3_okpfh")
 
 [node name="VidaComp" type="Node2D" parent="."]
 script = ExtResource("3_bdsys")
+VidaMaxima = 2
 
 [node name="HitboxComp" type="Area2D" parent="." node_paths=PackedStringArray("Vida")]
 collision_layer = 2
@@ -107,6 +110,7 @@ script = ExtResource("4_o0thc")
 Vida = NodePath("../VidaComp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComp"]
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_hpbe3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

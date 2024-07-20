@@ -256,7 +256,7 @@ wait_time = 2.0
 [node name="Animacao" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nqx4h")
-animation = &"morte"
+animation = &"idle"
 script = SubResource("GDScript_7l83r")
 
 [node name="AtaqueComponente" parent="." instance=ExtResource("4_n7yw1")]
