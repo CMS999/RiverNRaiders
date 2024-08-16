@@ -24,7 +24,7 @@ func OnPrimeiroFrame():
 	CriarParticulas()
 	GlobalReference.barraEnergia = 40
 	GlobalReference.pontuacao = 0
-	GlobalReference.vidas = 5
+	GlobalReference.vidas = GlobalReference.VidasIniciais
 	PrimeiroFrame = false
 
 func _unhandled_input(event):

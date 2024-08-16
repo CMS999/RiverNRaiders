@@ -89,7 +89,6 @@ animations = [{
 [node name="Aviao" type="Node2D"]
 script = ExtResource("1_8tukc")
 vida = 2
-velocidade = 0.3
 dano_colisao = 0
 fire_rate = 0.8
 

@@ -10,7 +10,7 @@ class_name Inimigo
 @onready var GlobalReference = get_node("/root/GlobalValues")
 var Alvo 
 var Direcao :Vector2 = Vector2(1,0)
-var flag :bool= true
+var flag :bool = true
 var vivo := true
 # Referências aos nós filhos
 @onready var fire_timer = $Timer
@@ -45,6 +45,7 @@ func _process(_delta):
 
 
 func morrer():
+	$HitboxComp/CollisionShape2D.set_deferred("disabled", true)
 	if animacoes:
 		animacoes.play("morte")
 		vivo = false;
@@ -52,7 +53,7 @@ func morrer():
 		queue_free()
 
 func AniFinish():
-	GlobalReference.pontuacao += 60
+	GlobalReference.pontuacao += 10000
 	emit_signal("enemy_destroyed", self)
 	animacoes.disconnect("animation_finished", self.AniFinish)
 	queue_free()

@@ -11,7 +11,7 @@ func _on_level_1_pressed():
 	pass 
 
 func _on_level_2_pressed():
-	#GlobalReference.FaseInicial = preload("res://Levels/Fase2/Level2.tscn")
+	GlobalReference.FaseInicial = preload("res://Levels/Fase2/Level2.tscn")
 	pass 
 
 func _on_level_3_pressed():
@@ -19,5 +19,6 @@ func _on_level_3_pressed():
 	pass 
 
 func _on_h_slider_value_changed(value:int):
-	GlobalReference.VidasIniciais = value
+	GlobalReference.vidas = value
+	GlobalReference.VidasIniciais = value;
 	pass
