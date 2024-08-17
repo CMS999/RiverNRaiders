@@ -159,4 +159,5 @@ wait_time = 6.0
 autostart = true
 
 [node name="Path2D" type="Path2D" parent="Controle"]
+visible = false
 curve = SubResource("Curve2D_e7sqr")

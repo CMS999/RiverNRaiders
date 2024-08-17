@@ -23,7 +23,7 @@ position = Vector2(-9, 0)
 curve = SubResource("Curve2D_xetdb")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(162.809, 54.6567)
+position = Vector2(162.809, 54.6568)
 rotation = -2.8143
 progress = 81.1211
 rotates = false
@@ -32,4 +32,4 @@ script = ExtResource("3_q35ni")
 
 [node name="Boss" parent="Path2D/PathFollow2D" instance=ExtResource("3_mjftx")]
 position = Vector2(-2.21953, 2.99852)
-rotation = 2.8143
+rotation = 1.31249

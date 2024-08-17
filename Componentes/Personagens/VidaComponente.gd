@@ -8,6 +8,7 @@ signal Morto
 ## Define o valor Máximo/Inicial de vida
 @export var VidaMaxima := 10
 var VidaAtual : int
+var Vivo := true
 
 func _ready():
 	VidaAtual = VidaMaxima
@@ -16,6 +17,7 @@ func _ready():
 	
 func Dano(dano: int):
 	VidaAtual -= dano
-	if(VidaAtual <= 0):		
+	if(VidaAtual <= 0 and Vivo):		
 		Morto.emit()		
+		Vivo = false;
 	pass

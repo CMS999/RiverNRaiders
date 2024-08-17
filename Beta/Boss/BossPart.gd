@@ -23,5 +23,6 @@ func timeout():
 	pass 
 
 func Explode():
+	$HitboxComp/CollisionPolygon2D.disabled = true;
 	Corpo.explode()
 	queue_free()
