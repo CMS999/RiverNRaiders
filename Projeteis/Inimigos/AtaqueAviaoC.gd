@@ -1,5 +1,5 @@
-extends Level
-var flag := true
+extends ProjetilComp
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -7,9 +7,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	if flag:
-		GlobalReference.JogadorRef = Jogador1
-		CriarParticulas()
-		flag = false
+func _process(delta):
 	pass
+
+
+func _on_timer_timeout():
+	queue_free()
+	pass # Replace with function body.

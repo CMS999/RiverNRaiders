@@ -2,13 +2,13 @@ extends Node
 ## Referência à valores utilizados em várias porções do código
 ## Apenas armazena vários valores de forma a facilitar o acesso deles por vários componentes
 
-@onready var FaseInicial = preload("res://Levels/Fase1/Level1.tscn") 
-
+#@onready var FaseInicial = preload("res://Beta/DebugTools/TesteLevelTemplate.tscn") 
+@onready var FaseInicial := preload("res://Levels/Fase1/Level1.tscn")
 ## Variável que aponta para o [Jogador]
 var JogadorRef := Node 
 
 ## Variável que armazena as vidas iniciais
-var VidasIniciais := 1 
+var VidasIniciais := 5 
 
 ## Dicionário que contém todos os powerups
 var PowerUps = {
@@ -25,4 +25,4 @@ var barraEnergia : int = 40
 ## Pontuação do jogador
 var pontuacao : int = 0
 ## Vidas do jogador
-var vidas : int = 5
+var vidas : int = 1

@@ -41,9 +41,9 @@ anchor_left = 0.497
 anchor_top = 0.719
 anchor_right = 0.497
 anchor_bottom = 0.719
-offset_left = -61.04
+offset_left = -68.04
 offset_top = -15.42
-offset_right = 60.96
+offset_right = 70.96
 offset_bottom = 15.58
 text = "Menu Principal"
 

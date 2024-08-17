@@ -11,7 +11,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	look_at(Global.JogadorRef.position)
 	pass
 
@@ -23,5 +23,6 @@ func timeout():
 	pass 
 
 func Explode():
+	$HitboxComp/CollisionPolygon2D.disabled = true;
 	Corpo.explode()
 	queue_free()

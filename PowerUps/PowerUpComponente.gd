@@ -37,7 +37,7 @@ func Action(PositionX: float, PositionY: float, _delta) -> void:
 
 func Ataque(PositionX: float, PositionY: float) -> void:
 	var bullet = projetil.instantiate()
-	var PositionGlobal : Vector2
+	var PositionGlobal : Vector2 = Vector2(0,0)
 	PositionGlobal.x = PositionX
 	PositionGlobal.y = PositionY
 	get_tree().root.get_node("Particulas").add_child(bullet)

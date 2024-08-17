@@ -20,7 +20,7 @@ class_name Jogador
 enum Estado{parado,	morto, movendo,esperando,respawnando}
 
 ## Estado no qual o jogador está
-var estadoAtual : Estado= Estado.parado
+var estadoAtual : Estado = Estado.parado
 
 ## Diz se o jogador está vivo
 var estaVivo : bool= true
@@ -54,7 +54,7 @@ func setPowerUp(powerUpId: String) -> void:
 	$PowerUpComponente.setPowerUp(powerUp)
 
 func _physics_process(_delta):
-	GlobalReference.pontuacao += 60 *_delta
+	#GlobalReference.pontuacao += 60 *_delta
 	var directionX = Input.get_axis("esq", "dir")	
 	var directionY = Input.get_axis("cima", "baixo")
 	
@@ -101,7 +101,7 @@ func _physics_process(_delta):
 			estaVivo = true
 			GlobalReference.vidas -= 1
 			
-	if Input.is_action_pressed("tiro") and podeAtirar:
+	if Input.is_action_pressed("tiro") and podeAtirar and estaVivo:
 		if GlobalReference.barraEnergia <10:
 			componenteAtaque.Ataque(position.x,position.y)
 		elif GlobalReference.barraEnergia <30:

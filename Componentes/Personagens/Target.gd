@@ -22,7 +22,7 @@ func start_tracking(target):
 	jogador = target
 	set_process(true)
 
-func _process(delta):
+func _process(_delta):
 	if jogador != null:
 		position = jogador.global_position
 

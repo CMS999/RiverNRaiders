@@ -24,7 +24,7 @@ func _ready():
 	$VidaComp.connect("Morto", self.morrer)
 	$Hurtbox.connect("area_entered", self._on_area_entered)
 
-func _process(delta):
+func _process(_delta):
 	if pode_atirar:
 		if fase_atual == 1:
 			atirar()

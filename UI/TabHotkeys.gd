@@ -27,7 +27,7 @@ func Inicializar_Lista() -> void:
 		ListaTeclas.add_child(NovoBotao)
 	pass
 
-func SetTecla(Botao, Acao):
+func SetTecla(_Botao, _Acao):
 	#InputMap.action_add_event("tiro",KEY_B)
 	#Precisa ser implementado
 	pass

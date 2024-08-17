@@ -3,16 +3,20 @@
 [ext_resource type="Script" path="res://Componentes/Personagens/Inimigo.gd" id="1_8tukc"]
 [ext_resource type="Script" path="res://Componentes/Personagens/AtaqueComponente.gd" id="2_uqcgm"]
 [ext_resource type="Script" path="res://Componentes/Personagens/VidaComponente.gd" id="3_bdsys"]
-[ext_resource type="PackedScene" uid="uid://bkp0npykwdeqd" path="res://Projeteis/Inimigos/AtaqueAviao.tscn" id="3_okpfh"]
+[ext_resource type="PackedScene" uid="uid://baamhoo0kwulf" path="res://Projeteis/Inimigos/AtaqueAviao.tscn" id="3_okpfh"]
 [ext_resource type="Script" path="res://Componentes/Personagens/HurtboxComponente.gd" id="4_o0thc"]
-[ext_resource type="Texture2D" uid="uid://boh6c8ueesotv" path="res://Assets/Ship-TEST.png" id="5_6xf0q"]
 [ext_resource type="Texture2D" uid="uid://b0e88qnijlfa" path="res://Assets/Tailmap.png" id="5_tipyo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpbe3"]
+size = Vector2(14, 11)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fndvn"]
-atlas = ExtResource("5_6xf0q")
-region = Rect2(15, 0, 15, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5jxj"]
+atlas = ExtResource("5_tipyo")
+region = Rect2(208, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh4bk"]
+atlas = ExtResource("5_tipyo")
+region = Rect2(224, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_btdkj"]
 atlas = ExtResource("5_tipyo")
@@ -46,7 +50,10 @@ region = Rect2(128, 16, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fndvn")
+"texture": SubResource("AtlasTexture_u5jxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh4bk")
 }],
 "loop": true,
 "name": &"default",
@@ -82,7 +89,7 @@ animations = [{
 [node name="Aviao" type="Node2D"]
 script = ExtResource("1_8tukc")
 vida = 2
-velocidade = 0.18
+dano_colisao = 0
 fire_rate = 0.8
 
 [node name="Timer" type="Timer" parent="."]
@@ -93,16 +100,21 @@ projetil = ExtResource("3_okpfh")
 
 [node name="VidaComp" type="Node2D" parent="."]
 script = ExtResource("3_bdsys")
+VidaMaxima = 2
 
 [node name="HitboxComp" type="Area2D" parent="." node_paths=PackedStringArray("Vida")]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("4_o0thc")
 Vida = NodePath("../VidaComp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComp"]
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_hpbe3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_twowa")
+frame_progress = 0.584528
 speed_scale = 3.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
