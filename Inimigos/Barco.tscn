@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://e78ht25fbwmc"]
+[gd_scene load_steps=11 format=3 uid="uid://46py5bnkltoi"]
 
-[ext_resource type="Script" path="res://Inimigos/Barco.gd" id="1_3ql2h"]
 [ext_resource type="Texture2D" uid="uid://b0e88qnijlfa" path="res://Assets/Tailmap.png" id="2_i2fdt"]
-[ext_resource type="Script" path="res://Componentes/Personagens/HurtboxComponente.gd" id="3_c8fbv"]
-[ext_resource type="Script" path="res://Componentes/Personagens/VidaComponente.gd" id="4_2ocso"]
-[ext_resource type="Script" path="res://Componentes/Personagens/AtaqueComponente.gd" id="5_njgwt"]
-[ext_resource type="PackedScene" uid="uid://bemuim1e216t4" path="res://Projeteis/Inimigos/AtaqueBarco.tscn" id="6_7n64l"]
+[ext_resource type="Script" path="res://Componentes/Personagens/Inimigo.gd" id="3_nm0si"]
+[ext_resource type="PackedScene" uid="uid://1iqtcsekf216" path="res://Componentes/Personagens/VidaComponente.tscn" id="3_qjkgb"]
+[ext_resource type="PackedScene" uid="uid://b34jet1tydsdr" path="res://Componentes/Personagens/AtaqueComponente.tscn" id="4_g3km2"]
+[ext_resource type="PackedScene" uid="uid://bkltef67bey07" path="res://Componentes/Personagens/HurtboxComponente.tscn" id="5_wguy6"]
+[ext_resource type="PackedScene" uid="uid://4y3jh3sujicm" path="res://Projeteis/Inimigos/AtaqueBarco.tscn" id="6_7n64l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdsti"]
 atlas = ExtResource("2_i2fdt")
@@ -26,32 +26,33 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kmvy"]
 
 [node name="Barco" type="Node2D"]
-script = ExtResource("1_3ql2h")
-fire_rate = 10.0
+script = ExtResource("3_nm0si")
+fire_rate = 15.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_51ehw")
+frame_progress = 0.712119
 speed_scale = 3.0
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="HitboxComp" type="Area2D" parent="."]
-script = ExtResource("3_c8fbv")
+[node name="VidaComp" parent="." instance=ExtResource("3_qjkgb")]
+
+[node name="AtaqueComp" parent="." instance=ExtResource("4_g3km2")]
+projetil = ExtResource("6_7n64l")
+
+[node name="HitboxComp" parent="." node_paths=PackedStringArray("Vida") instance=ExtResource("5_wguy6")]
+collision_layer = 2
+collision_mask = 2
+Vida = NodePath("../VidaComp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComp"]
 shape = SubResource("RectangleShape2D_6kmvy")
-
-[node name="VidaComp" type="Node2D" parent="."]
-script = ExtResource("4_2ocso")
-
-[node name="AtaqueComp" type="Node2D" parent="."]
-script = ExtResource("5_njgwt")
-projetil = ExtResource("6_7n64l")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
