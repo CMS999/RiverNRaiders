@@ -1,7 +1,8 @@
-[gd_scene load_steps=50 format=3 uid="uid://cxdc0yblxwru"]
+[gd_scene load_steps=51 format=3 uid="uid://cxdc0yblxwru"]
 
 [ext_resource type="PackedScene" uid="uid://mt8ip7j3xp8f" path="res://Componentes/Levels/Level.tscn" id="1_h5nqo"]
 [ext_resource type="Texture2D" uid="uid://kofslmmwwm8k" path="res://Assets/pixel-16x32.png" id="2_431nf"]
+[ext_resource type="Script" path="res://Levels/Fase1/Level1.gd" id="2_gp6v7"]
 [ext_resource type="PackedScene" uid="uid://c7bft5ygq8utx" path="res://Componentes/Levels/ObjSpawComponente.tscn" id="3_c1w20"]
 [ext_resource type="Texture2D" uid="uid://b0e88qnijlfa" path="res://Assets/Tailmap.png" id="4_lvmrh"]
 [ext_resource type="PackedScene" uid="uid://cc5cjso4rewoc" path="res://Jogador/jogador.tscn" id="5_j8pba"]
@@ -272,6 +273,7 @@ _data = {
 point_count = 2
 
 [node name="Level" node_paths=PackedStringArray("MundoDaFase", "Jogador1") instance=ExtResource("1_h5nqo")]
+script = ExtResource("2_gp6v7")
 MundoDaFase = NodePath("Mundo")
 Jogador1 = NodePath("Jogador")
 

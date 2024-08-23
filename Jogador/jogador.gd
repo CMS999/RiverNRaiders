@@ -128,7 +128,7 @@ func _physics_process(_delta):
 		if powerUp == "Escudo":
 			$VidaComponente.semEscudo()
 			Escudo.hide()
-	position = position.clamp(Vector2(8, 8), screensize-Vector2(20, 20))
+	position = position.clamp(Vector2(8, 8), screensize-Vector2(8, 20))
 	pass
 
 ## Delay do tiro

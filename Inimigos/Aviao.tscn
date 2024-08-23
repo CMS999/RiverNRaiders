@@ -113,6 +113,7 @@ position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_hpbe3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_twowa")
 frame_progress = 0.584528
 speed_scale = 3.0

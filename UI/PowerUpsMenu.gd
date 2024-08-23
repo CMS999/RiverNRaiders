@@ -3,6 +3,7 @@ extends Control
 @onready var GlobalReference = get_node("/root/GlobalValues")
 
 func _ready():
+	$"VBoxContainer/Super Missil".grab_focus()
 	pass
 
 func _on_p_button_pressed():

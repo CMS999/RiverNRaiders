@@ -3,6 +3,7 @@ extends Control
 @onready var GlobalReference = get_node("/root/GlobalValues")
 
 func _ready():
+	$VBoxContainer/Reiniciar.grab_focus()
 	var Particulas = get_tree().root.get_node("Particulas")
 	if Particulas != null:
 		Particulas.queue_free()
