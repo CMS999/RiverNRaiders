@@ -2,7 +2,8 @@ extends Polygon2D
 
 var Inimigo1 = preload("res://Inimigos/Helicoptero.tscn")
 var Inimigo2 = preload("res://Inimigos/Aviao.tscn")
-var Mover = preload("res://Componentes/Waves/auto_mover.tscn")
+#var Mover = preload("res://Componentes/Waves/auto_mover.tscn")
+var Mover : Array[PathFollow2D] = []
 @export var Corpo : Polygon2D
 
 func _ready():
@@ -20,14 +21,11 @@ func Improve():
 	$Timer.wait_time *= 0.8
 
 func Deploy():
-	var inimigo = randi_range(1,2)
-	var novoMover = Mover.instantiate()
-	var novoInimigo
-	if inimigo == 1:
-		novoInimigo = Inimigo1.instantiate()
-		
-	elif inimigo == 2:
-		novoInimigo = Inimigo2.instantiate()
-	
-	novoMover.add_child(novoInimigo)
-	$Path2D.add_child(novoMover)
+	var Path = randi_range(1,2)
+	var novoInimigo = Inimigo1.instantiate()
+	if Path == 1:
+		$Path1/Mover.add_child(novoInimigo)
+		$Path1/Mover.Start()
+	elif Path == 2:
+		$Path2/Mover2.add_child(novoInimigo)
+		$Path2/Mover2.Start()

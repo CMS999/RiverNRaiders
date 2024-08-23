@@ -7,7 +7,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_xetdb"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 98, 39, 0, 0, 0, 0, 131, 24, 0, 0, 0, 0, 162, 55, 0, 0, 0, 0, 211, 25, 0, 0, 0, 0, 232, 38)
+"points": PackedVector2Array(0, 0, 0, 0, 96, 18, 0, 0, 0, 0, 131, 24, 0, 0, 0, 0, 167, 65, 0, 0, 0, 0, 203, 24, 0, 0, 0, 0, 236, 15)
 }
 point_count = 5
 
@@ -23,13 +23,11 @@ position = Vector2(-9, 0)
 curve = SubResource("Curve2D_xetdb")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(162.809, 54.6568)
-rotation = -2.8143
-progress = 81.1211
+position = Vector2(168.498, 63.2949)
+progress = 92.3483
 rotates = false
 loop = false
 script = ExtResource("3_q35ni")
 
 [node name="Boss" parent="Path2D/PathFollow2D" instance=ExtResource("3_mjftx")]
 position = Vector2(-2.21953, 2.99852)
-rotation = 1.31249

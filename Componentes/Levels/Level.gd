@@ -22,9 +22,7 @@ func _process(_delta):
 
 func OnPrimeiroFrame():
 	CriarParticulas()
-	GlobalReference.barraEnergia = 40
-	GlobalReference.pontuacao = 0
-	GlobalReference.vidas = GlobalReference.VidasIniciais
+	GlobalReference.resetJogador()
 	PrimeiroFrame = false
 
 func _unhandled_input(event):

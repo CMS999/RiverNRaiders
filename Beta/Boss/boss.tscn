@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ol21iscsja34"]
+[gd_scene load_steps=11 format=3 uid="uid://ol21iscsja34"]
 
 [ext_resource type="Script" path="res://Componentes/Personagens/VidaComponente.gd" id="1_7vqyn"]
 [ext_resource type="Script" path="res://Beta/Boss/CorpoBoss.gd" id="1_gibio"]
@@ -7,12 +7,19 @@
 [ext_resource type="Script" path="res://Componentes/Personagens/AtaqueComponente.gd" id="4_qr5pe"]
 [ext_resource type="PackedScene" uid="uid://du8hjxphs8voh" path="res://Beta/Boss/AtaqueArmaBoss.tscn" id="5_2ws14"]
 [ext_resource type="Script" path="res://Beta/Boss/ControleBoss.gd" id="6_vg1xu"]
+[ext_resource type="Script" path="res://Beta/Boss/Mover1.gd" id="8_552pf"]
 
 [sub_resource type="Curve2D" id="Curve2D_e7sqr"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 106, 0)
+"points": PackedVector2Array(2.80983, 12.4569, -2.80983, -12.4569, 0, 0, -11.3555, 9.9465, 11.3555, -9.9465, 18, -55, -10.4678, -11.2095, 10.4678, 11.2095, 56, -51, 12.255, -5.66407, -12.255, 5.66407, 49, -16, 11.9415, 32.0274, -11.9415, -32.0274, 7, -37)
 }
-point_count = 2
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_oxeem"]
+_data = {
+"points": PackedVector2Array(0, 0, 2, -12, 0, 0, 11.2973, 6.62159, -11.2973, -6.62159, -9, -52, 10.8919, -8.02698, -10.8919, 8.02698, -41, -51, -8.87833, -6.33786, 8.87833, 6.33786, -44, -15, -8.7704, 4.60818, 8.7704, -4.60818, -12, -12, -0.891741, 10.4456, 0.891741, -10.4456, -1, -37)
+}
+point_count = 6
 
 [node name="Boss" type="Node2D"]
 
@@ -158,6 +165,22 @@ polygon = PackedVector2Array(-8.57825, -4.31296, -8.57825, 7.43577, 5.67613, 7.6
 wait_time = 6.0
 autostart = true
 
-[node name="Path2D" type="Path2D" parent="Controle"]
-visible = false
+[node name="Path1" type="Path2D" parent="Controle"]
+position = Vector2(24.2387, 30.1007)
 curve = SubResource("Curve2D_e7sqr")
+
+[node name="Mover" type="PathFollow2D" parent="Controle/Path1"]
+rotates = false
+cubic_interp = false
+loop = false
+script = ExtResource("8_552pf")
+
+[node name="Path2" type="Path2D" parent="Controle"]
+position = Vector2(24.2387, 30.1007)
+curve = SubResource("Curve2D_oxeem")
+
+[node name="Mover2" type="PathFollow2D" parent="Controle/Path2"]
+rotates = false
+cubic_interp = false
+loop = false
+script = ExtResource("8_552pf")
