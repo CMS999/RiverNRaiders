@@ -6,7 +6,7 @@ func init_energia():
 	max_value = 40
 	value = 40
 
-func _process(delta):
+func _process(_delta):
 	var energia = GlobalReference.barraEnergia
 	alterarEnergia(energia)
 	
