@@ -274,8 +274,10 @@ VidaMaxima = 1
 Vida = NodePath("../VidaComponente")
 
 [node name="Hurtbox2D" type="CollisionShape2D" parent="HurtboxComponente"]
+visible = false
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_tnthg")
+disabled = true
 
 [node name="escudo" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -294,8 +296,12 @@ frame_progress = 0.569773
 stream = ExtResource("8_78oj4")
 volume_db = -2.0
 
+[node name="ReturnSpeedDelay" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="timeout" from="AtaqueDelay" to="." method="_on_ataque_delay_timeout"]
 [connection signal="timeout" from="PowerUpDelay" to="." method="_on_power_up_delay_timeout"]
 [connection signal="timeout" from="RespawnDelay" to="." method="_on_respawn_delay_timeout"]
 [connection signal="animation_finished" from="Animacao" to="VidaComponente" method="_on_animação_animation_finished"]
 [connection signal="timeout" from="Teste" to="." method="_on_teste_timeout"]
+[connection signal="timeout" from="ReturnSpeedDelay" to="." method="_on_return_speed_delay_timeout"]

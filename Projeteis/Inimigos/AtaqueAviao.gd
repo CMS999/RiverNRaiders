@@ -9,17 +9,6 @@ var flag :bool= true
 func _ready():
 	Alvo = GlobalReference.JogadorRef
 	rotacao = deg_to_rad(rotacao)
-	pass
-
-func Direc():
-	if Alvo != null:
-		if Alvo.position.x - position.x < 0:
-			Velocidade = Velocidade * (-1)
-	pass
 
 func _process(delta):	
-	if flag:
-		#Direc()
-		flag = false
 	position += Vector2(0, 1).rotated(rotacao) * delta * Velocidade
-	pass

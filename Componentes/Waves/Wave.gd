@@ -11,6 +11,8 @@ class_name Wave
 ##Preload da scene responsável pelo movimento dos inimigos
 var MoverScene := preload("res://Componentes/Waves/auto_mover.tscn")
 
+var MoverAviao := preload("res://Inimigos/AviaoGrandeMover.tscn")
+
 ##Contém os inimigos que seram spawnados. Cada Inimigos é spawnado conforme o Quantidade[] na posição correspondente.
 @export var Inimigos : Array[PackedScene] = []
 
@@ -28,17 +30,32 @@ var MoverScene := preload("res://Componentes/Waves/auto_mover.tscn")
 func _ready():
 	WaveControle.connect("TimerTimeout", self.ChecarSpawn)
 
+@export var MundoDaFase : Mundo
+
 ##Instância e adiciona de acordo com o array [quantidade], todos os inimigos no array [Inimigos] nos [path2D] do array [LocalizacaoSpawn].
 func SpawnWave() -> void:
 	for C in Inimigos.size():
 		for A in Quantidade[C]:
 			var inimigo = Inimigos[C].instantiate()
-			inimigo.Alvo = GlobalReference.JogadorRef
-			var caminho = MoverScene.instantiate()
+			
+			var caminho
+			if inimigo is AviGrande:
+				inimigo.Alvo = GlobalReference.JogadorRef
+				caminho = MoverAviao.instantiate()
+				caminho.connect("transition", inimigo.transiton)
+			elif inimigo is merdaPodre:
+				caminho = MoverAviao.instantiate()
+				inimigo.connect("bossIsDead", self.bosta)
+				MundoDaFase.SegurarProgresso()
+			elif inimigo is Inimigo:
+				inimigo.Alvo = GlobalReference.JogadorRef
+				caminho = MoverScene.instantiate()
+				caminho.SetVelocidade(inimigo.velocidade)
+			
 			if Curvas:
 				caminho.SetCurvas(Curvas)
 				caminho.SetDadosAtuais(0)
-			caminho.SetVelocidade(inimigo.velocidade)
+
 			LocalizacaoSpawn[C].add_child(caminho)
 			caminho.add_child(inimigo)
 			await get_tree().create_timer(WaveControle.InimigoDelay).timeout
@@ -48,3 +65,6 @@ func ChecarSpawn() -> void:
 	if WaveControle.segundos == SpawnTime:
 		SpawnWave()
 	pass
+
+func bosta():
+	MundoDaFase.LiberarProgresso()

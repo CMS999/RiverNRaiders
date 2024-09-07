@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0fkiwlx0xlwi"]
+
+[ext_resource type="Script" path="res://Projeteis/Inimigos/AtaqueAviaoC.gd" id="1_1tab6"]
+[ext_resource type="PackedScene" uid="uid://ch5g7prg3kl8w" path="res://Componentes/Projeteis/ProjetilComponente.tscn" id="2_87kmu"]
+[ext_resource type="Script" path="res://Projeteis/Inimigos/AtaqueAviao.gd" id="3_p2r6h"]
+[ext_resource type="Texture2D" uid="uid://d1301q5sk7137" path="res://Assets/Tiroaviao.png" id="4_lrbmt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp5e8"]
+size = Vector2(3.72487, 6.02297)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_auw5m"]
+size = Vector2(4, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2swlo"]
+size = Vector2(4.24264, 6.36396)
+
+[node name="ProjetilComp" type="Area2D"]
+script = ExtResource("1_1tab6")
+
+[node name="TipoBala" parent="." instance=ExtResource("2_87kmu")]
+position = Vector2(-4, 2.38419e-07)
+rotation = -2.0944
+script = ExtResource("3_p2r6h")
+rotacao = 45.0
+
+[node name="Sprite2D" type="Sprite2D" parent="TipoBala"]
+position = Vector2(1.68587e-07, 1.68587e-07)
+texture = ExtResource("4_lrbmt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TipoBala"]
+position = Vector2(-0.96599, -0.890164)
+shape = SubResource("RectangleShape2D_wp5e8")
+
+[node name="TipoBala2" parent="." instance=ExtResource("2_87kmu")]
+position = Vector2(0, 1)
+script = ExtResource("3_p2r6h")
+rotacao = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="TipoBala2"]
+position = Vector2(-1, 0)
+rotation = 3.14159
+texture = ExtResource("4_lrbmt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TipoBala2"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_auw5m")
+
+[node name="TipoBala3" parent="." instance=ExtResource("2_87kmu")]
+position = Vector2(4, 1)
+rotation = 2.0944
+script = ExtResource("3_p2r6h")
+rotacao = -45.0
+
+[node name="Sprite2D" type="Sprite2D" parent="TipoBala3"]
+position = Vector2(0.707107, 0.707107)
+texture = ExtResource("4_lrbmt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TipoBala3"]
+position = Vector2(0, 2.38419e-07)
+shape = SubResource("RectangleShape2D_2swlo")
+
+[node name="Timer" type="Timer" parent="."]

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Beta/Boss/TesteBoss.gd" id="1_vm2gw"]
 [ext_resource type="PackedScene" uid="uid://cc5cjso4rewoc" path="res://Jogador/jogador.tscn" id="2_u2p54"]
-[ext_resource type="PackedScene" uid="uid://ol21iscsja34" path="res://Beta/Boss/boss.tscn" id="3_mjftx"]
 [ext_resource type="Script" path="res://Beta/Boss/BossMover.gd" id="3_q35ni"]
+[ext_resource type="PackedScene" uid="uid://sphbyom7pvp4" path="res://Inimigos/Boss/PortaAvioes.tscn" id="4_c380r"]
 
 [sub_resource type="Curve2D" id="Curve2D_xetdb"]
 _data = {
@@ -29,5 +29,4 @@ rotates = false
 loop = false
 script = ExtResource("3_q35ni")
 
-[node name="Boss" parent="Path2D/PathFollow2D" instance=ExtResource("3_mjftx")]
-position = Vector2(-2.21953, 2.99852)
+[node name="PortaAvioes" parent="Path2D/PathFollow2D" instance=ExtResource("4_c380r")]

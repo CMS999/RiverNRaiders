@@ -9,6 +9,7 @@ extends Level
 
 var Inimigo1 = preload("res://Inimigos/Aviao.tscn")
 var Inimigo2 = preload("res://Inimigos/Helicoptero.tscn")
+var Inimigo3 = preload("res://Inimigos/AviaoGrande.tscn")
 
 func _ready():
 	#GlobalReference.PowerUpAtual = GlobalReference.PowerUps[1]
@@ -35,6 +36,11 @@ func SpawnInimigo(opCode: int):
 			SpawnLocation.flipAtivo()
 		2:	
 			var novoInimigo = Inimigo2.instantiate()
+			SpawnLocation.SetVelocidade(novoInimigo.velocidade)
+			SpawnLocation.add_child(novoInimigo)
+			SpawnLocation.flipAtivo()
+		3:
+			var novoInimigo = Inimigo3.instantiate()
 			SpawnLocation.SetVelocidade(novoInimigo.velocidade)
 			SpawnLocation.add_child(novoInimigo)
 			SpawnLocation.flipAtivo()

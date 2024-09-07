@@ -22,7 +22,7 @@ func _process(_delta):
 
 func OnPrimeiroFrame():
 	CriarParticulas()
-	GlobalReference.resetJogador()
+	#GlobalReference.resetJogador()
 	PrimeiroFrame = false
 
 func _unhandled_input(event):

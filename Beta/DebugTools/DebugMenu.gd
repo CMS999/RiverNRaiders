@@ -21,3 +21,9 @@ func _on_sh_pressed():
 	Fase.SpawnInimigo(2)
 	hide()
 	get_tree().paused = false
+
+
+func _on_sg_pressed():
+	Fase.SpawnInimigo(3)
+	hide()
+	get_tree().paused = false

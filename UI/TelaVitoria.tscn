@@ -55,5 +55,20 @@ offset_right = 231.0
 offset_bottom = 121.0
 text = "Continuar"
 
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 58.0
+offset_right = 185.0
+offset_bottom = 73.0
+text = "Pontuação:"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 58.0
+offset_right = 231.0
+offset_bottom = 73.0
+
 [connection signal="pressed" from="Menu" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Continuar" to="." method="_on_continuar_pressed"]

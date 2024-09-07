@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://csgheeiow73if"]
+[gd_scene load_steps=16 format=3 uid="uid://csgheeiow73if"]
 
 [ext_resource type="PackedScene" uid="uid://mt8ip7j3xp8f" path="res://Componentes/Levels/Level.tscn" id="1_63noi"]
 [ext_resource type="Script" path="res://Beta/DebugTools/TesteLevelTemplate.gd" id="2_4ym8p"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://kofslmmwwm8k" path="res://Assets/pixel-16x32.png" id="4_v206s"]
 [ext_resource type="Script" path="res://Componentes/Levels/Mundo.gd" id="5_6vgek"]
 [ext_resource type="Script" path="res://Beta/DebugTools/DebugMover.gd" id="7_mwgx3"]
+[ext_resource type="PackedScene" uid="uid://dxv8rr2elgaft" path="res://Inimigos/AviaoGrandeMover.tscn" id="8_1wkva"]
+[ext_resource type="Script" path="res://Beta/DebugTools/testing.gd" id="8_sjn0x"]
+[ext_resource type="PackedScene" uid="uid://bdv6w1koym6fp" path="res://Inimigos/AviaoGrande.tscn" id="9_mvqo4"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_0siec"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 655360, 0, 0, 720896, 0, 0, 1, 0, 0, 720897, 0, 0, 327689, 0, 1, 393225, 0, 1, 327690, 0, 1, 393226, 0, 1, 18, 0, 0, 720914, 0, 0, 19, 0, 0, 65555, 0, 0, 655379, 0, 0, 720915, 0, 0)
@@ -23,6 +26,12 @@ pattern_0 = SubResource("TileMapPattern_0siec")
 [sub_resource type="Curve2D" id="Curve2D_or15g"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -16, 20, 0, 0, 0, 0, 336, 20)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_acap1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 148, -5, 0, 0, 0, 0, 149, 75)
 }
 point_count = 2
 
@@ -60,22 +69,27 @@ offset_top = 54.0
 offset_right = 200.0
 offset_bottom = 159.0
 
-[node name="SA" type="Button" parent="Pause/DebugMenu/Vbox" index="0"]
+[node name="SG" type="Button" parent="Pause/DebugMenu/Vbox" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Spawn Grande"
+
+[node name="SA" type="Button" parent="Pause/DebugMenu/Vbox" index="1"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Spawn Avião"
 
-[node name="SH" type="Button" parent="Pause/DebugMenu/Vbox" index="1"]
+[node name="SH" type="Button" parent="Pause/DebugMenu/Vbox" index="2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Spawn heli"
 
-[node name="Voltar" type="Button" parent="Pause/DebugMenu/Vbox" index="2"]
+[node name="Voltar" type="Button" parent="Pause/DebugMenu/Vbox" index="3"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Voltar"
 
-[node name="Sair" type="Button" parent="Pause/DebugMenu/Vbox" index="3"]
+[node name="Sair" type="Button" parent="Pause/DebugMenu/Vbox" index="4"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Sair"
@@ -99,6 +113,17 @@ position = Vector2(-16, 20)
 loop = false
 script = ExtResource("7_mwgx3")
 
+[node name="Path2D2" type="Path2D" parent="." index="4"]
+curve = SubResource("Curve2D_acap1")
+script = ExtResource("8_sjn0x")
+
+[node name="AviaoGrandeMover" parent="Path2D2" index="0" instance=ExtResource("8_1wkva")]
+position = Vector2(148, -5)
+whenTrasition = 0.5
+
+[node name="AviaoGrande" parent="Path2D2/AviaoGrandeMover" index="0" instance=ExtResource("9_mvqo4")]
+
+[connection signal="pressed" from="Pause/DebugMenu/Vbox/SG" to="Pause/DebugMenu" method="_on_sg_pressed"]
 [connection signal="pressed" from="Pause/DebugMenu/Vbox/SA" to="Pause/DebugMenu" method="_on_sa_pressed"]
 [connection signal="pressed" from="Pause/DebugMenu/Vbox/SH" to="Pause/DebugMenu" method="_on_sh_pressed"]
 [connection signal="pressed" from="Pause/DebugMenu/Vbox/Voltar" to="Pause/DebugMenu" method="_on_voltar_pressed"]

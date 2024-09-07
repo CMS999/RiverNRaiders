@@ -1,0 +1,387 @@
+[gd_scene load_steps=33 format=3 uid="uid://sphbyom7pvp4"]
+
+[ext_resource type="Script" path="res://Inimigos/Boss/PortaAvioes.gd" id="1_5n7kj"]
+[ext_resource type="Script" path="res://Inimigos/Boss/Arma.gd" id="2_1fu3x"]
+[ext_resource type="Script" path="res://Inimigos/Boss/Corpo.gd" id="2_et07h"]
+[ext_resource type="Script" path="res://Componentes/Personagens/VidaComponente.gd" id="3_2igup"]
+[ext_resource type="Texture2D" uid="uid://b0e88qnijlfa" path="res://Assets/Tailmap.png" id="3_77ahd"]
+[ext_resource type="Script" path="res://Componentes/Personagens/HurtboxComponente.gd" id="4_vb51d"]
+[ext_resource type="Script" path="res://Componentes/Personagens/AtaqueComponente.gd" id="5_i71c6"]
+[ext_resource type="PackedScene" uid="uid://du8hjxphs8voh" path="res://Beta/Boss/AtaqueArmaBoss.tscn" id="6_6wai3"]
+[ext_resource type="Script" path="res://Beta/Boss/Mover1.gd" id="8_tfnwv"]
+[ext_resource type="Texture2D" uid="uid://bdojww6pciqw8" path="res://Assets/BOSS.png" id="9_51pqj"]
+[ext_resource type="Script" path="res://Inimigos/Boss/Controle.gd" id="9_o57n2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fl5v"]
+atlas = ExtResource("9_51pqj")
+region = Rect2(0, 0, 64, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu4tw"]
+atlas = ExtResource("3_77ahd")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttg4g"]
+atlas = ExtResource("3_77ahd")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t86s1"]
+atlas = ExtResource("3_77ahd")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij65k"]
+atlas = ExtResource("3_77ahd")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by0b5"]
+atlas = ExtResource("3_77ahd")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m35a8"]
+atlas = ExtResource("3_77ahd")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve4tp"]
+atlas = ExtResource("3_77ahd")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0hwvo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fl5v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu4tw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttg4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t86s1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij65k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_by0b5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m35a8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ve4tp")
+}],
+"loop": false,
+"name": &"morte",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yd4f"]
+atlas = ExtResource("9_51pqj")
+region = Rect2(0, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljgul"]
+atlas = ExtResource("3_77ahd")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvh2q"]
+atlas = ExtResource("3_77ahd")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfjkf"]
+atlas = ExtResource("3_77ahd")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkp0s"]
+atlas = ExtResource("3_77ahd")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmqdu"]
+atlas = ExtResource("3_77ahd")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lrru"]
+atlas = ExtResource("3_77ahd")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x48l"]
+atlas = ExtResource("3_77ahd")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_085vf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yd4f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljgul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvh2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfjkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkp0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmqdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lrru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x48l")
+}],
+"loop": false,
+"name": &"morte",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhth3"]
+atlas = ExtResource("9_51pqj")
+region = Rect2(8, 24, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7775f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhth3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_vub2c"]
+_data = {
+"points": PackedVector2Array(2.80983, 12.4569, 0, 0, -14.9138, -3.06102, 0, 0, 0, 0, -15.9138, 56.939, -6.6742, -6.00678, 6.6742, 6.00678, -7.91383, 71.939, -8.54963, 19.5627, 8.54963, -19.5627, 26.0862, 66.939, 14.5055, 17.2384, -14.5055, -17.2384, 22.0862, -75.061, 23.9655, -0.840896, -23.9655, 0.840896, -16.9138, -90.061, 13.2441, -18.7099, -13.2441, 18.7099, -52.9138, -72.061, -13.5153, -8.67646, 13.5153, 8.67646, -40.9138, 73.939, -7.84218, 19.8557, 7.84218, -19.8557, 26.0862, 66.939)
+}
+point_count = 9
+
+[node name="PortaAvioes" type="Node2D"]
+script = ExtResource("1_5n7kj")
+
+[node name="Corpo" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_0hwvo")
+autoplay = "default"
+script = ExtResource("2_et07h")
+partesRestantes = 6
+
+[node name="Arma1" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("Corpo")]
+position = Vector2(-7, 25)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_085vf")
+autoplay = "default"
+offset = Vector2(0.5, -0.5)
+script = ExtResource("2_1fu3x")
+Corpo = NodePath("../Corpo")
+
+[node name="VidaArma" type="Node2D" parent="Arma1"]
+script = ExtResource("3_2igup")
+VidaMaxima = 40
+
+[node name="HitboxComp" type="Area2D" parent="Arma1" node_paths=PackedStringArray("Vida")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_vb51d")
+Vida = NodePath("../VidaArma")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Arma1/HitboxComp"]
+polygon = PackedVector2Array(-2.44412, 1.58943, -2.4772, -1.76451, -1.58943, -2.44412, 1.76451, -2.4772, 2.44412, -1.58943, 2.4772, 1.76451, 1.58943, 2.44412, 0.482473, 3.57312, -0.635506, 3.58415, -1.76451, 2.4772)
+
+[node name="AtaqueComp" type="Node2D" parent="Arma1"]
+script = ExtResource("5_i71c6")
+projetil = ExtResource("6_6wai3")
+
+[node name="Timer" type="Timer" parent="Arma1"]
+autostart = true
+
+[node name="Tip" type="Node2D" parent="Arma1"]
+position = Vector2(0.0330768, 3.35394)
+
+[node name="Arma2" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("Corpo")]
+position = Vector2(-11, 9)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_085vf")
+offset = Vector2(0.5, -0.5)
+script = ExtResource("2_1fu3x")
+Corpo = NodePath("../Corpo")
+
+[node name="VidaArma" type="Node2D" parent="Arma2"]
+script = ExtResource("3_2igup")
+VidaMaxima = 40
+
+[node name="HitboxComp" type="Area2D" parent="Arma2" node_paths=PackedStringArray("Vida")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_vb51d")
+Vida = NodePath("../VidaArma")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Arma2/HitboxComp"]
+polygon = PackedVector2Array(-2.44412, 1.58943, -2.4772, -1.76451, -1.58943, -2.44412, 1.76451, -2.4772, 2.44412, -1.58943, 2.4772, 1.76451, 1.58943, 2.44412, 0.482473, 3.57312, -0.635506, 3.58415, -1.76451, 2.4772)
+
+[node name="AtaqueComp" type="Node2D" parent="Arma2"]
+script = ExtResource("5_i71c6")
+projetil = ExtResource("6_6wai3")
+
+[node name="Timer" type="Timer" parent="Arma2"]
+wait_time = 1.5
+autostart = true
+
+[node name="Tip" type="Node2D" parent="Arma2"]
+position = Vector2(0.0330768, 3.35394)
+
+[node name="Arma3" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("Corpo")]
+position = Vector2(15, 7)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_085vf")
+offset = Vector2(0.5, -0.5)
+script = ExtResource("2_1fu3x")
+Corpo = NodePath("../Corpo")
+
+[node name="VidaArma" type="Node2D" parent="Arma3"]
+script = ExtResource("3_2igup")
+VidaMaxima = 40
+
+[node name="HitboxComp" type="Area2D" parent="Arma3" node_paths=PackedStringArray("Vida")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_vb51d")
+Vida = NodePath("../VidaArma")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Arma3/HitboxComp"]
+polygon = PackedVector2Array(-2.44412, 1.58943, -2.4772, -1.76451, -1.58943, -2.44412, 1.76451, -2.4772, 2.44412, -1.58943, 2.4772, 1.76451, 1.58943, 2.44412, 0.482473, 3.57312, -0.635506, 3.58415, -1.76451, 2.4772)
+
+[node name="AtaqueComp" type="Node2D" parent="Arma3"]
+script = ExtResource("5_i71c6")
+projetil = ExtResource("6_6wai3")
+
+[node name="Timer" type="Timer" parent="Arma3"]
+wait_time = 2.0
+autostart = true
+
+[node name="Tip" type="Node2D" parent="Arma3"]
+position = Vector2(0.0330768, 3.35394)
+
+[node name="Arma4" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("Corpo")]
+position = Vector2(15, -7)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_085vf")
+offset = Vector2(0.5, -0.5)
+script = ExtResource("2_1fu3x")
+Corpo = NodePath("../Corpo")
+
+[node name="VidaArma" type="Node2D" parent="Arma4"]
+script = ExtResource("3_2igup")
+VidaMaxima = 40
+
+[node name="HitboxComp" type="Area2D" parent="Arma4" node_paths=PackedStringArray("Vida")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_vb51d")
+Vida = NodePath("../VidaArma")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Arma4/HitboxComp"]
+polygon = PackedVector2Array(-2.44412, 1.58943, -2.4772, -1.76451, -1.58943, -2.44412, 1.76451, -2.4772, 2.44412, -1.58943, 2.4772, 1.76451, 1.58943, 2.44412, 0.482473, 3.57312, -0.635506, 3.58415, -1.76451, 2.4772)
+
+[node name="AtaqueComp" type="Node2D" parent="Arma4"]
+script = ExtResource("5_i71c6")
+projetil = ExtResource("6_6wai3")
+
+[node name="Timer" type="Timer" parent="Arma4"]
+wait_time = 2.5
+autostart = true
+
+[node name="Tip" type="Node2D" parent="Arma4"]
+position = Vector2(0.0330768, 3.35394)
+
+[node name="Arma5" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("Corpo")]
+position = Vector2(15, -21)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_085vf")
+offset = Vector2(0.5, -0.5)
+script = ExtResource("2_1fu3x")
+Corpo = NodePath("../Corpo")
+
+[node name="VidaArma" type="Node2D" parent="Arma5"]
+script = ExtResource("3_2igup")
+VidaMaxima = 40
+
+[node name="HitboxComp" type="Area2D" parent="Arma5" node_paths=PackedStringArray("Vida")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_vb51d")
+Vida = NodePath("../VidaArma")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Arma5/HitboxComp"]
+polygon = PackedVector2Array(-2.44412, 1.58943, -2.4772, -1.76451, -1.58943, -2.44412, 1.76451, -2.4772, 2.44412, -1.58943, 2.4772, 1.76451, 1.58943, 2.44412, 0.482473, 3.57312, -0.635506, 3.58415, -1.76451, 2.4772)
+
+[node name="AtaqueComp" type="Node2D" parent="Arma5"]
+script = ExtResource("5_i71c6")
+projetil = ExtResource("6_6wai3")
+
+[node name="Timer" type="Timer" parent="Arma5"]
+wait_time = 3.0
+autostart = true
+
+[node name="Tip" type="Node2D" parent="Arma5"]
+position = Vector2(0.0330768, 3.35394)
+
+[node name="BigArma" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(2, -50)
+rotation = -1.309
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_7775f")
+
+[node name="Controle" type="Node2D" parent="." node_paths=PackedStringArray("Corpo")]
+script = ExtResource("9_o57n2")
+Corpo = NodePath("../Corpo")
+
+[node name="VidaComp" type="Node2D" parent="Controle"]
+position = Vector2(-6.32487, -23.0397)
+script = ExtResource("3_2igup")
+VidaMaxima = 70
+
+[node name="HitboxComp" type="Area2D" parent="Controle" node_paths=PackedStringArray("Vida")]
+position = Vector2(-6.32487, -23.0397)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_vb51d")
+Vida = NodePath("../VidaComp")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Controle/HitboxComp"]
+polygon = PackedVector2Array(-11.6751, -14.9603, -11.6751, 19.0397, 12.3249, 19.0397, 12.3249, 4.03967, 12.3249, -16.9603, 0.324867, -16.9603, -7.67513, -16.9603)
+
+[node name="Timer" type="Timer" parent="Controle"]
+wait_time = 6.0
+autostart = true
+
+[node name="Path1" type="Path2D" parent="Controle"]
+position = Vector2(17.9138, 7.06102)
+curve = SubResource("Curve2D_vub2c")
+
+[node name="Mover" type="PathFollow2D" parent="Controle/Path1"]
+position = Vector2(24.4054, 70.2136)
+progress = 114.657
+rotates = false
+cubic_interp = false
+loop = false
+script = ExtResource("8_tfnwv")
+
+[connection signal="animation_finished" from="Corpo" to="." method="_on_corpo_animation_finished"]

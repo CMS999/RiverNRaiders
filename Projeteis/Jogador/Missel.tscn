@@ -65,9 +65,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pdpfo")
 }],
-"loop": true,
+"loop": false,
 "name": &"Explosao",
-"speed": 4.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -80,7 +80,7 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_15f1j"]
 resource_name = "Missel"
-length = 3.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -88,10 +88,10 @@ tracks/0/path = NodePath("CollisionShape2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.3, 2.5),
+"times": PackedFloat32Array(1.5, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.4, 1.4)]
+"values": [Vector2(1, 1), Vector2(3.2, 3.2)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -117,10 +117,10 @@ tracks/2/path = NodePath("Animacao:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 1.1),
+"times": PackedFloat32Array(0, 1.5, 4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.7, 1.7)]
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(3.4, 3.4)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oecdn"]
@@ -133,8 +133,8 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_5f4dr")
 volume = -10.0
-Velocidade = 50
-Dano = 3
+Velocidade = 90
+Dano = 30
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="0"]
 position = Vector2(-7.7486e-07, 0.5)
@@ -146,14 +146,16 @@ shape = SubResource("CircleShape2D_qjjvb")
 [node name="Animacao" type="AnimatedSprite2D" parent="." index="2"]
 sprite_frames = SubResource("SpriteFrames_6mr68")
 animation = &"Explosao"
-frame_progress = 0.302113
+autoplay = "Missel"
+frame = 6
+frame_progress = 1.0
 script = ExtResource("4_4hwp5")
 
 [node name="ExplosaoTimer" type="Timer" parent="." index="3"]
 one_shot = true
 
 [node name="Desaparecer" type="Timer" parent="." index="4"]
-wait_time = 3.0
+wait_time = 2.2
 
 [node name="AnimacaoPlayer" type="AnimationPlayer" parent="." index="5"]
 libraries = {

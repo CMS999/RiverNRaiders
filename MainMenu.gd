@@ -1,7 +1,7 @@
 extends Control
 
 var PauseMenu = preload("res://UI/OpçõesMenu.tscn")
-#@onready var GlobalReference = get_node("/root/GlobalValues")
+@onready var GlobalReference = get_node("/root/GlobalValues")
 
 func _ready():
 	$VBoxContainer/PButton.grab_focus()
@@ -10,6 +10,7 @@ func _ready():
 func _on_p_button_pressed():
 	get_tree().change_scene_to_file("res://UI/PowerUpsMenu.tscn")
 	#get_tree().change_scene_to_file(GlobalReference.FaseInicial.get_path())
+	GlobalReference.resetJogador()
 	pass
 
 

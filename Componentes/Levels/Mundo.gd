@@ -18,18 +18,22 @@ class_name Mundo
 ## Experimental:: Define o tamanho do [TileMap] em [i]Chunks[/i]. [b]Necessário[/b] para gerarão aleatória.
 @export var TamanhoDoMundo := 0
 
+## Se for zero não faz nada, se for positivo para de movimentar o mundo
+@export var WhenToHold := 0
+
 ## Se [param true] começa movimentando o mundo.
 @export var AutoMove := true
 
 ##Sinal interno, disparado quando se chega no fim do cenário
 signal FimDoMundo
+var hold := false
 
 func _ready():
 	SetGeracaoMundo(GeracaoDeChunk)
 	pass
 
 func _process(delta):
-	if AutoMove:
+	if AutoMove and !hold:
 		MoverMundo(get_viewport_rect().size.y/4, delta)
 	pass
 
@@ -52,9 +56,21 @@ func CriarMundoRNG() -> void:
 		var Padrao = Tileset.get_pattern(rng.randi_range(0,Tileset.get_patterns_count()-1))
 		set_pattern(Camada, Posicao, Padrao)
 
+func CriarMundoDiscreto():
+	for c in TamanhoDoMundo:
+		var Posicao = Vector2i(0,-(TamanhoDoChunk.y*c))
+		var Padrao = Tileset.get_pattern(1)
+		set_pattern(0, Posicao, Padrao)
+
 ## Move o [Mundo] para baixo do eixo y de acordo com a [Velocidade] em pixels, corigido pelo [delta] time.
 func MoverMundo(Velocidade: float, delta: float) -> void: 
 	if position.y >= ((TamanhoDoMundo-1)*(TamanhoDoChunk.y*Tileset.tile_size.y*scale.y))-1:
 		FimDoMundo.emit()
 	else:
 		position.y += delta * Velocidade
+
+func SegurarProgresso():
+	hold = true
+
+func LiberarProgresso():
+	hold = false

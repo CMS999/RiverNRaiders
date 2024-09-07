@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://e78ht25fbwmc"]
+[gd_scene load_steps=21 format=3 uid="uid://e78ht25fbwmc"]
 
-[ext_resource type="Script" path="res://Inimigos/Barco.gd" id="1_3ql2h"]
+[ext_resource type="Script" path="res://Inimigos/Barco.gd" id="1_3dsi4"]
 [ext_resource type="Texture2D" uid="uid://b0e88qnijlfa" path="res://Assets/Tailmap.png" id="2_i2fdt"]
 [ext_resource type="Script" path="res://Componentes/Personagens/HurtboxComponente.gd" id="3_c8fbv"]
 [ext_resource type="Script" path="res://Componentes/Personagens/VidaComponente.gd" id="4_2ocso"]
 [ext_resource type="Script" path="res://Componentes/Personagens/AtaqueComponente.gd" id="5_njgwt"]
-[ext_resource type="PackedScene" uid="uid://bemuim1e216t4" path="res://Projeteis/Inimigos/AtaqueBarco.tscn" id="6_7n64l"]
+[ext_resource type="Script" path="res://Componentes/Personagens/Target.gd" id="6_ll5dw"]
+[ext_resource type="Texture2D" uid="uid://dke8bw2kxguw1" path="res://Assets/Alvo.png" id="7_eb67q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdsti"]
 atlas = ExtResource("2_i2fdt")
@@ -14,6 +15,34 @@ region = Rect2(208, 48, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wrig"]
 atlas = ExtResource("2_i2fdt")
 region = Rect2(224, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35dnu"]
+atlas = ExtResource("2_i2fdt")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtqho"]
+atlas = ExtResource("2_i2fdt")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85g6o"]
+atlas = ExtResource("2_i2fdt")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeg5v"]
+atlas = ExtResource("2_i2fdt")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keue6"]
+atlas = ExtResource("2_i2fdt")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtt0p"]
+atlas = ExtResource("2_i2fdt")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_822ke"]
+atlas = ExtResource("2_i2fdt")
+region = Rect2(128, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_51ehw"]
 animations = [{
@@ -26,32 +55,80 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35dnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtqho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85g6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eeg5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_keue6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtt0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_822ke")
+}],
+"loop": false,
+"name": &"morte",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kmvy"]
+size = Vector2(20, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pvant"]
+radius = 8.0
+
+[sub_resource type="PackedScene" id="PackedScene_jlra0"]
+_bundled = {
+"conn_count": 2,
+"conns": PackedInt32Array(1073741828, 1073741827, 15, 14, 2, 0, 0, 1073741830, 1073741829, 17, 16, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("AtaqueBarco", "Area2D", "script", "CollisionShape2D", "CollisionShape2D", "shape", "Sprite2D", "Sprite2D", "position", "scale", "texture", "VisibleOnScreenNotifier2D", "VisibleOnScreenNotifier2D", "scale", "_on_area_entered", "area_entered", "_on_visible_on_screen_notifier_2d_screen_exited", "screen_exited"),
+"node_count": 4,
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("VisibleOnScreenNotifier2D")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 1, 2, 0, 0, 1073741824, 0, 4, 3, -1, 1, 5, 1, 0, 1073741825, 0, 7, 6, -1, 3, 8, 2, 9, 3, 10, 4, 0, 1073741826, 0, 12, 11, -1, 1, 13, 5, 0),
+"variants": [ExtResource("6_ll5dw"), SubResource("CircleShape2D_pvant"), Vector2(0.119577, 3.57628e-07), Vector2(0.0307829, 0.03125), ExtResource("7_eb67q"), Vector2(0.8, 0.8)],
+"version": 3
+}
 
 [node name="Barco" type="Node2D"]
-script = ExtResource("1_3ql2h")
-fire_rate = 10.0
+script = ExtResource("1_3dsi4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_51ehw")
+autoplay = "default"
 speed_scale = 3.0
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="HitboxComp" type="Area2D" parent="."]
+[node name="HitboxComp" type="Area2D" parent="." node_paths=PackedStringArray("Vida")]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("3_c8fbv")
+Vida = NodePath("../VidaComp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComp"]
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_6kmvy")
 
 [node name="VidaComp" type="Node2D" parent="."]
 script = ExtResource("4_2ocso")
+VidaMaxima = 6
 
 [node name="AtaqueComp" type="Node2D" parent="."]
 script = ExtResource("5_njgwt")
-projetil = ExtResource("6_7n64l")
+projetil = SubResource("PackedScene_jlra0")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

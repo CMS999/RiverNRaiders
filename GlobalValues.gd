@@ -5,6 +5,8 @@ extends Node
 #@onready var FaseInicial = preload("res://Beta/DebugTools/TesteLevelTemplate.tscn") 
 @onready var FaseInicial := preload("res://Levels/Fase1/Level1.tscn")
 
+var retornarProMenu := false
+
 ## Variável que aponta para o [Jogador]
 var JogadorRef := Node 
 
@@ -31,7 +33,10 @@ var pontuacao : int = 0
 var vidas : int = 1
 
 func setNextLevel(nLevel: int):
-	if nLevel == 1:
+	if nLevel == 0:
+		FaseInicial = preload("res://MainMenu.tscn")
+		setRetornarProMenu()
+	elif nLevel == 1:
 		FaseInicial = preload("res://Levels/Fase1/Level1.tscn")
 	elif nLevel == 2:
 		FaseInicial = preload("res://Levels/Fase2/Level2.tscn")
@@ -40,3 +45,6 @@ func resetJogador():
 	vidas = VidasIniciais
 	barraEnergia = 40
 	pontuacao = 0
+
+func setRetornarProMenu():
+	retornarProMenu = !retornarProMenu

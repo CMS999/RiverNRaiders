@@ -1,16 +1,16 @@
 extends PathFollow2D
+class_name circleMover
 
-var isEnable = false
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var speed := 0.4
+var progressToLoop := 0.2
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	progress_ratio += 0.4 * delta
+	progress_ratio += speed * delta
 	if progress_ratio == 1:
-		progress_ratio = 0.2
+		progress_ratio = progressToLoop
 
-func Start():
-	progress_ratio = 0;
+func setSpeed(newSpeed: float):
+	speed = newSpeed;
+
+func setProgressToLoop(When:float):
+	progressToLoop = When

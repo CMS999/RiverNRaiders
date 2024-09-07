@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxv8rr2elgaft"]
+
+[ext_resource type="Script" path="res://Inimigos/AviaoGrandeMover.gd" id="1_12xjq"]
+
+[node name="AviaoGrandeMover" type="PathFollow2D"]
+rotates = false
+cubic_interp = false
+loop = false
+script = ExtResource("1_12xjq")

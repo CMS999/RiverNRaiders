@@ -5,7 +5,7 @@ class_name Inimigo
 @export var velocidade: float = 0.15
 @export var dano_colisao: int = 10
 @export var fire_rate: float = 0.7
-
+@export var pontos := 0
 
 @onready var GlobalReference = get_node("/root/GlobalValues")
 var Alvo 
@@ -53,8 +53,8 @@ func morrer():
 		queue_free()
 
 func AniFinish():
-	GlobalReference.pontuacao += 10000
-	emit_signal("enemy_destroyed", self)
+	GlobalReference.pontuacao += pontos
+	enemy_destroyed.emit()
 	animacoes.disconnect("animation_finished", self.AniFinish)
 	queue_free()
 

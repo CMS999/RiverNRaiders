@@ -52,5 +52,20 @@ theme_override_font_sizes/font_size = 12
 text = "Menu Principal"
 metadata/_edit_use_anchors_ = true
 
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 58.0
+offset_right = 182.0
+offset_bottom = 73.0
+text = "Pontuação:"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 58.0
+offset_right = 222.0
+offset_bottom = 73.0
+
 [connection signal="pressed" from="VBoxContainer/Reiniciar" to="." method="_on_reiniciar_pressed"]
 [connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]

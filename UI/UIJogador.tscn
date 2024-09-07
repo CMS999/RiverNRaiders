@@ -24,24 +24,24 @@ offset_bottom = 12.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Pontuacao" type="Label" parent="."]
-layout_mode = 0
-offset_left = 61.0
-offset_top = -2.0
-offset_right = 113.0
-offset_bottom = 21.0
-scale = Vector2(0.5, 0.5)
-text = "Score: "
-
 [node name="Vidas" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 114.0
-offset_top = -2.0
-offset_right = 159.0
-offset_bottom = 21.0
+offset_left = 62.0
+offset_top = -1.0
+offset_right = 119.0
+offset_bottom = 22.0
 scale = Vector2(0.5, 0.5)
 text = "Vidas:"
+
+[node name="Pontuacao" type="Label" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = -1.0
+offset_right = 186.0
+offset_bottom = 22.0
+scale = Vector2(0.5, 0.5)
+text = "Score: "
 
 [node name="PowerUp" type="TextureRect" parent="."]
 layout_mode = 0

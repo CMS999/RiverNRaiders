@@ -19,7 +19,7 @@ func setPowerUp(powerUpId: String) -> void:
 			projetil = preload("res://Projeteis/Jogador/Missel.tscn")
 			gasto = 3
 		"TiroMulti":
-			projetil = preload("res://Projeteis/Jogador/TiroMultiDirecional.tscn")
+			projetil = preload("res://Projeteis/Jogador/MultiBala.tscn")
 			gasto = 4
 		"Escudo":
 			gasto = 2

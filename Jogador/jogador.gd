@@ -5,7 +5,7 @@ class_name Jogador
 
 ## Define velocidade de movimento do Jogador
 @export var Speed : float = 200.0
-
+var normalSpeed: float = 1.0
 ## Variável utilizada para ajustar o jogador na tela
 @onready var screensize = get_viewport_rect().size
 
@@ -45,6 +45,7 @@ var temEscudo : bool = false
 
 func _ready():
 	$VidaComponente.connect("Morto", self.not_vivo)
+	$HurtboxComponente.connect("Stunned",self.stun)
 	#$Teste.start()
 	pass
 	
@@ -68,8 +69,8 @@ func _physics_process(_delta):
 		estadoAtual = Estado.parado
 			
 	if estadoAtual == Estado.movendo:
-		velocity.y = directionY * Speed
-		velocity.x = directionX * Speed
+		velocity.y = directionY * Speed * normalSpeed
+		velocity.x = directionX * Speed * normalSpeed
 		if directionX > 0:
 			if !respawnando:
 				Animacoes.play("direita")
@@ -128,7 +129,7 @@ func _physics_process(_delta):
 		if powerUp == "Escudo":
 			$VidaComponente.semEscudo()
 			Escudo.hide()
-	position = position.clamp(Vector2(8, 8), screensize-Vector2(8, 20))
+	position = position.clamp(Vector2(8, 8), screensize-Vector2(20, 20))
 	pass
 
 ## Delay do tiro
@@ -148,7 +149,16 @@ func _on_respawn_delay_timeout():
 	$VidaComponente.semEscudo()
 	pass # Replace with function body.
 
+func stun():
+	if !respawnando:
+		normalSpeed = 0.5
+		$ReturnSpeedDelay.start()
 
 func _on_teste_timeout():
 	self.not_vivo()
+	pass # Replace with function body.
+
+
+func _on_return_speed_delay_timeout():
+	normalSpeed = 1.0
 	pass # Replace with function body.

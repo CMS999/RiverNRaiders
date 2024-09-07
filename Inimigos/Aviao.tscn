@@ -100,7 +100,7 @@ projetil = ExtResource("3_okpfh")
 
 [node name="VidaComp" type="Node2D" parent="."]
 script = ExtResource("3_bdsys")
-VidaMaxima = 2
+VidaMaxima = 6
 
 [node name="HitboxComp" type="Area2D" parent="." node_paths=PackedStringArray("Vida")]
 collision_layer = 2

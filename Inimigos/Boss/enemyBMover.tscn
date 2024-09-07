@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5mne17x4ubhp"]
+
+[ext_resource type="Script" path="res://Beta/Boss/Mover1.gd" id="1_er22k"]
+
+[node name="EnemyBMover" type="PathFollow2D"]
+rotates = false
+cubic_interp = false
+loop = false
+script = ExtResource("1_er22k")
