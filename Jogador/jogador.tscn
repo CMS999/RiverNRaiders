@@ -274,10 +274,8 @@ VidaMaxima = 1
 Vida = NodePath("../VidaComponente")
 
 [node name="Hurtbox2D" type="CollisionShape2D" parent="HurtboxComponente"]
-visible = false
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_tnthg")
-disabled = true
 
 [node name="escudo" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -287,8 +285,7 @@ position = Vector2(0, -1)
 scale = Vector2(1, 0.9375)
 sprite_frames = SubResource("SpriteFrames_hbdgn")
 animation = &"escudo"
-frame = 1
-frame_progress = 0.569773
+frame_progress = 0.230617
 
 [node name="Teste" type="Timer" parent="."]
 
