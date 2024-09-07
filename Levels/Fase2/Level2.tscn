@@ -294,119 +294,135 @@ position = Vector2(159, 158)
 script = ExtResource("6_r57ab")
 Inimigos = Array[PackedScene]([ExtResource("8_ms8eb"), ExtResource("8_ms8eb")])
 Quantidade = Array[int]([1, 1])
-LocalizacaoSpawn = [null, null]
+LocalizacaoSpawn = [NodePath("../../Barcos/Path1"), NodePath("../../Barcos/Path2")]
 SpawnTime = 4
 Curvas = null
 
-[node name="Wave2" type="Node" parent="Waves" index="3"]
+[node name="Wave2" type="Node" parent="Waves" index="3" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("6_r57ab")
 Inimigos = Array[PackedScene]([ExtResource("9_60oqu"), ExtResource("9_60oqu"), ExtResource("9_60oqu"), ExtResource("9_60oqu")])
 Quantidade = Array[int]([1, 1, 1, 1])
+LocalizacaoSpawn = [NodePath("../../MisseisPath/Path1"), NodePath("../../MisseisPath/Path8"), NodePath("../../MisseisPath/Path3"), NodePath("../../MisseisPath/Path6")]
 SpawnTime = 9
 Curvas = null
 
-[node name="Wave3" type="Node" parent="Waves" index="4"]
+[node name="Wave3" type="Node" parent="Waves" index="4" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("6_r57ab")
 Inimigos = Array[PackedScene]([ExtResource("10_j1jj8")])
 Quantidade = Array[int]([1])
+LocalizacaoSpawn = [NodePath("../../AviaoGPaths/Path3")]
 SpawnTime = 13
 Curvas = null
 
-[node name="Wave4" type="Node" parent="Waves" index="5"]
+[node name="Wave4" type="Node" parent="Waves" index="5" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("6_r57ab")
 Inimigos = Array[PackedScene]([ExtResource("9_60oqu"), ExtResource("9_60oqu")])
 Quantidade = Array[int]([1, 1])
+LocalizacaoSpawn = [NodePath("../../MisseisPath/Path2"), NodePath("../../MisseisPath/Path7")]
 SpawnTime = 17
 Curvas = null
 
-[node name="Wave5" type="Node" parent="Waves" index="6"]
+[node name="Wave5" type="Node" parent="Waves" index="6" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("6_r57ab")
 Inimigos = Array[PackedScene]([ExtResource("8_ms8eb"), ExtResource("8_ms8eb"), ExtResource("10_j1jj8")])
 Quantidade = Array[int]([1, 1, 1])
+LocalizacaoSpawn = [NodePath("../../Barcos/Path1"), NodePath("../../Barcos/Path2"), NodePath("../../AviaoGPaths/Path3")]
 SpawnTime = 20
 Curvas = null
 
-[node name="Wave6" type="Node" parent="Waves" index="7"]
+[node name="Wave6" type="Node" parent="Waves" index="7" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("6_r57ab")
 Inimigos = Array[PackedScene]([ExtResource("10_j1jj8"), ExtResource("10_j1jj8")])
 Quantidade = Array[int]([1, 1])
+LocalizacaoSpawn = [NodePath("../../AviaoGPaths/Path2"), NodePath("../../AviaoGPaths/Path4")]
 SpawnTime = 26
 Curvas = null
 
-[node name="Wave7" type="Node" parent="Waves" index="8"]
+[node name="Wave7" type="Node" parent="Waves" index="8" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("6_r57ab")
 Inimigos = Array[PackedScene]([ExtResource("8_ms8eb"), ExtResource("9_60oqu"), ExtResource("9_60oqu")])
 Quantidade = Array[int]([1, 1, 1])
+LocalizacaoSpawn = [NodePath("../../Barcos/Path3"), NodePath("../../MisseisPath/Path4"), NodePath("../../MisseisPath/Path5")]
 SpawnTime = 32
 Curvas = null
 
-[node name="Wave8" type="Node" parent="Waves" index="9"]
+[node name="Wave8" type="Node" parent="Waves" index="9" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("6_r57ab")
 Inimigos = Array[PackedScene]([ExtResource("9_60oqu"), ExtResource("9_60oqu"), ExtResource("9_60oqu"), ExtResource("9_60oqu")])
-Quantidade = Array[int]([2, 2, 2, 2])
+Quantidade = Array[int]([1, 2, 2, 1])
+LocalizacaoSpawn = [NodePath("../../MisseisPath/Path2"), NodePath("../../MisseisPath/Path4"), NodePath("../../MisseisPath/Path5"), NodePath("../../MisseisPath/Path7")]
 SpawnTime = 38
 Curvas = null
 
-[node name="Wave9" type="Node" parent="Waves" index="10"]
+[node name="Wave9" type="Node" parent="Waves" index="10" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("6_r57ab")
 Inimigos = Array[PackedScene]([ExtResource("10_j1jj8"), ExtResource("9_60oqu"), ExtResource("9_60oqu")])
 Quantidade = Array[int]([1, 1, 1])
+LocalizacaoSpawn = [NodePath("../../AviaoGPaths/Path3"), NodePath("../../MisseisPath/Path3"), NodePath("../../MisseisPath/Path6")]
 SpawnTime = 44
 Curvas = null
 
-[node name="Wave10" type="Node" parent="Waves" index="11"]
+[node name="Wave10" type="Node" parent="Waves" index="11" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("6_r57ab")
-Inimigos = Array[PackedScene]([ExtResource("10_j1jj8"), ExtResource("8_ms8eb"), ExtResource("8_ms8eb"), ExtResource("8_ms8eb")])
-Quantidade = Array[int]([1, 1, 1, 1])
+Inimigos = Array[PackedScene]([ExtResource("10_j1jj8"), ExtResource("8_ms8eb"), ExtResource("8_ms8eb")])
+Quantidade = Array[int]([1, 1, 1])
+LocalizacaoSpawn = [NodePath("../../AviaoGPaths/Path3"), NodePath("../../Barcos/Path1"), NodePath("../../Barcos/Path2")]
 SpawnTime = 45
 Curvas = null
 
-[node name="Wave11" type="Node" parent="Waves" index="12"]
+[node name="Wave11" type="Node" parent="Waves" index="12" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("6_r57ab")
-Inimigos = Array[PackedScene]([ExtResource("9_60oqu"), ExtResource("9_60oqu"), ExtResource("9_60oqu"), ExtResource("9_60oqu"), ExtResource("9_60oqu"), ExtResource("9_60oqu")])
-Quantidade = Array[int]([1, 1, 1, 1, 1, 1])
+Inimigos = Array[PackedScene]([ExtResource("9_60oqu"), ExtResource("9_60oqu"), ExtResource("9_60oqu"), ExtResource("9_60oqu")])
+Quantidade = Array[int]([1, 1, 1, 1])
+LocalizacaoSpawn = [NodePath("../../MisseisPath/Path1"), NodePath("../../MisseisPath/Path8"), NodePath("../../MisseisPath/Path3"), NodePath("../../MisseisPath/Path6")]
 SpawnTime = 51
 Curvas = null
 
-[node name="Wave12" type="Node" parent="Waves" index="13"]
+[node name="Wave12" type="Node" parent="Waves" index="13" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("6_r57ab")
 Inimigos = Array[PackedScene]([ExtResource("8_ms8eb"), ExtResource("8_ms8eb"), ExtResource("9_60oqu"), ExtResource("9_60oqu")])
 Quantidade = Array[int]([1, 1, 1, 1])
+LocalizacaoSpawn = [NodePath("../../Barcos/Path1"), NodePath("../../Barcos/Path2"), NodePath("../../MisseisPath/Path1"), NodePath("../../MisseisPath/Path8")]
 SpawnTime = 55
 Curvas = null
 
-[node name="Wave13" type="Node" parent="Waves" index="14"]
+[node name="Wave13" type="Node" parent="Waves" index="14" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("6_r57ab")
 Inimigos = Array[PackedScene]([ExtResource("10_j1jj8")])
 Quantidade = Array[int]([1])
+LocalizacaoSpawn = [NodePath("../../AviaoGPaths/Path3")]
 SpawnTime = 60
 Curvas = null
 
-[node name="Wave14" type="Node" parent="Waves" index="15"]
+[node name="Wave14" type="Node" parent="Waves" index="15" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("6_r57ab")
 Inimigos = Array[PackedScene]([ExtResource("8_ms8eb"), ExtResource("8_ms8eb"), ExtResource("9_60oqu"), ExtResource("9_60oqu")])
 Quantidade = Array[int]([1, 1, 1, 1])
+LocalizacaoSpawn = [NodePath("../../Barcos/Path1"), NodePath("../../Barcos/Path2"), NodePath("../../MisseisPath/Path4"), NodePath("../../MisseisPath/Path5")]
 SpawnTime = 65
 Curvas = null
 
-[node name="Wave15" type="Node" parent="Waves" index="16"]
+[node name="Wave15" type="Node" parent="Waves" index="16" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("6_r57ab")
 Inimigos = Array[PackedScene]([ExtResource("9_60oqu"), ExtResource("9_60oqu"), ExtResource("10_j1jj8")])
 Quantidade = Array[int]([1, 1, 1])
+LocalizacaoSpawn = [NodePath("../../MisseisPath/Path3"), NodePath("../../MisseisPath/Path6"), NodePath("../../AviaoGPaths/Path3")]
 SpawnTime = 70
 Curvas = null
 
-[node name="Wave16" type="Node" parent="Waves" index="17"]
+[node name="Wave16" type="Node" parent="Waves" index="17" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("6_r57ab")
 Inimigos = Array[PackedScene]([ExtResource("9_60oqu"), ExtResource("9_60oqu")])
 Quantidade = Array[int]([2, 2])
+LocalizacaoSpawn = [NodePath("../../MisseisPath/Path2"), NodePath("../../MisseisPath/Path7")]
 SpawnTime = 75
 Curvas = null
 
-[node name="Wave17" type="Node" parent="Waves" index="18"]
+[node name="Wave17" type="Node" parent="Waves" index="18" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("6_r57ab")
 Inimigos = Array[PackedScene]([ExtResource("9_60oqu"), ExtResource("9_60oqu"), ExtResource("9_60oqu")])
 Quantidade = Array[int]([1, 1, 1])
+LocalizacaoSpawn = [NodePath("../../MisseisPath/Path2"), NodePath("../../MisseisPath/Path7"), NodePath("../../MisseisPath/Path5")]
 SpawnTime = 80
 Curvas = null
 
@@ -426,10 +442,11 @@ LocalizacaoSpawn = [NodePath("../../MisseisPath/Path1"), NodePath("../../Misseis
 SpawnTime = 90
 Curvas = null
 
-[node name="Wave20" type="Node" parent="Waves" index="21"]
+[node name="Wave20" type="Node" parent="Waves" index="21" node_paths=PackedStringArray("LocalizacaoSpawn")]
 script = ExtResource("6_r57ab")
 Inimigos = Array[PackedScene]([ExtResource("11_of7tv")])
 Quantidade = Array[int]([1])
+LocalizacaoSpawn = [NodePath("../../AviaoGPaths/Path3")]
 SpawnTime = 94
 Curvas = null
 
